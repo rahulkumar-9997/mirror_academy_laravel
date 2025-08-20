@@ -86,7 +86,7 @@ class AwardsController extends Controller
                 
                 $image = Image::make($file)
                     ->encode('webp', 75)
-                    ->resize(1000, null, function ($constraint) {
+                    ->resize(400, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });

@@ -8,20 +8,20 @@
         </tr>
     </thead>
     <tbody>
-        @if(isset($galleryList) && $galleryList->count() > 0)
-            @foreach($galleryList as $gallery)
+        @if(isset($awardsList) && $awardsList->count() > 0)
+            @foreach($awardsList as $award)
                 <tr>
-                    <td>{{ $gallery->title ?? '-' }}</td>
+                    <td>{{ $award->description ?? '-' }}</td>
                     <td>
-                        @if($gallery->image)
-                            <img src="{{ asset('upload/gallery/' . $gallery->image) }}" width="100" alt="{{ $gallery->title }}">
+                        @if($award->image)
+                            <img src="{{ asset('upload/awards/' . $award->image) }}" width="100" alt="{{ $award->title }}">
                         @else
                             -
                         @endif
                     </td>
                    
                     <td>
-                        @if($gallery->status == 1)
+                        @if($award->status == 1)
                             <span class="badge bg-success">Active</span>
                         @else
                             <span class="badge bg-info">Inactive</span>
@@ -33,16 +33,16 @@
                                 href="javascript:;" 
                                 data-title="Edit Gallery Item"
                                 data-size="lg"
-                                data-galleryid="{{ $gallery->id }}"
+                                data-galleryid="{{ $award->id }}"
                                 data-ajax-edit-gallery="true"
-                                data-url="{{ route('manage-gallery.edit', $gallery->id) }}"
+                                data-url="{{ route('manage-gallery.edit', $award->id) }}"
                                 title="Edit">
                                 <i data-feather="edit" class="feather-edit"></i>
                             </a>
-                            <form action="{{ route('manage-gallery.destroy', $gallery->id) }}" method="POST" class="d-inline">
+                            <form action="{{ route('manage-gallery.destroy', $award->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $gallery->title }}" title="Delete">
+                                <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $award->title }}" title="Delete">
                                     <i data-feather="trash-2" class="feather-trash-2"></i>
                                 </button>
                             </form>
@@ -58,5 +58,5 @@
     </tbody>
 </table>
 <div class="my-pagination mt-3 mb-3" id="blog-list-pagination">
-    {{ $galleryList->links('vendor.pagination.bootstrap-4') }}
+    {{ $awardsList->links('vendor.pagination.bootstrap-4') }}
 </div> 
