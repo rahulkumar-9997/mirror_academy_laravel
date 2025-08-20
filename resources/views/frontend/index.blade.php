@@ -1,0 +1,512 @@
+@extends('frontend.layouts.master')
+@section('title','Mirrors Academy – Hair, Makeup & Styling Course in Hyderabad')
+@section('description', 'Mirrors Academy – Hair, Makeup & Styling Course in Hyderabad')
+@section('main-content')
+<section id="banner" class="banner-section">
+   <div class="swiper-container bannerSlider">
+      <div class="swiper-wrapper">
+         <div class="swiper-slide">
+            <img src="{{asset('fronted/assets/mirror-img/banner/1.jpg')}}" class="dexImg" width="100%" alt="">
+            <img src="{{asset('fronted/assets/mirror-img/banner/1.jpg')}}" class="mobileBanner" width="100%" alt="">
+            <div class="container">
+               <div class="bannerTextBox">
+                  <h3>
+                     Where Creativity Meets Expertise
+                  </h3>
+               </div>
+            </div>
+         </div>
+         <div class="swiper-slide">
+            <img src="{{asset('fronted/assets/mirror-img/banner/2.jpg')}}" class="dexImg" width="100%" alt="Doctor in Pharma Lab">
+            <img src="{{asset('fronted/assets/mirror-img/banner/2.jpg')}}" class="mobileBanner" width="100%"
+               alt="Doctor in Pharma Lab">
+            <div class="container">
+               <div class="bannerTextBox">
+                  <h3>
+                     Certified by L'Oréal Professionals
+                  </h3>
+               </div>
+            </div>
+         </div>
+         <div class="swiper-slide">
+            <img src="{{asset('fronted/assets/mirror-img/banner/3.jpg')}}" class="dexImg" width="100%" alt="Doctor in Pharma Lab">
+            <img src="{{asset('fronted/assets/mirror-img/banner/3.jpg')}}" class="mobileBanner" width="100%" alt="medicine in Hand">
+            <div class="container">
+               <div class="bannerTextBox">
+                  <h3>
+                     Globally Recognized L'Oréal Training
+                  </h3>
+               </div>
+            </div>
+         </div>
+         <div class="swiper-slide">
+            <img src="{{asset('fronted/assets/mirror-img/banner/4.jpg')}}" class="dexImg" width="100%" alt="medicine in Hand">
+            <img src="{{asset('fronted/assets/mirror-img/banner/4.jpg')}}" class="mobileBanner" width="100%" alt="medicine in Hand">
+            <div class="common-container">
+               <div class="bannerTextBox">
+                  <h3>
+                     Crafting Future Beauty Experts
+                  </h3>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="swiper-pagination bannerSlider-pagination"></div>
+      <!-- Add navigation arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+   </div>
+</section>
+<section class="about-us second position-relative about-us-section">
+   <div class="container position-relative">
+      <div class="row justify-content-center text-center">
+         <div class="col-lg-8">
+            <div class="section-area mb-3 mb-md-5 d-grid gap-2 gap-md-2 reveal-single reveal-text text-three">
+               <h1 class="fs-two">Mirrors Hair and Beauty Academy</h1>
+               <h2 class="ab-h2">
+                  Master the art of styling in the most professional way
+               </h2>
+            </div>
+            <div class="about-us-content">
+               <p class="n3-color">
+                  It’s been more than a decade since Mirrors at Jubilee Hills and Madhapur began raising the
+                  bar regarding beauty and wellness for hair, body and mind. Be it the forever evolving, chic
+                  aesthetic or introducing the latest techniques in Hair Extensions, Eye-lash Extensions,
+                  Tattooing, Piercing, Air Brush Make-up and Bridal Make-up, Mirrors is Hyderabad’s
+                  one-stop-shop for that contemporary look that blends glamour with youth and vitality. Reason
+                  enough for the diverse client roster, which includes movie stars, celebrities, models,
+                  socialites, political figures and many others
+               </p>
+               <p>
+                  <strong>
+                     Making Mirrors their to-go place.
+                  </strong>
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="awards-area mt-15">
+         <div class="row gy-10 gy-md-0 justify-content-between">
+            <div class="col-lg-12">
+               <div class="swiper moments-carousel awards-carousel">
+                  <div class="swiper-wrapper">
+                     <div class="swiper-slide transition">
+                        <div class="single-item mt-2 awards-box1 d-center flex-column">
+                           <div class="img-area">
+                              <img src="{{asset('fronted/assets/mirror-img/awards/1.jpg')}}"
+                                 class="w-100 transition-sec position-relative z-1" alt="img">
+                           </div>
+                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
+                              <p class="n3-color">
+                                 National Award Winner for Customer Service Excellence at the prestigious
+                                 Indian Salon Awards 2013.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="swiper-slide transition">
+                        <div class="single-item mt-2 awards-box1 d-center flex-column">
+                           <div class="img-area">
+                              <img src="{{asset('fronted/assets/mirror-img/awards/2.jpg')}}"
+                                 class="w-100 transition-sec position-relative z-1" alt="img">
+                           </div>
+                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
+                              <p class="n3-color">
+                                 National Award Winner for Customer Service Excellence at the prestigious
+                                 Indian Salon Awards 2013.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="swiper-slide transition">
+                        <div class="single-item mt-2 awards-box1 d-center flex-column">
+                           <div class="img-area">
+                              <img src="{{asset('fronted/assets/mirror-img/awards/3.jpg')}}"
+                                 class="w-100 transition-sec position-relative z-1" alt="img">
+                           </div>
+                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
+                              <p class="n3-color">
+                                 National Award Winner for Customer Service Excellence at the prestigious
+                                 Indian Salon Awards 2013.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="swiper-slide transition">
+                        <div class="single-item mt-2 awards-box1 d-center flex-column">
+                           <div class="img-area">
+                              <img src="{{asset('fronted/assets/mirror-img/awards/4.jpg')}}"
+                                 class="w-100 transition-sec position-relative z-1" alt="img">
+                           </div>
+                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
+                              <p class="n3-color">
+                                 National Award Winner for Customer Service Excellence at the prestigious
+                                 Indian Salon Awards 2013.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="position-relative n1-bg-color our-courses">
+   <div class="container">
+      <div class="row gy-6 gy-md-0 mb-8 mb-md-15 justify-content-center text-center">
+         <div class="col-md-8 col-lg-8 col-xl-8">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-three">
+               <h1 class="fs-two">Our Courses</h1>
+               <h2 class="ou-h2">
+                  Explore Certified Beauty Courses at Mirrors Academy, Hyderabad
+               </h2>
+            </div>
+         </div>
+      </div>
+      <div class="row cus-row justify-content-center">
+         <div class="col-md-4 col-lg-4">
+            <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
+               <div class="img-area position-relative d-center">
+                  <img src="{{asset('fronted/assets/mirror-img/courses/beginners-hairdressing-foundation.webp')}}" class="w-100"
+                     alt="blog">
+               </div>
+               <div class="abs-area">
+                  <div class="d-grid gap-1 gap-md-2">
+                     <div class="course-content">
+                        <a href="#">
+                           <h5 class="n2-color">
+                              Beginners Hairdressing Foundation
+                           </h5>
+                           <p class="n3-color">
+                              Over a comprehensive duration of 4 months, six days a week, you'll immerse
+                              yourself in the art and science of hairdressing, with professional and
+                              industry experts.
+                           </p>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4 col-lg-4">
+            <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
+               <div class="img-area position-relative d-center">
+                  <img src="{{asset('fronted/assets/mirror-img/courses/professional-aesthetician.webp')}}" class="w-100"
+                     alt="blog">
+               </div>
+               <div class="abs-area">
+                  <div class="d-grid gap-1 gap-md-2">
+                     <div class="course-content">
+                        <a href="#">
+                           <h5 class="n2-color">
+                              Professional Aesthetician
+                           </h5>
+                           <p class="n3-color">
+                              Over a comprehensive duration of 4 months, six days a week, you'll immerse
+                              yourself in the art and science of hairdressing, with professional and
+                              industry experts.
+                           </p>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4 col-lg-4">
+            <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
+               <div class="img-area position-relative d-center">
+                  <img src="{{asset('fronted/assets/mirror-img/courses/advance-haircut.webp')}}" class="w-100" alt="blog">
+               </div>
+               <div class="abs-area">
+                  <div class="d-grid gap-1 gap-md-2">
+                     <div class="course-content">
+                        <a href="#">
+                           <h5 class="n2-color">
+                              Advance Haircut
+                           </h5>
+                           <p class="n3-color">
+                              Over a comprehensive duration of 4 months, six days a week, you'll immerse
+                              yourself in the art and science of hairdressing, with professional and
+                              industry experts.
+                           </p>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="bottom-area d-center mt-8 mt-md-15">
+         <a href="{{ route('courses') }}" class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9">
+            <span class="fs-seven">View All Courses</span>
+         </a>
+      </div>
+   </div>
+</section>
+<section class="review-section s1-bg-color position-relative pt-120 pb-120 google-reviews-section">
+   <div class="container">
+      <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
+         <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-three reveal-init">
+               <h4 class="fs-two">Hear it Out from the reviewers</h4>
+            </div>
+         </div>
+      </div>
+      <div class="row gy-6 gy-lg-0 align-items-center justify-content-between">
+         <div class="elfsight-app-af610a27-73ec-4ee3-8d90-a1d14865a321" data-elfsight-app-lazy></div>
+      </div>
+   </div>
+</section>
+<section class="why-choose-us event-section second position-relative pb-120 pt-120">
+   <div class="container">
+      <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
+         <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-three reveal-init">
+               <h2 class="fs-two">Why Choose Us?</h2>
+            </div>
+         </div>
+      </div>
+      <div class="row cus-row gy-6 gy-xxl-7 counter-area second justify-content-center justify-content-md-start">
+         <div class="col-9 col-md-3 col-xl-3">
+            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-educators.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Expert Educators
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  Master luxury salon techniques with expert training from L'Oréal Professionals.
+               </p>
+            </div>
+         </div>
+         <div class="col-9 col-md-3 col-xl-3">
+            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Live Models
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  Hands-on Training with Live Models for Real-World Experience.
+               </p>
+            </div>
+         </div>
+         <div class="col-9 col-md-3 col-xl-3">
+            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Student Kit
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  Fully Equipped with Premium Professional Tools for Hands-On Training.
+               </p>
+            </div>
+         </div>
+         <div class="col-9 col-md-3 col-xl-3">
+            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/unique-curriculam.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Unique Curriculum
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  Stay ahead with cutting-edge techniques, advanced equipment, and the latest industry trends.
+               </p>
+            </div>
+         </div>
+         <div class="col-9 col-md-3 col-xl-3">
+            <div
+               class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Dual Certification
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  SWith an International Diploma from L'Oréal Paris Professional and trained at Mirrors Luxury Salon.
+               </p>
+            </div>
+         </div>
+         <div class="col-9 col-md-3 col-xl-3">
+            <div
+               class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Job Readiness
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  Equipped with skills to be employable as soon as the course is completed.
+               </p>
+            </div>
+         </div>
+         <div class="col-9 col-md-3 col-xl-3">
+            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Real World Exposure
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  Industry guest visits, salon exposure, and field trips to key industry locations.
+               </p>
+            </div>
+         </div>
+         <div class="col-9 col-md-3 col-xl-3">
+            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
+               <div class="box-img mb-2 mb-md-2">
+                  <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engagement.svg')}}" class="transition svg-img"
+                     alt="img">
+               </div>
+               <div class="d-center gap-2 text-center">
+                  <h6 class="fs-six fw-semibold n2-color transition">
+                     Community Engagement
+                  </h6>
+               </div>
+               <p class="n3-color transition">
+                  Give your skills back to the deserving people in the community.
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="home-video-section mt-10">
+         <div class="row cus-row gy-6 gy-xxl-7 home-video justify-content-center justify-content-md-start">
+            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
+               <div class="test-video-section">
+                  <div class="embed-responsive-div embed-responsive-16by9">
+                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
+                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/1.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/1.mp4')}}">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+               </div>
+            </div>
+            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
+               <div class="test-video-section">
+                  <div class="embed-responsive-div embed-responsive-16by9">
+                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
+                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/2.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/2.mp4')}}">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+               </div>
+            </div>
+            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
+               <div class="test-video-section">
+                  <div class="embed-responsive-div embed-responsive-16by9">
+                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
+                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/3.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/3.mp4')}}">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+               </div>
+            </div>
+            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
+               <div class="test-video-section">
+                  <div class="embed-responsive-div embed-responsive-16by9">
+                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
+                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/4.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/4.mp4')}}">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+               </div>
+            </div>
+            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
+               <div class="test-video-section">
+                  <div class="embed-responsive-div embed-responsive-16by9">
+                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
+                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/5.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/5.mp4')}}">
+                        Your browser does not support the video tag.
+                     </video>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="resister-today-section contact-section schedule-section position-relative s1-bg-color">
+   <div class="container">
+      <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
+         <div class="col-md-8 col-lg-8 col-xl-6">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-one reveal-init">
+               <h2 class="fs-two">Register today</h2>
+            </div>
+         </div>
+      </div>
+      <div class="row gy-8 gy-lg-0 justify-content-center">
+         <div class="col-lg-6 order-1 order-lg-0">
+            <div class="single-box h-100 position-relative me-0 me-lg-6">
+               <iframe class="h-100 border-0" src="https://maps.google.com/maps?q=Mirrors%20Academy%20of%20Hair%20and%20Beauty&t=m&z=10&output=embed&iwloc=near"></iframe>
+               <div class="abs-area">
+                  <div class="video-bg-thumb third pe-none d-center d-none d-sm-flex position-absolute h-100 w-100 top-0">
+                     <span class="popup-video btn-popup-animation transition position-absolute z-1 d-center rounded-circle">
+                        <span class="d-center fs-three n2-color z-1">
+                           <i class="ph ph-map-pin"></i>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="w-100 position-absolute bottom-0">
+                     <div class="px-3 px-md-6 py-4 py-md-6 m-4 m-md-8 n1-bg-color d-grid gap-3 gap-md-5">
+
+                        <div class="d-center flex-wrap flex-sm-nowrap flex-lg-wrap flex-xl-nowrap gap-3 gap-md-5">
+                           <a href="#" class="btn box-style box-second second-alt alt-nineteen transition d-center py-2 py-md-3 px-4 px-md-6 w-100">
+                              <span class="fs-eight fw-semibold">Contact</span>
+                           </a>
+                           <a href="tel:+919618991818" aria-label="Phone Number" class="d-center gap-2 gap-md-3 py-2 py-md-3 px-4 px-md-6 w-100">
+                              <span class="d-center fs-six n2-color">
+                                 <i class="ph ph-phone-call"></i>
+                              </span>
+                              <span class="d-center fs-eight n2-color text-capitalize">+91-9618991818</span>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-6 d-grid gap-4 gap-md-6">
+            <div class="form-area enquiry-form n1-bg-color d-grid gap-3 gap-md-4 px-3 px-md-7 py-4 py-md-7">
+               @include('frontend.layouts.enquiry-form')
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+@endsection
+@push('scripts')
+@endpush
