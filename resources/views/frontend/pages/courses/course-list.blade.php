@@ -13,7 +13,7 @@
         </div>
     </div>
 </section>
-<section class="position-relative s1-bg-color our-courses">
+<section class="position-relative s1-bg-color-rgb our-courses">
     <div class="container">
         <div class="row cus-row justify-content-center">
             <div class="col-md-4 col-lg-4">

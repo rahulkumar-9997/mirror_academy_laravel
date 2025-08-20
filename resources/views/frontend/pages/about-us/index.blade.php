@@ -17,7 +17,7 @@
     </div>
 </section>
 
-<section class="about-us second s1-bg-color position-relative pt-60 pb-60">
+<section class="about-us second s1-bg-color-rgb position-relative pt-60 pb-60">
     <div class="container position-relative">       
         <div class="row align-items-center">
             <div class="col-md-6 pe-0 pe-lg-10 order-1 order-lg-0">

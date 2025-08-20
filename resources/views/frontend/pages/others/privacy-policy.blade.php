@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Hair & Beauty Courses – Mirrors Academy Hyderabad')
-@section('description', 'Explore professional hair, beauty, and makeup courses at Mirrors Academy. Industry-certified programs, hands-on training & Oréal certification in Hyderabad.')
+@section('title','Privacy Policy | Mirrors Academy Official Website')
+@section('description', 'Read the official Terms of Use for Mirrors Academy. Understand our policies, user responsibilities, and legal guidelines before using our website or services.')
 @section('main-content')
 <section class="banner-section inner-banner position-relative pt-10 pb-10">
     <div class="container position-relative cus-z1">

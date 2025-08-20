@@ -85,6 +85,16 @@
                         <li><a href="{{ route('manage-gallery.index') }}">Gallery</a></li>
                      </ul>
                   </li>                
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-brand-booking fs-16 me-2"></i>
+                        <span>Manage Courses</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-courses.index') }}">Courses</a></li>
+                     </ul>
+                  </li>                
                    
                                 
                   

@@ -13,11 +13,11 @@
         </div>
     </div>
 </section>
-<section class="blog-details s1-bg-color pt-60 pb-60 position-relative">
+<section class="blog-details s1-bg-color-rgb pt-60 pb-60 position-relative">
     <div class="container">
         <div class="row justify-content-center gy-7 gy-xl-0">
             <div class="col-lg-12 gy-6 gy-lg-0">
-                <div class="section-sidebar s1-bg-color position-relative">
+                <div class="section-sidebar s1-bg-color-rgb position-relative">
                     <div class="sidebar-toggler position-relative">
                         <div class="row">
                             <div class="col-xl-8 col-xxl-8 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">

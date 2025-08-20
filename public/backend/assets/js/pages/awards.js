@@ -99,7 +99,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', 'a[data-ajax-edit-gallery="true"]', function () {
+    $(document).on('click', 'a[data-ajax-edit-awards="true"]', function () {
         var title = $(this).data('title');
         var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
         var url = $(this).data('url');
@@ -125,7 +125,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).off('submit', '#galleryEditForm').on('submit', '#galleryEditForm', function (event) {
+    $(document).off('submit', '#awardsEditForm').on('submit', '#awardsEditForm', function (event) {
         event.preventDefault();
         var form = $(this);
         var submitButton = form.find('button[type="submit"]');
@@ -143,7 +143,7 @@ $(document).ready(function () {
                 submitButton.prop('disabled', false);
                 submitButton.html('Save changes');
                 if (response.status === 'success') {                    
-                    $('.display-gallery-list-html').html(response.galleryListData);
+                    $('.display-awards-list-html').html(response.awardsListData);
                     feather.replace();
                     form[0].reset();
                     $('#commanModel').modal('hide');
@@ -201,7 +201,7 @@ $(document).ready(function () {
                     },
                     success: function (response) {
                         if (response.status === 'success') {
-                            $('.display-gallery-list-html').html(response.galleryListData);
+                           $('.display-awards-list-html').html(response.awardsListData);
                             feather.replace();
                             Toastify({
                                 text: response.message,

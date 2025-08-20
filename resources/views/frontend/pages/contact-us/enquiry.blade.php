@@ -16,7 +16,7 @@
         </div>
     </div>
 </section>
-<section class="contact-section second s1-bg-color pt-60 pb-60 contact-us-page">
+<section class="contact-section second s1-bg-color-rgb pt-60 pb-60 contact-us-page">
     <div class="container">
         <div class="row gy-8 gy-lg-0 align-items-center justify-content-center">
             <div class="col-md-9 col-lg-5 order-1 order-lg-0">

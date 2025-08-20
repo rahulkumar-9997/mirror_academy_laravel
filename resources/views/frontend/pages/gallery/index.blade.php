@@ -16,7 +16,7 @@
         </div>
     </div>
 </section>
-<section class="gallery-section s1-bg-color pt-60 pb-60">
+<section class="gallery-section s1-bg-color-rgb pt-60 pb-60">
     <div class="container">
         <div class="row grid-services media-box-image justify-content-center">
             <div class="col-md-4 col-xxl-4 d-center gap-4 gap-md-4">

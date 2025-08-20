@@ -47,9 +47,13 @@
 	--n4--ex: #000000;
 	--bg--black: #000000;
 	--color--white: #ffffff;
+	--bsrgb-color: rgb(244 244 244 / 60%);
 
 }
 
+.s1-bg-color-rgb{
+	background-color: var(--bsrgb-color);
+}
 .display-one {
 	font-size: 120px
 }
@@ -5378,6 +5382,11 @@ iframe {
 	font-size: 20px;
 	font-weight: 600;
 }
+.terms-container p{
+	font-size: 17px;
+	text-align: justify;
+}
+
 .pt-60{
 	padding-top: 60px;
 }
