@@ -20,6 +20,7 @@ Route::get('gallery', [FrontHomeController::class, 'gallery'])->name('gallery');
 Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us');
 Route::get('founders-message', [FrontHomeController::class, 'foundersMessage'])->name('founders-message');
 Route::get('contact-us', [FrontHomeController::class, 'contactUs'])->name('contact-us');
+Route::post('enquiry-submit', [FrontHomeController::class, 'EnquirySubmitForm'])->name('enquiry.submit');
 Route::get('courses', [FrontHomeController::class, 'coursesList'])->name('courses');
 Route::get('courses/{slug}', [FrontHomeController::class, 'courseDetails'])->name('courses.details');
 Route::get('terms-of-use', [FrontHomeController::class, 'termsOfUse'])->name('terms-of-use');

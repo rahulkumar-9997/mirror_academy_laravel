@@ -32,7 +32,7 @@
                 </ul>
             </div>
             @endif
-            <form action="{{ route('manage-blog.store') }}" method="POST" enctype="multipart/form-data" id="blogFormAdd">
+            <form action="{{ route('manage-courses.store') }}" method="POST" enctype="multipart/form-data" id="coursesFormAdd">
                 @csrf
                 <div class="row">
                     <div class="col-sm-4 col-12">
@@ -40,7 +40,7 @@
                             <label class="form-label" for="title">
                                 Title <span class="text-danger">*</span>
                             </label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="banner_video_title" name="title" value="{{ old('title') }}" />
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" />
                             @error('title')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -49,11 +49,11 @@
 
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
-                            <label class="form-label" for="short_description">
+                            <label class="form-label" for="short_content">
                                 Short Description
                             </label>
-                            <textarea class="form-control @error('short_description') is-invalid @enderror" id="short_description" name="short_description" rows="2">{{ old('short_description') }}</textarea>
-                            @error('short_description')
+                            <textarea class="form-control @error('short_content') is-invalid @enderror" id="short_content" name="short_content" rows="2">{{ old('short_content') }}</textarea>
+                            @error('short_content')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -63,8 +63,19 @@
                             <label class="form-label" for="main_image">
                                 Main Image <span class="text-danger">*</span>
                             </label>
-                            <input type="file" class="form-control @error('main_image') is-invalid @enderror" name="main_image" id="main_image" value="{{ old('main_image') }}" />
+                            <input type="file" class="form-control @error('main_image') is-invalid @enderror" name="main_image" id="main_image" />
                             @error('main_image')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="page_image">
+                                Courses Page Image
+                            </label>
+                            <input type="file" class="form-control @error('page_image') is-invalid @enderror" name="page_image" id="page_image" />
+                            @error('page_image')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -89,30 +100,19 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-sm-4 col-12">
-                        <div class="mb-3">
-                            <label class="form-label" for="more_image">
-                                Blog more image (Select image multiple)
-                            </label>
-                            <input type="file" class="form-control @error('more_image') is-invalid @enderror" name="more_image[]" id="more_image" value="{{ old('more_image') }}" multiple/>
-                            @error('more_image')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="summer-description-box mb-3">
                             <label class="form-label">Content <span class="text-danger">*</span></label>
-                            <textarea id="summernote" name="content" hidden>{{ old('content') }}</textarea>
-                            @error('content')
+                            <textarea id="summernote" name="description" hidden>{{ old('description') }}</textarea>
+                            @error('description')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row sticky" id="courses_additinal_content">
                     <div class="col-md-12">
                         <div class="bg-indigo pt-1 pb-1 rounded-2">
@@ -121,21 +121,53 @@
                             </h4>
                         </div>
                         <table class="table align-middle mb-3">
-                            <tbody id="paragraphsContainer">
+                            <tbody id="additionalContentContainer">
+                                @if(count(old('courses_additional_title', [])) > 0)
+                                @foreach(old('courses_additional_title') as $index => $title)
                                 <tr class="paragraph-row">
                                     <td style="width: 50%">
-                                        <input type="text" name="courses_additional_title[]" class="form-control" placeholder="Enter Courses Additinal Title">
-                                    </td>                                    
+                                        <label class="form-label" for="title">
+                                            Courses Additional Title
+                                        </label>
+                                        <input type="text" name="courses_additional_title[]" class="form-control @error('courses_additional_title.'.$index) is-invalid @enderror" placeholder="Enter Courses Additional Title" value="{{ $title }}">
+                                        @error('courses_additional_title.'.$index)
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </td>
                                     <td>
-                                        <textarea name="courses_additional_content[]" class="summernoteclass"></textarea>
-                                        <button type="button" class="btn btn-danger btn-sm remove-paragraph" style="display: none;">Remove</button>
+                                        <label class="form-label" for="title">
+                                            Courses Additional Content
+                                        </label>
+                                        <textarea name="courses_additional_content[]" class="summernoteclass">{{ old('courses_additional_content.'.$index) }}</textarea>
+                                        @error('courses_additional_content.'.$index)
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2">Remove</button>
                                     </td>
                                 </tr>
+                                @endforeach
+                                @else
+                                <tr class="paragraph-row">
+                                    <td style="width: 50%">
+                                        <label class="form-label" for="title">
+                                            Courses Additional Title
+                                        </label>
+                                        <input type="text" name="courses_additional_title[]" class="form-control" placeholder="Enter Courses Additional Title">
+                                    </td>
+                                    <td>
+                                        <label class="form-label" for="title">
+                                            Courses Additional Content
+                                        </label>
+                                        <textarea name="courses_additional_content[]" class="summernoteclass"></textarea>
+                                        <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2" style="display: none;">Remove</button>
+                                    </td>
+                                </tr>
+                                @endif
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="3" class="text-end">
-                                        <button class="btn btn-primary add-more-blog-paragraphs btn-sm" type="button">Add More Additional Content</button>
+                                        <button class="btn btn-primary add_more_additional btn-sm" type="button">Add More Additional Content</button>
                                     </td>
                                 </tr>
                             </tfoot>
@@ -150,21 +182,68 @@
                             </h4>
                         </div>
                         <table class="table align-middle mb-3">
-                            <tbody id="paragraphsContainer">
+                            <tbody id="highlightsContainer">
+                                @if(old('courses_highlights_content'))
+                                @foreach(old('courses_highlights_content') as $index => $content)
                                 <tr class="paragraph-row">
                                     <td style="width: 50%">
-                                        <input type="text" name="courses_highlights_title[]" class="form-control" placeholder="Enter Courses Highlights Title">
-                                    </td>                                    
+                                        <label class="form-label" for="title">
+                                            Courses Highlights Content
+                                        </label>
+                                        <input type="text" name="courses_highlights_content[]" class="form-control @error('courses_highlights_content.'.$index) is-invalid @enderror" placeholder="Enter Courses Highlights Content" value="{{ $content }}">
+                                        @error('courses_highlights_content.'.$index)
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </td>
                                     <td>
-                                        <input type="text" name="courses_highlights_icon[]" class="form-control" placeholder="Enter Courses Highlights Icon">
-                                        <button type="button" class="btn btn-danger btn-sm remove-paragraph" style="display: none;">Remove</button>
+                                        <label class="form-label" for="title">
+                                            Courses Highlights Icon
+                                        </label>
+                                        <select name="courses_highlights_icon[]" class="form-control @error('courses_highlights_icon.'.$index) is-invalid @enderror">
+                                            <option value="">Select Icon</option>
+                                            @foreach($icons as $icon)
+                                            <option value="{{ $icon->class }}" {{ old('courses_highlights_icon.'.$index) == $icon->class ? 'selected' : '' }}>
+                                                {{ $icon->name }} ({{ $icon->class }})
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                        @error('courses_highlights_icon.'.$index)
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+
+                                        <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2">Remove</button>
                                     </td>
                                 </tr>
+                                @endforeach
+                                @else
+                                <tr class="paragraph-row">
+                                    <td style="width: 50%">
+                                        <label class="form-label" for="title">
+                                            Courses Highlights Content
+                                        </label>
+                                        <input type="text" name="courses_highlights_content[]" class="form-control" placeholder="Enter Courses Highlights Content">
+                                    </td>
+                                    <td>
+                                        <label class="form-label" for="title">
+                                            Courses Highlights Icon
+                                        </label>
+                                        <select name="courses_highlights_icon[]" class="form-control">
+                                            <option value="">Select Icon</option>
+                                            @foreach($icons as $icon)
+                                            <option value="{{ $icon->class }}">
+                                                {{ $icon->name }} ({{ $icon->class }})
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                        <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2" style="display: none;">Remove</button>
+                                    </td>
+                                </tr>
+                                @endif
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="3" class="text-end">
-                                        <button class="btn btn-primary add-more-blog-paragraphs btn-sm" type="button">Add More Additional Content</button>
+                                        <button class="btn btn-primary add_more_highlights btn-sm" type="button">Add More Courses Highlights Content</button>
                                     </td>
                                 </tr>
                             </tfoot>
@@ -174,12 +253,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="d-flex align-items-center justify-content-end mb-4">
-                            <a href="{{ route('manage-blog.index') }}" class="btn btn-secondary me-2">Cancel</a>
+                            <a href="{{ route('manage-courses.index') }}" class="btn btn-secondary me-2">Cancel</a>
                             <button type="submit" class="btn btn-primary" id="submitButton">
                                 <span id="submitText">Submit</span>
                             </button>
                         </div>
-                       
                     </div>
                 </div>
             </form>
@@ -189,6 +267,5 @@
 
 @endsection
 @push('scripts')
-
-
+<script src="{{asset('backend/assets/js/pages/courses.js')}}"></script>
 @endpush

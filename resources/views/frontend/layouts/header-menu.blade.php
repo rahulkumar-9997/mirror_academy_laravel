@@ -20,70 +20,24 @@
                     <div
                         class="d-flex gap-5 flex-column flex-lg-row align-items-start align-items-lg-center justify-content-center mt-5 mt-lg-0">
                         <ul class="custom-nav d-lg-flex d-grid gap-3 gap-lg-4 order-1 order-xxl-0">
-                            <li class="menu-item position-relative padding-for">
-                                <button
-                                    class="position-relative pe-5 z-1 slide-eleventh slide-vertical"
-                                    data-splitting>
-                                    Courses
-                                </button>
-                                <ul class="sub-menu sub-menubg p-lg-5">
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#" class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Beginners Hairdressing Foundation</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Professional Aesthetician</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Advance Hair Cut</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Classic Cutting</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Classic Cutting with Highlights</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Advance Hair Cut and Color</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Color Expert</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Men’s Barbering</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Fast Track (Hair Course)</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>Styling</a>
-                                    </li>
-                                    <li class="menu-link py-1 py-lg-1">
-                                        <a href="#"
-                                            class="n2-color slide-eleventh  slide-horizontal"
-                                            data-splitting>Texture</a>
-                                    </li>
-
-                                </ul>
-                            </li>
+                            @if(isset($menuCourses) && $menuCourses->count() > 0)
+                                <li class="menu-item position-relative padding-for">
+                                    <button
+                                        class="position-relative pe-5 z-1 slide-eleventh slide-vertical"
+                                        data-splitting>
+                                        Courses
+                                    </button>
+                                    <ul class="sub-menu sub-menubg p-lg-5">
+                                        @foreach($menuCourses as $course)
+                                            <li class="menu-link py-1 py-lg-1">
+                                                <a href="{{ route('courses.details', $course->slug) }}"
+                                                   class="n2-color slide-eleventh slide-horizontal"
+                                                   data-splitting>{{ $course->title }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endif
                             <li class="menu-link padding-for">
                                 <a href="{{ route('gallery') }}" class="n2-color slide-eleventh slide-vertical"
                                     data-splitting>Gallery</a>

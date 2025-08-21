@@ -4,15 +4,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Gallery;
+use App\Models\Banner;
+use App\Models\Award;
+use App\Models\Courses;
 use App\Models\VisitorTracking;
 class DashboardController extends Controller
 {
     public function index(){
         $data = [
-            'totalBlog' => Blog::count(),
+            'totalBanner' => Banner::count(),
+            'totalAwards' => Award::count(),
             'totalGallery' => Gallery::count(),
-            'totalTestimonials' => 1,
-            'visitorServices' => 1,
+            'totalCourses' => Courses::count(),
         ];
         return view('backend.pages.dashboard.index',  compact('data'));
     }

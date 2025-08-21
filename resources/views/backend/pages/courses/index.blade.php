@@ -24,7 +24,7 @@
     <div class="card">
         <div class="card-body p-0">
             <div class="table-responsive">
-                @include('backend.pages.courses.partials.courses-list', ['courses' => '$courses'])
+                @include('backend.pages.courses.partials.courses-list', ['courses' => $courses])
             </div>
         </div>
     </div>

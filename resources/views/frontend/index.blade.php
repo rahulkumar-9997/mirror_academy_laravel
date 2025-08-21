@@ -2,61 +2,30 @@
 @section('title','Mirrors Academy – Hair, Makeup & Styling Course in Hyderabad')
 @section('description', 'Mirrors Academy – Hair, Makeup & Styling Course in Hyderabad')
 @section('main-content')
-<section id="banner" class="banner-section">
-   <div class="swiper-container bannerSlider">
-      <div class="swiper-wrapper">
-         <div class="swiper-slide">
-            <img src="{{asset('fronted/assets/mirror-img/banner/1.jpg')}}" class="dexImg" width="100%" alt="">
-            <img src="{{asset('fronted/assets/mirror-img/banner/1.jpg')}}" class="mobileBanner" width="100%" alt="">
-            <div class="container">
-               <div class="bannerTextBox">
-                  <h3>
-                     Where Creativity Meets Expertise
-                  </h3>
+@if(isset($data['banners']) && $data['banners']->count() > 0)
+   <section id="banner" class="banner-section">
+      <div class="swiper-container bannerSlider">
+         <div class="swiper-wrapper">
+            @foreach($data['banners'] as $banner)
+            <div class="swiper-slide">
+               <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}">
+               <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}">
+               <div class="container">
+                  <div class="bannerTextBox">
+                     <h3>
+                        {{ $banner->banner_heading_name }}
+                     </h3>
+                  </div>
                </div>
             </div>
+            @endforeach
          </div>
-         <div class="swiper-slide">
-            <img src="{{asset('fronted/assets/mirror-img/banner/2.jpg')}}" class="dexImg" width="100%" alt="Doctor in Pharma Lab">
-            <img src="{{asset('fronted/assets/mirror-img/banner/2.jpg')}}" class="mobileBanner" width="100%"
-               alt="Doctor in Pharma Lab">
-            <div class="container">
-               <div class="bannerTextBox">
-                  <h3>
-                     Certified by L'Oréal Professionals
-                  </h3>
-               </div>
-            </div>
-         </div>
-         <div class="swiper-slide">
-            <img src="{{asset('fronted/assets/mirror-img/banner/3.jpg')}}" class="dexImg" width="100%" alt="Doctor in Pharma Lab">
-            <img src="{{asset('fronted/assets/mirror-img/banner/3.jpg')}}" class="mobileBanner" width="100%" alt="medicine in Hand">
-            <div class="container">
-               <div class="bannerTextBox">
-                  <h3>
-                     Globally Recognized L'Oréal Training
-                  </h3>
-               </div>
-            </div>
-         </div>
-         <div class="swiper-slide">
-            <img src="{{asset('fronted/assets/mirror-img/banner/4.jpg')}}" class="dexImg" width="100%" alt="medicine in Hand">
-            <img src="{{asset('fronted/assets/mirror-img/banner/4.jpg')}}" class="mobileBanner" width="100%" alt="medicine in Hand">
-            <div class="common-container">
-               <div class="bannerTextBox">
-                  <h3>
-                     Crafting Future Beauty Experts
-                  </h3>
-               </div>
-            </div>
-         </div>
+         <div class="swiper-pagination bannerSlider-pagination"></div>
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
       </div>
-      <div class="swiper-pagination bannerSlider-pagination"></div>
-      <!-- Add navigation arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-   </div>
-</section>
+   </section>
+@endif
 <section class="about-us second position-relative about-us-section">
    <div class="container position-relative">
       <div class="row justify-content-center text-center">
@@ -85,77 +54,38 @@
             </div>
          </div>
       </div>
-      <div class="awards-area mt-15">
-         <div class="row gy-10 gy-md-0 justify-content-between">
-            <div class="col-lg-12">
-               <div class="swiper moments-carousel awards-carousel">
-                  <div class="swiper-wrapper">
-                     <div class="swiper-slide transition">
-                        <div class="single-item mt-2 awards-box1 d-center flex-column">
-                           <div class="img-area">
-                              <img src="{{asset('fronted/assets/mirror-img/awards/1.jpg')}}"
-                                 class="w-100 transition-sec position-relative z-1" alt="img">
-                           </div>
-                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
-                              <p class="n3-color">
-                                 National Award Winner for Customer Service Excellence at the prestigious
-                                 Indian Salon Awards 2013.
-                              </p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide transition">
-                        <div class="single-item mt-2 awards-box1 d-center flex-column">
-                           <div class="img-area">
-                              <img src="{{asset('fronted/assets/mirror-img/awards/2.jpg')}}"
-                                 class="w-100 transition-sec position-relative z-1" alt="img">
-                           </div>
-                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
-                              <p class="n3-color">
-                                 National Award Winner for Customer Service Excellence at the prestigious
-                                 Indian Salon Awards 2013.
-                              </p>
+      @if(isset($data['awards']) && $data['awards']->count() > 0)
+         <div class="awards-area mt-15">
+            <div class="row gy-10 gy-md-0 justify-content-between">
+               <div class="col-lg-12">
+                  <div class="swiper moments-carousel awards-carousel">
+                     <div class="swiper-wrapper">
+                        @foreach ($data['awards'] as $award)
+                        <div class="swiper-slide transition">
+                           <div class="single-item mt-2 awards-box1 d-center flex-column">
+                              <div class="img-area">
+                                 <img src="{{ asset('upload/awards/' . $award->image) }}"
+                                    class="w-100 transition-sec position-relative z-1" alt="img">
+                              </div>
+                              <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
+                                 <p class="n3-color">
+                                    {!! Str::limit($award->description, 150) !!}
+                                 </p>
+                              </div>
                            </div>
                         </div>
+                        @endforeach
                      </div>
-                     <div class="swiper-slide transition">
-                        <div class="single-item mt-2 awards-box1 d-center flex-column">
-                           <div class="img-area">
-                              <img src="{{asset('fronted/assets/mirror-img/awards/3.jpg')}}"
-                                 class="w-100 transition-sec position-relative z-1" alt="img">
-                           </div>
-                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
-                              <p class="n3-color">
-                                 National Award Winner for Customer Service Excellence at the prestigious
-                                 Indian Salon Awards 2013.
-                              </p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide transition">
-                        <div class="single-item mt-2 awards-box1 d-center flex-column">
-                           <div class="img-area">
-                              <img src="{{asset('fronted/assets/mirror-img/awards/4.jpg')}}"
-                                 class="w-100 transition-sec position-relative z-1" alt="img">
-                           </div>
-                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
-                              <p class="n3-color">
-                                 National Award Winner for Customer Service Excellence at the prestigious
-                                 Indian Salon Awards 2013.
-                              </p>
-                           </div>
-                        </div>
-                     </div>
-
+                     <div class="swiper-button-next"></div>
+                     <div class="swiper-button-prev"></div>
                   </div>
-                  <div class="swiper-button-next"></div>
-                  <div class="swiper-button-prev"></div>
                </div>
             </div>
          </div>
-      </div>
+      @endif
    </div>
 </section>
+@if(isset($data['courses']) && $data['courses']->count() > 0)
 <section class="position-relative n1-bg-color our-courses">
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-15 justify-content-center text-center">
@@ -169,85 +99,40 @@
          </div>
       </div>
       <div class="row cus-row justify-content-center">
-         <div class="col-md-4 col-lg-4">
-            <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
-               <div class="img-area position-relative d-center">
-                  <img src="{{asset('fronted/assets/mirror-img/courses/beginners-hairdressing-foundation.webp')}}" class="w-100"
-                     alt="blog">
-               </div>
-               <div class="abs-area">
-                  <div class="d-grid gap-1 gap-md-2">
-                     <div class="course-content">
-                        <a href="#">
-                           <h5 class="n2-color">
-                              Beginners Hairdressing Foundation
-                           </h5>
-                           <p class="n3-color">
-                              Over a comprehensive duration of 4 months, six days a week, you'll immerse
-                              yourself in the art and science of hairdressing, with professional and
-                              industry experts.
-                           </p>
-                        </a>
+         @foreach($data['courses'] as $course)
+            <div class="col-md-4 col-lg-4">
+               <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
+                  <div class="img-area position-relative d-center">
+                     <a href="{{ route('courses.details', $course->slug) }}">
+                        <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}">
+                     </a>
+                  </div>
+                  <div class="abs-area">
+                     <div class="d-grid gap-1 gap-md-2">
+                        <div class="course-content course-content-list">
+                           <a href="{{ route('courses.details', $course->slug) }}">
+                              <h5 class="n2-color">
+                                 {{ $course->title }}
+                              </h5>
+                              <div>
+                                 {!! clean_html_content(Str::limit($course->description, 200)) !!}
+                              </div>
+                           </a>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-         </div>
-         <div class="col-md-4 col-lg-4">
-            <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
-               <div class="img-area position-relative d-center">
-                  <img src="{{asset('fronted/assets/mirror-img/courses/professional-aesthetician.webp')}}" class="w-100"
-                     alt="blog">
-               </div>
-               <div class="abs-area">
-                  <div class="d-grid gap-1 gap-md-2">
-                     <div class="course-content">
-                        <a href="#">
-                           <h5 class="n2-color">
-                              Professional Aesthetician
-                           </h5>
-                           <p class="n3-color">
-                              Over a comprehensive duration of 4 months, six days a week, you'll immerse
-                              yourself in the art and science of hairdressing, with professional and
-                              industry experts.
-                           </p>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4 col-lg-4">
-            <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
-               <div class="img-area position-relative d-center">
-                  <img src="{{asset('fronted/assets/mirror-img/courses/advance-haircut.webp')}}" class="w-100" alt="blog">
-               </div>
-               <div class="abs-area">
-                  <div class="d-grid gap-1 gap-md-2">
-                     <div class="course-content">
-                        <a href="#">
-                           <h5 class="n2-color">
-                              Advance Haircut
-                           </h5>
-                           <p class="n3-color">
-                              Over a comprehensive duration of 4 months, six days a week, you'll immerse
-                              yourself in the art and science of hairdressing, with professional and
-                              industry experts.
-                           </p>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+         @endforeach
       </div>
-      <div class="bottom-area d-center mt-8 mt-md-15">
+      <div class="bottom-area d-center mt-6 mt-md-6">
          <a href="{{ route('courses') }}" class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9">
             <span class="fs-seven">View All Courses</span>
          </a>
       </div>
    </div>
 </section>
+@endif
 <section class="review-section s1-bg-color position-relative pt-120 pb-120 google-reviews-section">
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
@@ -484,7 +369,7 @@
                      <div class="px-3 px-md-6 py-4 py-md-6 m-4 m-md-8 n1-bg-color d-grid gap-3 gap-md-5">
 
                         <div class="d-center flex-wrap flex-sm-nowrap flex-lg-wrap flex-xl-nowrap gap-3 gap-md-5">
-                           <a href="#" class="btn box-style box-second second-alt alt-nineteen transition d-center py-2 py-md-3 px-4 px-md-6 w-100">
+                           <a href="{{ route('contact-us') }}" class="btn box-style box-second second-alt alt-nineteen transition d-center py-2 py-md-3 px-4 px-md-6 w-100">
                               <span class="fs-eight fw-semibold">Contact</span>
                            </a>
                            <a href="tel:+919618991818" aria-label="Phone Number" class="d-center gap-2 gap-md-3 py-2 py-md-3 px-4 px-md-6 w-100">
@@ -509,4 +394,5 @@
 </section>
 @endsection
 @push('scripts')
+<script src="https://elfsightcdn.com/platform.js" async></script>
 @endpush

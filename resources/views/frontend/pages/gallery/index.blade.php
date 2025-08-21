@@ -19,62 +19,24 @@
 <section class="gallery-section s1-bg-color-rgb pt-60 pb-60">
     <div class="container">
         <div class="row grid-services media-box-image justify-content-center">
-            <div class="col-md-4 col-xxl-4 d-center gap-4 gap-md-4">
-                <article class="single_blog agree_bazar_image">
-                    <figure>
-                        <div class="blog_thumb border border-radius">
-                            <a class="lightbox" title="" data-fancybox="images-1" data-caption="" href="{{asset('fronted/assets/mirror-img/gallery/1.jpg')}}">
-                                <div class="media">
-                                    <img src="{{asset('fronted/assets/mirror-img/gallery/1.jpeg')}}" alt="" class="img-responsive main-img">
+            @if(isset($galleries) && $galleries->count() > 0)
+                @foreach ($galleries as $gallery) 
+                    <div class="col-md-4 col-xxl-4 d-center gap-4 gap-md-4">
+                        <article class="single_blog agree_bazar_image">
+                            <figure>
+                                <div class="blog_thumb border border-radius">
+                                    <a class="lightbox" title="" data-fancybox="images-1" data-caption="{{ $gallery->title}}" href="{{ asset('upload/gallery/' . $gallery->image) }}">
+                                        <div class="media">
+                                            <img src="{{ asset('upload/gallery/' . $gallery->image) }}" alt="{{ $gallery->title}}" class="img-responsive main-img">
+                                        </div>
+                                        <!---->
+                                    </a>
                                 </div>
-                                <!---->
-                            </a>
-                        </div>
-                    </figure>
-                </article>
-            </div>
-            <div class="col-md-4 col-xxl-4 d-center gap-4 gap-md-4">
-                <article class="single_blog agree_bazar_image">
-                    <figure>
-                        <div class="blog_thumb border border-radius">
-                            <a class="lightbox" title="" data-fancybox="images-1" data-caption="" href="{{asset('fronted/assets/mirror-img/gallery/2.jpeg')}}">
-                                <div class="media">
-                                    <img src="{{asset('fronted/assets/mirror-img/gallery/2.jpeg')}}" alt="" class="img-responsive main-img">
-                                </div>
-                                <!---->
-                            </a>
-                        </div>
-                    </figure>
-                </article>
-            </div>
-            <div class="col-md-4 col-xxl-4 d-center gap-4 gap-md-4">
-                <article class="single_blog agree_bazar_image">
-                    <figure>
-                        <div class="blog_thumb border border-radius">
-                            <a class="lightbox" title="" data-fancybox="images-1" data-caption="" href="{{asset('fronted/assets/mirror-img/gallery/3.jpeg')}}">
-                                <div class="media">
-                                    <img src="{{asset('fronted/assets/mirror-img/gallery/3.jpeg')}}" alt="" class="img-responsive main-img">
-                                </div>
-                                <!---->
-                            </a>
-                        </div>
-                    </figure>
-                </article>
-            </div>
-            <div class="col-md-4 col-xxl-4 d-center gap-4 gap-md-4">
-                <article class="single_blog agree_bazar_image">
-                    <figure>
-                        <div class="blog_thumb border border-radius">
-                            <a class="lightbox" title="" data-fancybox="images-1" data-caption="" href="{{asset('fronted/assets/mirror-img/gallery/4.jpeg')}}">
-                                <div class="media">
-                                    <img src="{{asset('fronted/assets/mirror-img/gallery/4.jpeg')}}" alt="" class="img-responsive main-img">
-                                </div>
-                                <!---->
-                            </a>
-                        </div>
-                    </figure>
-                </article>
-            </div>
+                            </figure>
+                        </article>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </section>
