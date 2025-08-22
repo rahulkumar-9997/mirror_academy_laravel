@@ -67,6 +67,32 @@ $(document).ready(function () {
             }
         });
     });
+
+    $(document).on('click', 'a[data-popup-enquiry="true"]', function () {
+        var title = $(this).data('title');
+        var courseName = $(this).data('coursename');
+        var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
+        var url = $(this).data('url');
+        var data = {
+            size: size,
+            url: url,
+            courseName: courseName
+        };
+        $("#commanModel .modal-title").html(title);
+        $("#commanModel .modal-dialog").addClass('modal-' + size);
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: data,
+            success: function (data) {
+                $('#commanModel .render-data').html(data.modalContent);
+                $("#commanModel").modal('show');                
+            },
+            error: function (data) {
+                data = data.responseJSON;
+            }
+        });
+    });
     function showNotificationAll(message, type = 'success') {
         const toastEl = document.getElementById('liveToast');
         const toastBody = toastEl.querySelector('.toast-body');
@@ -89,4 +115,5 @@ $(document).ready(function () {
         const toast = new bootstrap.Toast(toastEl);
         toast.show();
     }
+    
 });

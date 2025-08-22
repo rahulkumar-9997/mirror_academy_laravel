@@ -26,7 +26,7 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-6 col-xxl-6 d-flex flex-column gap-1 gap-md-1 text-center">
+                        <div class="col-12 col-xxl-6 d-flex flex-column gap-1 gap-md-1 text-center mb-2">
                             <div class="contact-box">
                                 <div class="d-flex align-items-center gap-4 justify-content-center mb-2">
                                     <span class="d-center p6-color fs-five">
@@ -38,7 +38,7 @@
                                     Honda Showroom, 2nd floor, Plot No.2, Krutika Layout, Hitech City Main Rd, opposite Pride, Hyderabad, Telangana 500081</p>
                             </div>
                         </div>
-                        <div class="col-6 col-xxl-6 d-flex flex-column gap-1 gap-md-1 text-center">
+                        <div class="col-12 col-xxl-6 d-flex flex-column gap-1 gap-md-1 text-center">
                             <div class="contact-box">
                                 <div class="d-flex align-items-center gap-4 justify-content-center mb-2">
                                     <span class="d-center p6-color fs-five">

@@ -109,5 +109,35 @@ class FrontHomeController extends Controller
             'message' => 'Your enquiry form submitted successfully. Our team will contact you soon.',
         ]);
     }
+
+    public function courseEnquiryForm(Request $request){
+        $courseName = $request->input('courseName'); 
+        $form = '
+        <div class="modal-body">
+            <form method="POST" action="' . route('course-enquiry.submit') . '" accept-charset="UTF-8" enctype="multipart/form-data" id="courseEnquiry">
+                ' . csrf_field() . '
+                <input type="hidden" name="course_name" value="'.$courseName.'">
+                <div class="row">                    
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="gallery" class="form-label">Select Multiple Image File (Minimum 20 files required)</label>
+                            <input type="file" id="gallery" name="gallery[]" multiple class="form-control">
+                            <div class="form-text">Please select at least 20 images</div>
+                        </div>
+                    </div>                   
+                                
+                    <div class="modal-footer pb-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>';
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Form created successfully',
+            'modalContent' => $form,
+        ]);
+    }
    
 }

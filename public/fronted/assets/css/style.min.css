@@ -50,6 +50,10 @@
 	--bsrgb-color: rgb(244 244 244 / 60%);
 
 }
+/*modal start*/
+
+
+/*modal end*/
 
 .s1-bg-color-rgb{
 	background-color: var(--bsrgb-color);
@@ -310,8 +314,8 @@ li {
 
 	.fs-six,
 	h6 {
-		font-size: 16px;
-		line-height: 18.8px
+		font-size: 18px;
+		line-height: 22px
 	}
 
 	.fs-seven {
@@ -345,8 +349,8 @@ li {
 	button,
 	label,
 	li {
-		font-size: 14px;
-		line-height: 22px
+		font-size: 18px;
+    	line-height: 25px;
 	}
 
 	.pt-120 {
@@ -404,13 +408,14 @@ li {
 
 body {
 	font-family: var(--body-font);
-	background-color: rgba(var(--n1, 1));
+	background-color: #ffffff;
 	color: rgba(var(--n2, 1));
 	padding: 0;
 	margin: 0;
-	font-weight: 400;
+	font-weight: 500;
 	overflow-x: hidden;
-	position: relative
+	position: relative;
+	line-height: 1.7;
 }
 
 section,
@@ -2793,8 +2798,8 @@ iframe {
 }
 
 .cus-scrollbar {
-	overflow-y: auto;
-	overflow-x: hidden;
+	/* overflow-y: auto;
+	overflow-x: hidden; */
 	position: sticky;
 	top: 100px
 }
@@ -3543,7 +3548,7 @@ iframe {
 }
 
 .header-section .navbar-toggle-btn {
-	width: 40px;
+	width: 33px;
 	height: 28px;
 	position: relative;
 	right: 0;
@@ -3604,7 +3609,7 @@ iframe {
 }
 
 .header-section.index-two .navbar-toggle-btn span {
-	background: rgb(var(--p7))
+	background: var(--bg--black);
 }
 
 .sidebar-items .cmn-head {
@@ -5376,6 +5381,8 @@ iframe {
 	background-color: #000;
     text-align: left;
     padding: 15px 25px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 .highlight_title_div .highlight_title{
 	color: #fff;
@@ -5457,4 +5464,43 @@ iframe {
 .pt-30{
 	padding-bottom: 30px;
 }
+
+@media only screen and (max-width: 991px){
+	.header-top-section{
+		display: none;
+	}
+	.header-section{
+		padding-top: 1rem;
+    	padding-bottom: 1rem;
+	}
+	.header-section{
+		background-color: #fff;
+    	box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
+	}
+	
+}
+.course_title_div{
+	text-align: left;
+    padding: 15px 25px;
+	
+}
+.highlight_title{
+	color: #fff;
+}
+.courses-bg-color {
+    text-align: center;
+}
+.courses-img img {
+    display: inline-block;
+    max-width: 50%;
+    height: auto;
+}
+.courses-bg-color{
+	background-color: #000;
+	border-radius: 10px;
+}
+.courses-img{
+	padding-bottom: 30px;
+}
+
 

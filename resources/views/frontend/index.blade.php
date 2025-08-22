@@ -288,8 +288,8 @@
             </div>
          </div>
       </div>
-      <div class="home-video-section mt-10">
-         <div class="row cus-row gy-6 gy-xxl-7 home-video justify-content-center justify-content-md-start">
+      <div class="home-video-section mt-10 eaight-style">
+         <div class="row gy-6 gy-xxl-7 home-video justify-content-center justify-content-md-start">
             <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
                <div class="test-video-section">
                   <div class="embed-responsive-div embed-responsive-16by9">

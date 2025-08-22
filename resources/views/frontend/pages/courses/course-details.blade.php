@@ -36,17 +36,17 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                     @elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image)))
                                     <div class="single-item text-center">
                                         <img src="{{ asset('upload/courses/' . $course->main_image) }}" alt="{{ $course->title }}" class="border-radius w-100">
-                                    </div>                                    
+                                    </div>
                                     @endif
                                     <div class="course-de-ti mt-5">
                                         @if($course->short_content)
-                                            <h4 class="n2-color highlight-cursor-head cou-title">
-                                                {{ $course->short_content }}
-                                            </h4>
+                                        <h4 class="n2-color highlight-cursor-head cou-title">
+                                            {{ $course->short_content }}
+                                        </h4>
                                         @else
-                                            <h2 class="n2-color highlight-cursor-head cou-title">
-                                                {{ $course->title }}
-                                            </h2>
+                                        <h2 class="n2-color highlight-cursor-head cou-title">
+                                            {{ $course->title }}
+                                        </h2>
                                         @endif
                                     </div>
                                     <div class="course-details">
@@ -56,27 +56,26 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                     </div>
                                     @if($course->additionalContents && $course->additionalContents->count() > 0)
                                     <div class="course-addition-section accordion ttr-accordion1" id="accordionRow1">
-                                         @foreach ($course->additionalContents as $additionalContent)
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="heading{{ $loop->index }}">
-                                                    <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
-                                                    type="button" 
-                                                    data-bs-toggle="collapse" 
-                                                    data-bs-target="#collapse{{ $loop->index }}" 
-                                                    aria-expanded="{{ $loop->first ? 'true' : 'false' }}" 
-                                                    aria-controls="collapse{{ $loop->index }}" 
-                                                    >
-                                                        {{ $additionalContent->title }}
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse{{ $loop->index }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="heading{{ $loop->index }}" 
+                                        @foreach ($course->additionalContents as $additionalContent)
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="heading{{ $loop->index }}">
+                                                <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                                                    type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse{{ $loop->index }}"
+                                                    aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
+                                                    aria-controls="collapse{{ $loop->index }}">
+                                                    {{ $additionalContent->title }}
+                                                </button>
+                                            </h2>
+                                            <div id="collapse{{ $loop->index }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="heading{{ $loop->index }}"
                                                 data-bs-parent="#accordionRow1">
-                                                    <div class="accordion-body additional-content-courses">
-                                                        {!! clean_html_content($additionalContent->description) !!}
-                                                    </div>
+                                                <div class="accordion-body additional-content-courses">
+                                                    {!! clean_html_content($additionalContent->description) !!}
                                                 </div>
-                                            </div>  
-                                        @endforeach                                        
+                                            </div>
+                                        </div>
+                                        @endforeach
                                     </div>
                                     @endif
                                 </div>
@@ -94,8 +93,26 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="cus-scrollbar side-wrapper rounded-4">
+                                    <div class="cus-scrollbar side-wrapper">
                                         <div class="sidebar-wrapper pb-12 pb-lg-0 d-flex flex-column gap-6">
+                                            <div class="sidebar-area">
+                                                <div class="d-grid rounded-1">
+                                                    <div class="item-wrapper">
+                                                        <div class="courses-bg-color">
+                                                            <div class="course_title_div">
+                                                                <h6 class="highlight_title">
+                                                                    A Course By
+                                                                </h6>
+                                                            </div>
+                                                            <div class="">
+                                                                <div class="courses-img">
+                                                                    <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo-white.png')}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             @if($course->highlightsContents && $course->highlightsContents->count() > 0)
                                             <div class="sidebar-area">
                                                 <div class="d-grid n1-bg-color highlight_div">
@@ -107,19 +124,19 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                         </div>
                                                         <div class="px-4 px-md-6 py-4 py-md-5">
                                                             <ul class="d-flex flex-column gap-2 gap-md-2">
-                                                            @foreach ($course->highlightsContents as $highlightsContent)
-                                                            <li class="content-area d-center justify-content-start gap-3 gap-md-4">
-                                                                <span class="co-icon rounded-circle">
-                                                                    <i class="{{ $highlightsContent->icon}}"></i>
-                                                                </span>
-                                                                <div class="d-grid gap-1 gap-md-2">
-                                                                    <h6 class="n2-color fw-semibold fs-eight">
-                                                                        {{ $highlightsContent->content }}
-                                                                    </h6>
-                                                                </div>
-                                                            </li>
-                                                            @endforeach
-                                                            
+                                                                @foreach ($course->highlightsContents as $highlightsContent)
+                                                                <li class="content-area d-center justify-content-start gap-3 gap-md-4">
+                                                                    <span class="co-icon rounded-circle">
+                                                                        <i class="{{ $highlightsContent->icon}}"></i>
+                                                                    </span>
+                                                                    <div class="d-grid gap-1 gap-md-2">
+                                                                        <h6 class="n2-color fw-semibold fs-eight">
+                                                                            {{ $highlightsContent->content }}
+                                                                        </h6>
+                                                                    </div>
+                                                                </li>
+                                                                @endforeach
+
                                                             </ul>
                                                         </div>
 
@@ -130,7 +147,12 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                             <div class="sidebar-area">
                                                 <div class="co-enquiry-today-btn">
                                                     <div class="bottom-area d-center mt-5 mt-md-5">
-                                                        <a href="javascript:void(0)" class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9">
+                                                        <a href="javascript:void(0)"
+                                                            data-popup-enquiry="true"
+                                                            data-url="{{ route('course-enquiry') }}"
+                                                            data-size="md"
+                                                            data-coursename="{{ $course->title }}"
+                                                            class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9">
                                                             <span class="fs-seven">Enquire Today</span>
                                                         </a>
                                                     </div>
@@ -150,4 +172,5 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
 @include('frontend.layouts.common-modal')
 @endsection
 @push('scripts')
+
 @endpush

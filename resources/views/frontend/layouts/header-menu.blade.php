@@ -3,9 +3,8 @@
         <div class="main-navbar px-0 px-xl-8">
             <nav class="navbar-custom">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="index.html" class="nav-brand d-flex align-items-center gap-2 d-lg-none">
-                        <img src="{{asset('fronted/assets/images/fav-11.png')}}" alt="logo">
-                        <img src="{{asset('fronted/assets/images/logo-text.png')}}" alt="logo">
+                    <a href="{{ url('/') }}" class="nav-brand d-flex align-items-center gap-2 d-lg-none">
+                        <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo.png')}}" alt="logo">
                     </a>
                     <div class="d-flex gap-6">
                         <button class="navbar-toggle-btn d-block d-lg-none" type="button">
@@ -16,7 +15,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="navbar-toggle-item">
+                <div class="navbar-toggle-item navbar-toggle-for-mobile">
                     <div
                         class="d-flex gap-5 flex-column flex-lg-row align-items-start align-items-lg-center justify-content-center mt-5 mt-lg-0">
                         <ul class="custom-nav d-lg-flex d-grid gap-3 gap-lg-4 order-1 order-xxl-0">

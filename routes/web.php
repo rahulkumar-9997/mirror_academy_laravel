@@ -25,6 +25,8 @@ Route::get('courses', [FrontHomeController::class, 'coursesList'])->name('course
 Route::get('courses/{slug}', [FrontHomeController::class, 'courseDetails'])->name('courses.details');
 Route::get('terms-of-use', [FrontHomeController::class, 'termsOfUse'])->name('terms-of-use');
 Route::get('privacy-policy', [FrontHomeController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('course-enquiry', [FrontHomeController::class, 'courseEnquiryForm'])->name('course-enquiry');
+Route::post('course-enquiry-submit', [FrontHomeController::class, 'EnquirySubmitForm'])->name('course-enquiry.submit');
 
 
 Route::prefix('admin')->group(function () {

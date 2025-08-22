@@ -470,22 +470,22 @@ document.addEventListener("DOMContentLoaded", function () {
             delay: 200000,
             disableOnInteraction: false,
           },
-          spaceBetween: 15,
+          spaceBetween: 24,
           slidesPerView: 1.1,
           paginationClickable: true,
           navigation: {
-            nextEl: momentsCarousel.closest('section').querySelector('.swiper-button-next'),
-            prevEl: momentsCarousel.closest('section').querySelector('.swiper-button-prev'),
+            nextEl: momentsCarousel.closest('section').querySelector('.ara-next'),
+            prevEl: momentsCarousel.closest('section').querySelector('.ara-prev'),
           },
           pagination: {
-            el: momentsCarousel.closest('section').querySelector('.awardsSlider-pagination'),
+            el: momentsCarousel.closest('section').querySelector('.slider-pagination'),
           },
           breakpoints: {
             1400: {
-                slidesPerView: 5.3,
+                slidesPerView: 4.3,
             },
             1200: {
-                slidesPerView: 4.2,
+                slidesPerView: 3.2,
             },
             992: {
                 slidesPerView: 2.5,

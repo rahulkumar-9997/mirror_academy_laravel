@@ -22,7 +22,7 @@
         <div class="row align-items-center">
             <div class="col-md-6 pe-0 pe-lg-10 order-1 order-lg-0">
                 <div class="image-area circle-text-bg d-center position-relative">
-                    <div class="reveal-single reveal-object object-one">
+                    <div class="reveal-single reveal-object object-one aboutimg">
                         <img src="{{asset('fronted/assets/mirror-img/about-us/awards.png')}}" class="w-100 mt-6 mt-lg-10 ms-4 ms-lg-20 circle-img border-radius" alt="awards">
                     </div>
                     <div class="circle-text position-absolute ms-0 ms-lg-n10 top-0 start-0 first n1-bg-color d-center z-1">
@@ -48,7 +48,7 @@
                     </p>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-sm-6 mb-30 mb-sm-5">
+                    <div class="col-6 col-lg-6 col-sm-6 mb-30 mb-sm-5">
                         <div class="feature-container feature-bx1 feature1 ab-page-feature">
                             <div class="icon-content">
                                 <h4 class="ttr-title">
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 mb-30 mb-sm-5">
+                    <div class="col-6 col-lg-6 col-sm-6 mb-30 mb-sm-5">
                         <div class="feature-container feature-bx1 feature1 ab-page-feature">
                             <div class="icon-content">
                                 <h4 class="ttr-title">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 mb-30 mb-sm-5">
+                    <div class="col-6 col-lg-6 col-sm-6 mb-30 mb-sm-5">
                         <div class="feature-container feature-bx1 feature1 ab-page-feature">
                             <div class="icon-content">
                                 <h4 class="ttr-title">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6 mb-30 mb-sm-5">
+                    <div class="col-6 col-lg-6 col-sm-6 mb-30 mb-sm-5">
                         <div class="feature-container feature-bx1 feature1 ab-page-feature">
                             <div class="icon-content">
                                 <h4 class="ttr-title">

@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="col-8 col-sm-7 col-md-4 col-lg-3 d-center">
-                <div class="single-box address footer-links-area">
+                <div class="single-box address footer-links-area address-area">
                     <h5 class="mb-4 mb-md-4 n1-color footer-heading-area">Address</h5>
                     <ul class="d-grid gap-3 gap-md-4">
                         <li class="d-flex align-items-center gap-3">
