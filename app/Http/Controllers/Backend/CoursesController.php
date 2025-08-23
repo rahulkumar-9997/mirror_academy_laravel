@@ -184,61 +184,31 @@ class CoursesController extends Controller
                 'meta_title' => $validatedData['meta_title'] ?? null,
                 'meta_description' => $validatedData['meta_description'] ?? null,
             ]);
-            $existingAdditionalIds = $course->additionalContents->pluck('id')->toArray();
-            $submittedAdditionalIds = $request->courses_additional_id ?? [];
-            foreach ($existingAdditionalIds as $existingId) {
-                if (!in_array($existingId, $submittedAdditionalIds)) {
-                    CoursesAdditional::where('id', $existingId)->delete();
-                }
-            }
+            CoursesAdditional::where('courses_id', $id)->delete();           
             if (!empty($request->courses_additional_title)) {
                 foreach ($request->courses_additional_title as $index => $title) {
                     if (!empty($title)) {
                         $content = $request->courses_additional_content[$index] ?? null;
-                        $additionalId = $request->courses_additional_id[$index] ?? null;
-                        if ($additionalId) {
-                            CoursesAdditional::where('id', $additionalId)->update([
-                                'title' => $title,
-                                'description' => $content,
-                                'short_order' => $index,
-                            ]);
-                        } else {
-                            CoursesAdditional::create([
-                                'courses_id' => $course->id,
-                                'title' => $title,
-                                'description' => $content,
-                                'short_order' => $index,
-                            ]);
-                        }
+                        CoursesAdditional::create([
+                            'courses_id' => $course->id,
+                            'title' => $title,
+                            'description' => $content,
+                            'short_order' => $index,
+                        ]);
                     }
                 }
             }
-            $existingHighlightsIds = $course->highlightsContents->pluck('id')->toArray();
-            $submittedHighlightsIds = $request->courses_highlights_id ?? [];
-            foreach ($existingHighlightsIds as $existingId) {
-                if (!in_array($existingId, $submittedHighlightsIds)) {
-                    CoursesHighlights::where('id', $existingId)->delete();
-                }
-            }
+            CoursesHighlights::where('courses_id', $id)->delete();
             if (!empty($request->courses_highlights_content)) {
                 foreach ($request->courses_highlights_content as $index => $content) {
                     if (!empty($content)) {
                         $iconClass = $request->courses_highlights_icon[$index] ?? null;
-                        $highlightId = $request->courses_highlights_id[$index] ?? null;
-                        if ($highlightId) {
-                            CoursesHighlights::where('id', $highlightId)->update([
-                                'content' => $content,
-                                'icon' => $iconClass,
-                                'short_order' => $index,
-                            ]);
-                        } else {
-                            CoursesHighlights::create([
-                                'courses_id' => $course->id,
-                                'content' => $content,
-                                'icon' => $iconClass,
-                                'short_order' => $index,
-                            ]);
-                        }
+                        CoursesHighlights::create([
+                            'courses_id' => $course->id,
+                            'content' => $content,
+                            'icon' => $iconClass,
+                            'short_order' => $index,
+                        ]);
                     }
                 }
             }

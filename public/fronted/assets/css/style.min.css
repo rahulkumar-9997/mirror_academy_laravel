@@ -5426,7 +5426,7 @@ iframe {
     font-weight: 600;
     position: relative;
     display: inline-block;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 .additional-content-courses{	
 	font-size: 18px;
@@ -5513,6 +5513,45 @@ iframe {
 }
 #commanModel .modal-title{
 	font-size: 20px;
+}
+
+.blog-post-data ul{    
+    list-style: none;
+    padding: 5px 0px 5px 10px;
+    position: relative;
+}
+.blog-post-data ul li{
+    position: relative;
+    color: rgba(var(--n3), 1);
+    font-weight: 400;
+    line-height: 24px;
+	font-size: 18px;
+    margin-bottom: 15px;
+}
+.course-addition-section{
+	margin-top: 10px;
+}
+
+.ttr-post-text.blog-post-data ul li {  
+    padding: 0px;
+    position: relative;
+    line-height: 1.7em;
+    margin-bottom: 2px;
+    padding-left: 25px;
+	font-size: 18px;
+    text-align: justify;
+}
+.blog-post-data ul li:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 14px;
+    display: block;
+    vertical-align: middle;
+    position: absolute;
+    content: "\f054";
+    left: 0;
+    top: -1px;
+    color: var(--bg--black);
 }
 
 

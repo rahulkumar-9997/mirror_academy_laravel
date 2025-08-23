@@ -19,6 +19,10 @@
                     <div
                         class="d-flex gap-5 flex-column flex-lg-row align-items-start align-items-lg-center justify-content-center mt-5 mt-lg-0">
                         <ul class="custom-nav d-lg-flex d-grid gap-3 gap-lg-4 order-1 order-xxl-0">
+                            <li class="menu-link padding-for">
+                                <a href="{{ url('/') }}" class="n2-color slide-eleventh slide-vertical"
+                                    data-splitting>Home</a>
+                            </li>
                             @if(isset($menuCourses) && $menuCourses->count() > 0)
                                 <li class="menu-item position-relative padding-for">
                                     <button
@@ -45,22 +49,10 @@
                                 <a href="{{ route('about-us') }}" class="n2-color slide-eleventh slide-vertical"
                                     data-splitting>About Us</a>
                             </li>
-                            <li class="menu-item position-relative padding-for">
-                                <button
-                                    class="position-relative pe-5 z-1 slide-eleventh slide-vertical"
-                                    data-splitting>
-                                    Founder’s Message
-                                </button>
-                                <ul class="sub-menu sub-menubg p-lg-4">
-                                    <li class="menu-link py-1">
-                                        <a href="https://www.bookstime.com/law-firm-bookkeeping"
-                                            class="n2-color slide-eleventh slide-horizontal"
-                                            data-splitting>
-                                            Bookkeeping Services for Law Firms
-                                        </a>
-                                    </li>
-
-                                </ul>
+                            
+                            <li class="menu-link padding-for">
+                                <a href="{{ route('founders-message') }}" class="n2-color slide-eleventh slide-vertical"
+                                    data-splitting>Founder’s Message</a>
                             </li>
                             <li class="menu-link padding-for">
                                 <a href="{{ route('contact-us') }}" class="n2-color slide-eleventh slide-vertical"

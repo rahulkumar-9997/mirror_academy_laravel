@@ -28,7 +28,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                     <div class="sidebar-toggler position-relative">
                         <div class="row">
                             <div class="col-xl-8 col-xxl-8 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
-                                <div class="single-area">
+                                <div class="ttr-post-text single-area blog-post-data">
                                     @if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image)))
                                     <div class="single-item text-center">
                                         <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius w-100">
