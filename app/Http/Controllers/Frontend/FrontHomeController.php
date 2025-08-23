@@ -65,7 +65,7 @@ class FrontHomeController extends Controller
         $galleries = Gallery::select('id', 'title', 'image')
             ->where('status', 1)
             ->orderBy('id', 'desc')
-            ->paginate(12);
+            ->paginate(80);
         //return response()->json($galleries);
         return view('frontend.pages.gallery.index', compact('galleries'));
     }
