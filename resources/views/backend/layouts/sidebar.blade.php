@@ -94,6 +94,16 @@
                      <ul>
                         <li><a href="{{ route('manage-courses.index') }}">Courses</a></li>
                      </ul>
+                  </li> 
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-photo-video fs-16 me-2"></i>
+                        <span>Manage Video</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-video.index') }}">Video</a></li>
+                     </ul>
                   </li>                
                    
                                 

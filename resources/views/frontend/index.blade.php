@@ -3,28 +3,28 @@
 @section('description', 'Mirrors Academy – Hair, Makeup & Styling Course in Hyderabad')
 @section('main-content')
 @if(isset($data['banners']) && $data['banners']->count() > 0)
-   <section id="banner" class="banner-section">
-      <div class="swiper-container bannerSlider">
-         <div class="swiper-wrapper">
-            @foreach($data['banners'] as $banner)
-            <div class="swiper-slide">
-               <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}">
-               <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}">
-               <div class="container">
-                  <div class="bannerTextBox">
-                     <h3>
-                        {{ $banner->banner_heading_name }}
-                     </h3>
-                  </div>
+<section id="banner" class="banner-section">
+   <div class="swiper-container bannerSlider">
+      <div class="swiper-wrapper">
+         @foreach($data['banners'] as $banner)
+         <div class="swiper-slide">
+            <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}">
+            <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}">
+            <div class="container">
+               <div class="bannerTextBox">
+                  <h3>
+                     {{ $banner->banner_heading_name }}
+                  </h3>
                </div>
             </div>
-            @endforeach
          </div>
-         <div class="swiper-pagination bannerSlider-pagination"></div>
-         <div class="swiper-button-next"></div>
-         <div class="swiper-button-prev"></div>
+         @endforeach
       </div>
-   </section>
+      <div class="swiper-pagination bannerSlider-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+   </div>
+</section>
 @endif
 <section class="about-us second position-relative about-us-section">
    <div class="container position-relative">
@@ -55,33 +55,33 @@
          </div>
       </div>
       @if(isset($data['awards']) && $data['awards']->count() > 0)
-         <div class="awards-area mt-15">
-            <div class="row gy-10 gy-md-0 justify-content-between">
-               <div class="col-lg-12">
-                  <div class="swiper moments-carousel awards-carousel">
-                     <div class="swiper-wrapper">
-                        @foreach ($data['awards'] as $award)
-                        <div class="swiper-slide transition">
-                           <div class="single-item mt-2 awards-box1 d-center flex-column">
-                              <div class="img-area">
-                                 <img src="{{ asset('upload/awards/' . $award->image) }}"
-                                    class="w-100 transition-sec position-relative z-1" alt="img">
-                              </div>
-                              <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
-                                 <p class="n3-color">
-                                    {!! Str::limit($award->description, 150) !!}
-                                 </p>
-                              </div>
+      <div class="awards-area mt-15">
+         <div class="row gy-10 gy-md-0 justify-content-between">
+            <div class="col-lg-12">
+               <div class="swiper moments-carousel awards-carousel">
+                  <div class="swiper-wrapper">
+                     @foreach ($data['awards'] as $award)
+                     <div class="swiper-slide transition">
+                        <div class="single-item mt-2 awards-box1 d-center flex-column">
+                           <div class="img-area">
+                              <img src="{{ asset('upload/awards/' . $award->image) }}"
+                                 class="w-100 transition-sec position-relative z-1" alt="img">
+                           </div>
+                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
+                              <p class="n3-color">
+                                 {!! Str::limit($award->description, 150) !!}
+                              </p>
                            </div>
                         </div>
-                        @endforeach
                      </div>
-                     <div class="swiper-button-next"></div>
-                     <div class="swiper-button-prev"></div>
+                     @endforeach
                   </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
                </div>
             </div>
          </div>
+      </div>
       @endif
    </div>
 </section>
@@ -100,29 +100,29 @@
       </div>
       <div class="row cus-row justify-content-center">
          @foreach($data['courses'] as $course)
-            <div class="col-md-4 col-lg-4">
-               <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
-                  <div class="img-area position-relative d-center">
-                     <a href="{{ route('courses.details', $course->slug) }}">
-                        <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}">
-                     </a>
-                  </div>
-                  <div class="abs-area">
-                     <div class="d-grid gap-1 gap-md-2">
-                        <div class="course-content course-content-list">
-                           <a href="{{ route('courses.details', $course->slug) }}">
-                              <h5 class="n2-color">
-                                 {{ $course->title }}
-                              </h5>
-                              <div>
-                                 {!! clean_html_content(Str::limit($course->description, 200)) !!}
-                              </div>
-                           </a>
-                        </div>
+         <div class="col-md-4 col-lg-4">
+            <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
+               <div class="img-area position-relative d-center">
+                  <a href="{{ route('courses.details', $course->slug) }}">
+                     <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}">
+                  </a>
+               </div>
+               <div class="abs-area">
+                  <div class="d-grid gap-1 gap-md-2">
+                     <div class="course-content course-content-list">
+                        <a href="{{ route('courses.details', $course->slug) }}">
+                           <h5 class="n2-color">
+                              {{ $course->title }}
+                           </h5>
+                           <div>
+                              {!! clean_html_content(Str::limit($course->description, 200)) !!}
+                           </div>
+                        </a>
                      </div>
                   </div>
                </div>
             </div>
+         </div>
          @endforeach
       </div>
       <div class="bottom-area d-center mt-6 mt-md-6">
@@ -288,60 +288,30 @@
             </div>
          </div>
       </div>
+      @if(isset($data['videos']) && $data['videos']->count() > 0)
       <div class="home-video-section mt-10 eaight-style">
          <div class="row gy-6 gy-xxl-7 home-video justify-content-center justify-content-md-start">
+            @foreach ($data['videos'] as $video)
             <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
                <div class="test-video-section">
                   <div class="embed-responsive-div embed-responsive-16by9">
-                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
-                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/1.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/1.mp4')}}">
+                     <video class="embed-responsive-item lazy-video"
+                        controls
+                        muted
+                        playsinline
+                        preload="none"
+                        controlslist="nodownload">
+                        <source data-src="{{ asset('upload/video/' . $video->file) }}" type="video/mp4">
                         Your browser does not support the video tag.
                      </video>
                   </div>
                </div>
             </div>
-            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
-               <div class="test-video-section">
-                  <div class="embed-responsive-div embed-responsive-16by9">
-                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
-                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/2.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/2.mp4')}}">
-                        Your browser does not support the video tag.
-                     </video>
-                  </div>
-               </div>
-            </div>
-            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
-               <div class="test-video-section">
-                  <div class="embed-responsive-div embed-responsive-16by9">
-                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
-                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/3.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/3.mp4')}}">
-                        Your browser does not support the video tag.
-                     </video>
-                  </div>
-               </div>
-            </div>
-            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
-               <div class="test-video-section">
-                  <div class="embed-responsive-div embed-responsive-16by9">
-                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
-                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/4.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/4.mp4')}}">
-                        Your browser does not support the video tag.
-                     </video>
-                  </div>
-               </div>
-            </div>
-            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
-               <div class="test-video-section">
-                  <div class="embed-responsive-div embed-responsive-16by9">
-                     <video class="embed-responsive-item lazy-video" controls="" muted="" loop="" playsinline="" autoplay="" preload="metadata" controlslist="nodownload">
-                        <source data-src="{{asset('fronted/assets/mirror-img/home-video/5.mp4')}}" type="video/mp4" src="{{asset('fronted/assets/mirror-img/home-video/5.mp4')}}">
-                        Your browser does not support the video tag.
-                     </video>
-                  </div>
-               </div>
-            </div>
+            @endforeach
          </div>
       </div>
+      @endif
+
    </div>
 </section>
 <section class="resister-today-section contact-section schedule-section position-relative s1-bg-color">
@@ -394,5 +364,44 @@
 </section>
 @endsection
 @push('scripts')
+<script>
+   $(document).ready(function() {
+      let $lazyVideos = $("video.lazy-video");
+      if ("IntersectionObserver" in window) {
+         let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+               if (entry.isIntersecting) {
+                  let $video = $(entry.target);
+                  $video.find("source[data-src]").each(function() {
+                     $(this).attr("src", $(this).data("src"));
+                  });
+                  entry.target.load();
+                  entry.target.muted = true;
+                  entry.target.play().catch(function(err) {
+                     console.log("Autoplay blocked:", err);
+                  });
+                  lazyVideoObserver.unobserve(entry.target);
+               }
+            });
+         });
+         $lazyVideos.each(function() {
+            lazyVideoObserver.observe(this);
+         });
+      } else {
+         $lazyVideos.each(function() {
+            let $video = $(this);
+            $video.find("source[data-src]").each(function() {
+               $(this).attr("src", $(this).data("src"));
+            });
+            this.load();
+            this.muted = true;
+            this.play().catch(function(err) {
+               console.log("Autoplay blocked:", err);
+            });
+         });
+      }
+   });
+</script>
+
 <script src="https://elfsightcdn.com/platform.js" async></script>
 @endpush

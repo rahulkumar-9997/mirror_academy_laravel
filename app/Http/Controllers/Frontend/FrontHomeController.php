@@ -10,6 +10,7 @@ use App\Models\Award;
 use App\Models\Banner;
 use App\Models\Courses;
 use App\Models\Gallery;
+use App\Models\Video;
 
 class FrontHomeController extends Controller
 {
@@ -28,6 +29,11 @@ class FrontHomeController extends Controller
         ->inRandomOrder()
         ->limit(6)
         ->get();
+        $data['videos'] = Video::select('file', 'status')
+            ->where('status', 1)
+            ->orderBy('id', 'asc')
+            ->limit(5)
+            ->get();
         //return response()->json($data['courses']);
         return view('frontend.index', compact('data'));
     }
@@ -83,6 +89,7 @@ class FrontHomeController extends Controller
             'email' => 'nullable|email|max:255',
             'phone_number' => 'required|string|max:10',
             'message' => 'required|string|max:1000',
+            'course_name'  => 'nullable|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -98,9 +105,11 @@ class FrontHomeController extends Controller
             'email' => $validated['email'],
             'phone' => $validated['phone_number'] ?? null,
             'message' => $validated['message'] ?? null,
+            'course_name' => $validated['course_name'] ?? null,
         ];
         try {
-            Mail::to('contact@mirrorsacademy.in')->send(new EnquiryMail($data));
+            // Mail::to('contact@mirrorsacademy.in')->send(new EnquiryMail($data));
+            Mail::to('rahulkumarmaurya464@gmail.com')->send(new EnquiryMail($data));
         } catch (\Exception $e) {
             Log::error('Failed to send enquiry email: ' . $e->getMessage());
         }
@@ -111,33 +120,17 @@ class FrontHomeController extends Controller
     }
 
     public function courseEnquiryForm(Request $request){
-        $courseName = $request->input('courseName'); 
-        $form = '
-        <div class="modal-body">
-            <form method="POST" action="' . route('course-enquiry.submit') . '" accept-charset="UTF-8" enctype="multipart/form-data" id="courseEnquiry">
-                ' . csrf_field() . '
-                <input type="hidden" name="course_name" value="'.$courseName.'">
-                <div class="row">                    
-                    <div class="col-md-12">
-                        <div class="mb-3">
-                            <label for="gallery" class="form-label">Select Multiple Image File (Minimum 20 files required)</label>
-                            <input type="file" id="gallery" name="gallery[]" multiple class="form-control">
-                            <div class="form-text">Please select at least 20 images</div>
-                        </div>
-                    </div>                   
-                                
-                    <div class="modal-footer pb-0">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            </form>
-        </div>';
+        $courseName = $request->input('courseName');
+        $form  = '<div class="modal-body">';
+        $form .= view('frontend.layouts.enquiry-form', compact('courseName'))->render();
+        $form .= '</div>';
         return response()->json([
             'status' => 'success',
             'message' => 'Form created successfully',
             'modalContent' => $form,
         ]);
     }
+
+
    
 }

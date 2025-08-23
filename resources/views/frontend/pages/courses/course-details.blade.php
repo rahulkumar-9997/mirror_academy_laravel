@@ -94,7 +94,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                         </div>
                                     </div>
                                     <div class="cus-scrollbar side-wrapper">
-                                        <div class="sidebar-wrapper pb-12 pb-lg-0 d-flex flex-column gap-6">
+                                        <div class="sidebar-wrapper pb-12 pb-lg-0 d-flex flex-column gap-6 mobile-sidebar-bg-color">
                                             <div class="sidebar-area">
                                                 <div class="d-grid rounded-1">
                                                     <div class="item-wrapper">
@@ -149,6 +149,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                     <div class="bottom-area d-center mt-5 mt-md-5">
                                                         <a href="javascript:void(0)"
                                                             data-popup-enquiry="true"
+                                                            data-title="Enquiry to ({{ $course->title }})"
                                                             data-url="{{ route('course-enquiry') }}"
                                                             data-size="md"
                                                             data-coursename="{{ $course->title }}"

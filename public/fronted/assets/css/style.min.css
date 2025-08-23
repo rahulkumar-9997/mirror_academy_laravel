@@ -1,5 +1,4 @@
 @import"bootstrap.min.css";
-@import"plugins/fontawesome.min.css";
 @import"plugins/magnific-popup.css";
 @import"plugins/swiper.min.css";
 @import"plugins/splitting.min.css";
@@ -7,6 +6,7 @@
 @import"plugins/odometer-min.css";
 @import"plugins/select2.min.css";
 @import"plugins/animate.css";
+@import"plugins/fontawesome.min.css";
 @import"icons.min.css";
 @import"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap";
 
@@ -51,10 +51,7 @@
 
 }
 /*modal start*/
-
-
 /*modal end*/
-
 .s1-bg-color-rgb{
 	background-color: var(--bsrgb-color);
 }
@@ -5290,19 +5287,24 @@ iframe {
 	height: 100%;
 }
 .bg-home.with-bg {
-    position: relative;
+    /* position: relative;
     background: url('../mirror-img/bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    z-index: 1;
+    z-index: 1; */
+    position: relative;
+    background: 
+        linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), /* White halka color */
+        url('../mirror-img/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
-.bg-home.with-bg::after {
+/* .bg-home.with-bg::after {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(255, 255, 255, 0.6);
     z-index: -1;
-}
+} */
 .course-details{
 	padding-top: 15px;
 }
@@ -5376,6 +5378,9 @@ iframe {
 }
 .highlight_div{
 	background-color: rgba(var(--n1), 1);
+	background-color: rgba(var(--n1), 1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .highlight_title_div{
 	background-color: #000;
@@ -5501,6 +5506,13 @@ iframe {
 }
 .courses-img{
 	padding-bottom: 30px;
+}
+#commanModel .modal-header{
+	padding: 10px 10px 0px 10px;
+    border-bottom: 0px;
+}
+#commanModel .modal-title{
+	font-size: 20px;
 }
 
 

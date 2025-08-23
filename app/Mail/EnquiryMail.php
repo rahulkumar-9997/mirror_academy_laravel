@@ -22,7 +22,12 @@ class EnquiryMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Enquiry Mail')
-        ->view('frontend.mail.enquiry_mail');
+        $subject = 'Enquiry Mail';
+        if (!empty($this->enquiry['course_name'])) {
+            $subject .= ' - ' . $this->enquiry['course_name'];
+        }
+
+        return $this->subject($subject)
+            ->view('frontend.mail.enquiry_mail');
     }
 }

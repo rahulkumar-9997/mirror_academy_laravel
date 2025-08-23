@@ -48,6 +48,7 @@ $(document).ready(function () {
             success: function (response) {
                 submitButton.prop('disabled', false).html('Submit');
                 if (response.status === 'success') {
+                    $("#commanModel").modal('hide');            
                     form[0].reset();
                     showNotificationAll(response.message, 'success');
                 }

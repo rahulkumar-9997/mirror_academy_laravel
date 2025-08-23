@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\CacheController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\CoursesController;
+use App\Http\Controllers\Backend\VideoController;
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
 Route::get('gallery', [FrontHomeController::class, 'gallery'])->name('gallery');
@@ -48,6 +49,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('manage-blog', BlogController::class)->names('manage-blog');    
     Route::resource('manage-gallery', GalleryController::class)->names('manage-gallery');
     Route::resource('manage-courses', CoursesController::class)->names('manage-courses');
+    Route::resource('manage-video', VideoController::class)->names('manage-video');
     Route::get('/clear-cache', [CacheController::class, 'clearCache'])->name('clear-cache');
     Route::resource('pages', PageController::class);
     Route::resource('menus', MenuController::class);

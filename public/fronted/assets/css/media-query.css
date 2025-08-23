@@ -294,5 +294,10 @@
     .aboutimg .ms-4 {
         margin-left:2px !important;
     }
+    .mobile-sidebar-bg-color{
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
+    }
 
 }
