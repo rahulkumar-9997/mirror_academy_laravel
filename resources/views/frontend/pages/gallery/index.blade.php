@@ -27,7 +27,7 @@
                                 <div class="blog_thumb border border-radius">
                                     <a class="lightbox" title="" data-fancybox="images-1" data-caption="{{ $gallery->title}}" href="{{ asset('upload/gallery/' . $gallery->image) }}">
                                         <div class="media">
-                                            <img src="{{ asset('upload/gallery/' . $gallery->image) }}" alt="{{ $gallery->title}}" class="img-responsive main-img">
+                                            <img src="{{ asset('upload/gallery/' . $gallery->image) }}" alt="{{ $gallery->title}}" class="img-responsive main-img" loading="lazy">
                                         </div>
                                         <!---->
                                     </a>

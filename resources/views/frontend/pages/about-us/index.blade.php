@@ -22,8 +22,8 @@
         <div class="row align-items-center">
             <div class="col-md-6 pe-0 pe-lg-10 order-1 order-lg-0">
                 <div class="image-area circle-text-bg d-center position-relative">
-                    <div class="reveal-single reveal-object object-one aboutimg">
-                        <img src="{{asset('fronted/assets/mirror-img/about-us/awards.png')}}" class="w-100 mt-6 mt-lg-10 ms-4 ms-lg-20 circle-img border-radius" alt="awards">
+                    <div class="reveal-single1 reveal-object object-one aboutimg">
+                        <img src="{{asset('fronted/assets/mirror-img/about-us/awards.png')}}" class="w-100 mt-6 mt-lg-10 ms-4 ms-lg-20 circle-img border-radius" alt="awards" loading="lazy">
                     </div>
                     <div class="circle-text position-absolute ms-0 ms-lg-n10 top-0 start-0 first n1-bg-color d-center z-1">
                         <div class="text">
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-6 ps-3 ps-lg-10 overflow-hidden">
                 <div class="d-grid gap-1 gap-md-1 pt-30">
-                    <div class="section-area mb-2 mb-md-2 d-grid gap-1 gap-md-1 reveal-single reveal-text text-three">
+                    <div class="section-area mb-2 mb-md-2 d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-three">
                         <h2 class="fs-two">Our Story</h2>
                     </div>
                     <p class="n3-color">
@@ -94,7 +94,7 @@
     <div class="container">
         <div class="row gy-3 gy-md-0 mb-4 mb-md-5 justify-content-between align-items-center">
             <div class="col-md-7">
-                <div class="section-area d-grid gap-1 gap-md-1 reveal-single reveal-text text-one">
+                <div class="section-area d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-one">
                     <span class="fw-semibold">Our Mission</span>
                     <p class="n3-color">
                         At Mirrors Academy, we are committed to nurturing talent and empowering individuals to excel in the art of beauty. Whether you aspire to be a skilled hairstylist, makeup artist, esthetician, or nail technician, our comprehensive programs and personalized mentorship will guide you towards a successful career in the beauty industry.
@@ -107,7 +107,7 @@
             </div>
             <div class="col-md-5">
                 <div class="vission-mission-img">
-                    <img src="{{asset('fronted/assets/mirror-img/about-us/vission-mission.jpg')}}" class="w-100 border-radius" alt="vission-mission">
+                    <img src="{{asset('fronted/assets/mirror-img/about-us/vission-mission.jpg')}}" class="w-100 border-radius" alt="vission-mission" loading="lazy">
                 </div>
             </div>
         </div>        

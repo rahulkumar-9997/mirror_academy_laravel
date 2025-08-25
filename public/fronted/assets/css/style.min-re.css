@@ -4983,6 +4983,31 @@ iframe {
 .swiper-pagination {
     bottom: 20px !important;
 }
+
+.image-file{
+  position: relative;
+}
+.image-file:before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 100%;
+}
+.image-file:before {
+    padding-bottom: 69%;
+    margin-top: 1px;
+}
+.image-file img {
+    width: 100%;
+    /* height: 200px; */
+    height: 100%;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 .our-courses,
 .about-us-section,
 .why-choose-us,
@@ -4996,7 +5021,7 @@ iframe {
     font-family: "Roboto", Sans-serif;
     font-size: 30px;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .our-courses .fs-two,
 .google-reviews-section .fs-two,
@@ -5006,7 +5031,7 @@ iframe {
     font-family: "Roboto", Sans-serif;
     font-size: 30px;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
@@ -5038,10 +5063,31 @@ iframe {
     font-weight: 500;
 }
 .awards-box{
-	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
+	/* box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
     border: none !important;
     border-radius: 10px;
-	background-color: #fff;
+	background-color: #fff; */
+	border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #E0E0E0;
+}
+.awards-box .img-area{
+	padding: 10px;
+}
+.awards-content-hm{
+	padding-top: 10px;
+}
+.awards-title{
+	padding: 5px;
+}
+.awards-box:hover .awards-content-hm{
+	background-color: var(--s2-hex);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
+}
+.awards-box:hover .awards-content-hm p{
+	color: #ffffff;
 }
 .course-content{
 	text-align: center;
@@ -5103,7 +5149,7 @@ iframe {
     transition: opacity 0.3s ease;
 }
 .test-video-section video {
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .embed-responsive-div video {
     height: 100%;
@@ -5115,7 +5161,7 @@ iframe {
 .enquiry-form {
 	background-color: #fff;
     box-shadow: 0px 10px 60px 0px rgba(31, 34, 120, 0.1);
-    border-radius: 40px;
+    border-radius: 20px;
     padding: 40px 35px;
     position: relative;
 }
@@ -5168,6 +5214,7 @@ iframe {
 
 .awards-carousel p{
 	font-size: 16px;
+	line-height: 24px;
 }
 
 .awards-carousel .swiper-pagination-bullet {

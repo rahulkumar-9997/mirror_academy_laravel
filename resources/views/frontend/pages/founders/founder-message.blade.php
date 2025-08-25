@@ -22,8 +22,8 @@
         <div class="row align-items-center">
             <div class="col-md-6 pe-0 pe-lg-10 order-1 order-lg-0">
                 <div class="image-area circle-text-bg d-center position-relative">
-                    <div class="reveal-single reveal-object object-one image-hover">
-                        <img src="{{asset('fronted/assets/mirror-img/about-us/vijayala-mam-mirrors-owner.webp')}}" class="w-100 circle-img border-radius" alt="awards">
+                    <div class="reveal-single1 reveal-object object-one image-hover">
+                        <img src="{{asset('fronted/assets/mirror-img/about-us/vijayala-mam-mirrors-owner.webp')}}" class="w-100 circle-img border-radius" alt="awards" loading="lazy">
                     </div>                    
                 </div>
             </div>

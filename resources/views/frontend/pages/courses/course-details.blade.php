@@ -31,7 +31,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                 <div class="ttr-post-text single-area blog-post-data">
                                     @if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image)))
                                     <div class="single-item text-center">
-                                        <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius w-100">
+                                        <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius w-100" loading="lazy">
                                     </div>
                                     @elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image)))
                                     <div class="single-item text-center">

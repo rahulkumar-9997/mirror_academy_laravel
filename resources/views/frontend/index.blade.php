@@ -8,8 +8,8 @@
       <div class="swiper-wrapper">
          @foreach($data['banners'] as $banner)
          <div class="swiper-slide">
-            <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}">
-            <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}">
+            <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy">
+            <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy">
             <div class="container">
                <div class="bannerTextBox">
                   <h3>
@@ -30,7 +30,7 @@
    <div class="container position-relative">
       <div class="row justify-content-center text-center">
          <div class="col-lg-8">
-            <div class="section-area mb-3 mb-md-5 d-grid gap-2 gap-md-2 reveal-single reveal-text text-three">
+            <div class="section-area mb-3 mb-md-5 d-grid gap-2 gap-md-2 reveal-single1 reveal-text text-three">
                <h1 class="fs-two">Mirrors Hair and Beauty Academy</h1>
                <h2 class="ab-h2">
                   Master the art of styling in the most professional way
@@ -55,22 +55,24 @@
          </div>
       </div>
       @if(isset($data['awards']) && $data['awards']->count() > 0)
-      <div class="awards-area mt-15">
+      <div class="awards-area mt-8">
          <div class="row gy-10 gy-md-0 justify-content-between">
             <div class="col-lg-12">
                <div class="swiper moments-carousel awards-carousel">
                   <div class="swiper-wrapper">
                      @foreach ($data['awards'] as $award)
                      <div class="swiper-slide transition">
-                        <div class="single-item mt-2 awards-box1 d-center flex-column">
+                        <div class="single-item mt-2 awards-box d-center flex-column">
                            <div class="img-area">
                               <img src="{{ asset('upload/awards/' . $award->image) }}"
-                                 class="w-100 transition-sec position-relative z-1" alt="img">
+                                 class="w-100 transition-sec position-relative z-1" alt="img" loading="lazy">
                            </div>
-                           <div class="text-content p-2 p-md-2 d-grid gap-2 text-center">
-                              <p class="n3-color">
-                                 {!! Str::limit($award->description, 150) !!}
-                              </p>
+                           <div class="text-content awards-content-hm text-center">
+                              <div class="awards-title">
+                                 <p class="n3-color">
+                                    {!! Str::limit($award->description, 150) !!}
+                                 </p>
+                              </div>
                            </div>
                         </div>
                      </div>
@@ -88,9 +90,9 @@
 @if(isset($data['courses']) && $data['courses']->count() > 0)
 <section class="position-relative n1-bg-color our-courses">
    <div class="container">
-      <div class="row gy-6 gy-md-0 mb-8 mb-md-15 justify-content-center text-center">
+      <div class="row gy-6 gy-md-0 mb-8 mb-md-8 justify-content-center text-center">
          <div class="col-md-8 col-lg-8 col-xl-8">
-            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-three">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-three">
                <h1 class="fs-two">Our Courses</h1>
                <h2 class="ou-h2">
                   Explore Certified Beauty Courses at Mirrors Academy, Hyderabad
@@ -102,9 +104,9 @@
          @foreach($data['courses'] as $course)
          <div class="col-md-4 col-lg-4">
             <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
-               <div class="img-area position-relative d-center">
+               <div class="img-area position-relative d-center image-file">
                   <a href="{{ route('courses.details', $course->slug) }}">
-                     <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}">
+                     <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}" loading="lazy">
                   </a>
                </div>
                <div class="abs-area">
@@ -137,7 +139,7 @@
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
          <div class="col-md-8 col-lg-6 col-xl-5">
-            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-three reveal-init">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-three reveal-init">
                <h4 class="fs-two">Hear it Out from the reviewers</h4>
             </div>
          </div>
@@ -151,7 +153,7 @@
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
          <div class="col-md-8 col-lg-6 col-xl-5">
-            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-three reveal-init">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-three reveal-init">
                <h2 class="fs-two">Why Choose Us?</h2>
             </div>
          </div>
@@ -161,7 +163,7 @@
             <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-educators.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -177,7 +179,7 @@
             <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -193,7 +195,7 @@
             <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -209,7 +211,7 @@
             <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/unique-curriculam.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -226,7 +228,7 @@
                class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -243,7 +245,7 @@
                class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -259,7 +261,7 @@
             <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -275,7 +277,7 @@
             <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engagement.svg')}}" class="transition svg-img"
-                     alt="img">
+                     alt="img" loading="lazy">
                </div>
                <div class="d-center gap-2 text-center">
                   <h6 class="fs-six fw-semibold n2-color transition">
@@ -318,7 +320,7 @@
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
          <div class="col-md-8 col-lg-8 col-xl-6">
-            <div class="section-area d-grid gap-3 gap-md-4 reveal-single reveal-text text-one reveal-init">
+            <div class="section-area d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-one reveal-init">
                <h2 class="fs-two">Register today</h2>
             </div>
          </div>

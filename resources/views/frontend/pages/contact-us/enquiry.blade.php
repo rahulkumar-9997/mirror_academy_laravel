@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row gy-8 gy-lg-0 align-items-center justify-content-center">
             <div class="col-md-9 col-lg-5 order-1 order-lg-0">
-                <div class="d-grid gap-3 gap-md-4 reveal-single reveal-text text-one reveal-init">                   
+                <div class="d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-one reveal-init">                   
                     <div class="section-text d-grid gap-3 gap-md-4">
                         <h2 class="fs-two">Have any Query? Get in touch with us!</h2>                        
                     </div>

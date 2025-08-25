@@ -20,9 +20,9 @@
                 @foreach($data['courses'] as $course)
                     <div class="col-md-4 col-lg-4">
                         <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
-                            <div class="img-area position-relative d-center">
+                            <div class="img-area position-relative d-center image-file">
                                 <a href="{{ route('courses.details', $course->slug) }}">
-                                    <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}">
+                                    <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}" loading="lazy">
                                 </a>
                             </div>
                             <div class="abs-area">

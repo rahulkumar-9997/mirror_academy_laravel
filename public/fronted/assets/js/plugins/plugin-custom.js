@@ -474,8 +474,8 @@ document.addEventListener("DOMContentLoaded", function () {
           slidesPerView: 1.1,
           paginationClickable: true,
           navigation: {
-            nextEl: momentsCarousel.closest('section').querySelector('.ara-next'),
-            prevEl: momentsCarousel.closest('section').querySelector('.ara-prev'),
+            nextEl: momentsCarousel.closest('section').querySelector('.swiper-button-next'),
+            prevEl: momentsCarousel.closest('section').querySelector('.swiper-button-prev'),
           },
           pagination: {
             el: momentsCarousel.closest('section').querySelector('.slider-pagination'),
@@ -485,10 +485,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 slidesPerView: 4.3,
             },
             1200: {
-                slidesPerView: 3.2,
+                slidesPerView: 4.2,
             },
             992: {
-                slidesPerView: 2.5,
+                slidesPerView: 3.5,
             },
             768: {
                 slidesPerView: 2.2,

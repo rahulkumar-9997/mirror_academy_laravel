@@ -9,5 +9,5 @@
 @yield('meta')
 <title>@yield('title')</title>
 <link rel="shortcut icon" href="{{asset('fronted/assets/mirror-img/fav.jpg')}}" type="image/x-icon">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/style.min.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style.min-re.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/assets/css/media-query.css')}}">
