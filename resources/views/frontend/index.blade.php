@@ -135,7 +135,7 @@
    </div>
 </section>
 @endif
-<section class="review-section s1-bg-color position-relative pt-120 pb-120 google-reviews-section">
+<!-- <section class="review-section s1-bg-color position-relative pt-120 pb-120 google-reviews-section">
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
          <div class="col-md-8 col-lg-6 col-xl-5">
@@ -148,7 +148,7 @@
          <div class="elfsight-app-af610a27-73ec-4ee3-8d90-a1d14865a321" data-elfsight-app-lazy></div>
       </div>
    </div>
-</section>
+</section> -->
 <section class="why-choose-us event-section second position-relative pb-120 pt-120">
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
@@ -159,7 +159,93 @@
          </div>
       </div>
       <div class="row cus-row gy-6 gy-xxl-7 counter-area second justify-content-center justify-content-md-start">
-         <div class="col-9 col-md-3 col-xl-3">
+         <!-- HTML -->
+         <div class="col-lg-6">
+            <div class="benefit-column">
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-educators.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Expert Educators</h3>
+                     <p>Master luxury salon techniques with expert training from L'Oréal Professionals.</p>
+                  </div>
+               </div>
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Live Models</h3>
+                     <p>Hands-on Training with Live Models for Real-World Experience.</p>
+                  </div>
+               </div>
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Student Kit</h3>
+                     <p>Fully Equipped with Premium Professional Tools for Hands-On Training.</p>
+                  </div>
+               </div>               
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/unique-curriculam.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Unique Curriculum</h3>
+                     <p>Stay ahead with cutting-edge techniques, advanced equipment, and the latest industry trends.</p>
+                  </div>
+               </div>               
+            </div>
+         </div>
+         <div class="col-lg-6">
+            <div class="benefit-column">
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Dual Certification</h3>
+                     <p>With an International Diploma from L'Oréal Paris Professional and trained at Mirrors Luxury Salon.</p>
+                  </div>
+               </div>
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Job Readiness</h3>
+                     <p>Equipped with skills to be employable as soon as the course is completed.</p>
+                  </div>
+               </div>
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Real World Exposure</h3>
+                     <p>
+                        Industry guest visits, salon exposure, and field trips to key industry locations.
+                     </p>
+                  </div>
+               </div>
+               <div class="benefit-item highlight">
+                  <div class="benefit-icon">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engagement.svg')}}" alt="">
+                  </div>
+                  <div class="benefit-content">
+                     <h3>Community Engagement</h3>
+                     <p>
+                       Give your skills back to the deserving people in the community.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- <div class="col-9 col-md-3 col-xl-3">
             <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
                <div class="box-img mb-2 mb-md-2">
                   <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-educators.svg')}}" class="transition svg-img"
@@ -288,7 +374,7 @@
                   Give your skills back to the deserving people in the community.
                </p>
             </div>
-         </div>
+         </div> -->
       </div>
       @if(isset($data['videos']) && $data['videos']->count() > 0)
       <div class="home-video-section mt-10 eaight-style">

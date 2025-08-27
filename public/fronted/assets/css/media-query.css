@@ -52,7 +52,7 @@
         width: 16px;
         height: 1px;
         left: -20px;
-        top: 5px;
+        top: 10px;
         z-index: 1;
     }
     .sub-menubg {
@@ -299,5 +299,14 @@
         padding: 10px;
         border-radius: 10px;
     }
-
+    .benefit-item{
+        align-items: center;
+    }
+    .benefit-content h3 {
+        margin: 0 0 2px 0;
+        font-size: 18px;
+    }
+    .benefit-content p {
+        line-height: 20px;
+    }
 }

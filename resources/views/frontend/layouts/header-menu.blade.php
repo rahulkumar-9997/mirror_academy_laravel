@@ -20,43 +20,42 @@
                         class="d-flex gap-5 flex-column flex-lg-row align-items-start align-items-lg-center justify-content-center mt-5 mt-lg-0">
                         <ul class="custom-nav d-lg-flex d-grid gap-3 gap-lg-4 order-1 order-xxl-0">
                             <li class="menu-link padding-for">
-                                <a href="{{ url('/') }}" class="n2-color slide-eleventh slide-vertical"
-                                    data-splitting>Home</a>
+                                <a href="{{ url('/') }}" class="n2-color slide-vertical">Home</a>
                             </li>
                             @if(isset($menuCourses) && $menuCourses->count() > 0)
                                 <li class="menu-item position-relative padding-for">
                                     <button
-                                        class="position-relative pe-5 z-1 slide-eleventh slide-vertical"
-                                        data-splitting>
+                                        class="position-relative pe-5 z-1 slide-vertical"
+                                        >
                                         Courses
                                     </button>
-                                    <ul class="sub-menu sub-menubg p-lg-5">
+                                    <ul class="sub-menu sub-menubg p-lg-3">
                                         @foreach($menuCourses as $course)
                                             <li class="menu-link py-1 py-lg-1">
                                                 <a href="{{ route('courses.details', $course->slug) }}"
-                                                   class="n2-color slide-eleventh slide-horizontal"
-                                                   data-splitting>{{ $course->title }}</a>
+                                                   class="n2-color  slide-horizontal"
+                                                   >{{ $course->title }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
                                 </li>
                             @endif
                             <li class="menu-link padding-for">
-                                <a href="{{ route('gallery') }}" class="n2-color slide-eleventh slide-vertical"
-                                    data-splitting>Gallery</a>
+                                <a href="{{ route('gallery') }}" class="n2-color  slide-vertical"
+                                    >Gallery</a>
                             </li>
                             <li class="menu-link padding-for">
-                                <a href="{{ route('about-us') }}" class="n2-color slide-eleventh slide-vertical"
-                                    data-splitting>About Us</a>
+                                <a href="{{ route('about-us') }}" class="n2-color  slide-vertical"
+                                    >About Us</a>
                             </li>
                             
                             <li class="menu-link padding-for">
-                                <a href="{{ route('founders-message') }}" class="n2-color slide-eleventh slide-vertical"
-                                    data-splitting>Founder’s Message</a>
+                                <a href="{{ route('founders-message') }}" class="n2-color  slide-vertical"
+                                    >Founder’s Message</a>
                             </li>
                             <li class="menu-link padding-for">
-                                <a href="{{ route('contact-us') }}" class="n2-color slide-eleventh slide-vertical"
-                                    data-splitting>Contact Us</a>
+                                <a href="{{ route('contact-us') }}" class="n2-color  slide-vertical"
+                                    >Contact Us</a>
                             </li>
                         </ul>
                         <!-- <a href="index.html"
