@@ -115,7 +115,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="summer-description-box mb-3">
+                        <div class="mb-3">
                             <label class="form-label">Content <span class="text-danger">*</span></label>
                             <textarea id="summernote" name="description" hidden>{{ old('description', $course->description) }}</textarea>
                             @error('description')

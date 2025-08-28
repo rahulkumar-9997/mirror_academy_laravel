@@ -9,5 +9,13 @@
 @yield('meta')
 <title>@yield('title')</title>
 <link rel="shortcut icon" href="{{asset('fronted/assets/mirror-img/fav.jpg')}}" type="image/x-icon">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/style.min-re.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style.min-reup.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/assets/css/media-query.css')}}">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7WLDLS90VW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7WLDLS90VW');
+</script>

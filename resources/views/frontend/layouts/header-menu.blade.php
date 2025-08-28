@@ -18,12 +18,12 @@
                 <div class="navbar-toggle-item navbar-toggle-for-mobile">
                     <div
                         class="d-flex gap-5 flex-column flex-lg-row align-items-start align-items-lg-center justify-content-center mt-5 mt-lg-0">
-                        <ul class="custom-nav d-lg-flex d-grid gap-3 gap-lg-4 order-1 order-xxl-0">
+                        <ul class="custom-nav d-lg-flex d-grid gap-3 gap-lg-4 order-1 order-xxl-0 header-menu-ul">
                             <li class="menu-link padding-for">
                                 <a href="{{ url('/') }}" class="n2-color slide-vertical">Home</a>
                             </li>
                             @if(isset($menuCourses) && $menuCourses->count() > 0)
-                                <li class="menu-item position-relative padding-for">
+                                <li class="menu-item position-relative padding-for submenu-li">
                                     <button
                                         class="position-relative pe-5 z-1 slide-vertical"
                                         >

@@ -5601,19 +5601,26 @@ iframe {
     top: -1px;
     color: var(--bg--black);
 }
-/* .header-section .main-navbar .custom-nav .menu-item a:before {
+.header-section .main-navbar .custom-nav .menu-item a:before {
     content: "\f061";
     position: absolute;
-    left: 3px;
+    left: 10px;
     font-family: "Font Awesome 5 Free";
-    color: #9b7c1b;
+    color: var(--bg--black);
     font-size: 6px;
     margin-top: 1px;
 	font-weight: 900;
     font-size: 14px;
     display: block;
-} */
+}
+.header-menu-ul .submenu-li .menu-link{
+	padding: 2px 0px 5px 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #383838b5;
+}
 
+ 
 /*why choose us*/
 /* CSS */
 .program-benefits-container {

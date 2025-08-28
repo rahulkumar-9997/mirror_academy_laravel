@@ -103,14 +103,15 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="summer-description-box mb-3">
+                        <div class="mb-3">
                             <label class="form-label">Content <span class="text-danger">*</span></label>
-                            <textarea id="summernote" name="description" hidden>{{ old('description') }}</textarea>
+                            <textarea id="description"  name="description" class="form-control summernoteclass">{{ old('description') }}</textarea>
                             @error('description')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
+
                 </div>
 
                 <div class="row sticky" id="courses_additinal_content">
