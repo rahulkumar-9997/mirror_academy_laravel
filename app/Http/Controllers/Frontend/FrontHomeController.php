@@ -108,8 +108,8 @@ class FrontHomeController extends Controller
             'course_name' => $validated['course_name'] ?? null,
         ];
         try {
-            // Mail::to('contact@mirrorsacademy.in')->send(new EnquiryMail($data));
-            Mail::to('rahulkumarmaurya464@gmail.com')->send(new EnquiryMail($data));
+            Mail::to('contact@mirrorsacademy.in')->send(new EnquiryMail($data));
+            //Mail::to('rahulkumarmaurya464@gmail.com')->send(new EnquiryMail($data));
         } catch (\Exception $e) {
             Log::error('Failed to send enquiry email: ' . $e->getMessage());
         }
