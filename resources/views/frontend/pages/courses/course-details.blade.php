@@ -83,7 +83,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                             <div class="course_eligibity-title">
                                                 <div class="course-de-ti mt-5">
                                                     <h2 class="n2-color highlight-cursor-head cou-title">
-                                                        Eligibity
+                                                        Eligibility
                                                     </h2>
                                                 </div>
                                                 <div class="course_el_content mt-5">
