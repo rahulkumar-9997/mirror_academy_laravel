@@ -40484,7 +40484,7 @@ input:checked + .slider:before {
 }
 
 textarea {
-  resize: none;
+  resize: block;
 }
 
 .localization-info .setting-info {

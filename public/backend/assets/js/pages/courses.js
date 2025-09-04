@@ -77,4 +77,28 @@ $(document).ready(function () {
         });
     });
 
+    /**Add more eligibity */
+    $('.add_more_eligibity').click(function () {
+        let container = $('#eligibityContentContainer');
+        let templateRow = container.find('.eligibity-row').first();
+        if (templateRow.length === 0) {
+            templateRow = container.find('.paragraph-row').first().clone();
+            templateRow.removeClass('paragraph-row').addClass('eligibity-row');
+        } else {
+            templateRow = templateRow.clone();
+        }
+        templateRow.find('input[type="text"]').val('');
+        templateRow.find('textarea').val('');
+        templateRow.find('.remove-eligibity').show();
+        templateRow.find('.remove-eligibity').off('click').on('click', function () {
+            $(this).closest('.eligibity-row').remove();
+        });
+        container.append(templateRow);
+    });
+    $(document).on('click', '.remove-eligibity', function() {
+        $(this).closest('tr').remove();
+    });
+
+    /**Add more eligibity */
+
 });

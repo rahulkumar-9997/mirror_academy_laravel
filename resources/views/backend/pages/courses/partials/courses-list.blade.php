@@ -8,6 +8,7 @@
                 <th>Main Image</th>
                 <th>Additional Content</th>
                 <th>Highlights</th>
+                <th>Eligibity</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,6 +41,13 @@
                         <span class="badge bg-success">{{ $course->highlightsContents->count() }} Highlights</span>
                     @else
                         <span class="badge bg-secondary">No Highlights</span>   
+                    @endif
+                </td>
+                <td>
+                    @if($course->eligibilitiesContent->count() > 0)
+                        <span class="badge bg-success">{{ $course->eligibilitiesContent->count() }} Eligibity</span>
+                    @else
+                        <span class="badge bg-danger">No Eligibity</span>   
                     @endif
                 </td>
                 

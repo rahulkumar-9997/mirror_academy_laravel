@@ -78,6 +78,30 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                         @endforeach
                                     </div>
                                     @endif
+                                    @if($course->eligibilitiesContent && $course->eligibilitiesContent->count() > 0)
+                                        <div class="course-eligibity-section mt-10">
+                                            <div class="course_eligibity-title">
+                                                <div class="course-de-ti mt-5">
+                                                    <h2 class="n2-color highlight-cursor-head cou-title">
+                                                        Eligibity
+                                                    </h2>
+                                                </div>
+                                                <div class="course_el_content mt-5">
+                                                    <div class="row">
+                                                        @foreach ($course->eligibilitiesContent as $eligibilitiesContent)
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="co-eligibity-cont single-item n1-bg-color px-3 px-md-3 py-3 py-md-3">
+                                                                    <p>
+                                                                        {{ $eligibilitiesContent->content }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
 
                             </div>
@@ -113,6 +137,55 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                     </div>
                                                 </div>
                                             </div>
+                                           @if($course->course_duration || $course->course_opening_days)
+                                            <div class="course_duration_section">
+                                                <div class="course_duration_wrapper ">
+                                                    @if($course->course_duration)
+                                                        <div class="co-duration">
+                                                            <div class="duration-icon d-center justify-content-center gap-3 gap-md-4">
+                                                                <div class="du_icon ">
+                                                                    <span class="co-icon rounded-circle">
+                                                                        <i class="fa fa-calendar-days"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="du_content">
+                                                                    <h6>Duration</h6>
+                                                                </div>
+                                                            </div>
+                                                            <div class="duration_content">
+                                                                <div class="coueli">
+                                                                    {{ $course->course_duration }}
+                                                                </div>
+                                                                @if($course->course_opening_days)
+                                                                <span>
+                                                                    <em>{{ $course->course_opening_days }}</em>
+                                                                </span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    @if($course->course_timings)
+                                                        <div class="co-timings">
+                                                            <div class="duration-icon d-center justify-content-center gap-3 gap-md-4">
+                                                                <div class="du_icon ">
+                                                                    <span class="co-icon rounded-circle">
+                                                                        <i class="far fa-clock"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="du_content">
+                                                                    <h6>Timings</h6>
+                                                                </div>
+                                                            </div>
+                                                            <div class="duration_content">
+                                                                <div class="coueli">
+                                                                    {{ $course->course_timings }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            @endif
                                             @if($course->highlightsContents && $course->highlightsContents->count() > 0)
                                             <div class="sidebar-area">
                                                 <div class="d-grid n1-bg-color highlight_div">

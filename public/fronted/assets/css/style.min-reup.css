@@ -5699,6 +5699,31 @@ iframe {
 .benefit-item:last-child .benefit-icon::after {
   display: none;
 }
+.course_duration_wrapper {
+	display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    background: #fff;
+    padding: 10px 10px;
+    border-radius: 10px;
+	justify-content: center;
+}
+.duration_content{
+	padding-top: 10px;
+}
+.duration_content .coueli{
+	border-radius: 7px;
+    border: 1px solid #E0E0E0;
+    padding: 4px;
+    font-size: 15px;
+}
+.co-eligibity-cont{
+	height: 100%;
+	border-radius: 10px;
+}
+.co-eligibity-cont p{
+	text-align: center;
+}
 /* Responsive */
 @media (max-width: 900px) {
   .program-benefits-container {

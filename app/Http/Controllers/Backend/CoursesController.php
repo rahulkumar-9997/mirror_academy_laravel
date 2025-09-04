@@ -11,12 +11,15 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Courses;
 use App\Models\CoursesAdditional;
 use App\Models\CoursesHighlights;
+use App\Models\CourseEligibility;
 use App\Models\Icons;
 class CoursesController extends Controller
 {
     public function index()
     {
-        $courses = Courses::with(['additionalContents', 'highlightsContents'])->paginate(20);
+        $courses = Courses::with(['additionalContents', 'highlightsContents', 'eligibilitiesContent'])
+        ->orderBy('id', 'desc')
+        ->paginate(20);
         //return response()->json($courses);
         return view('backend.pages.courses.index', compact('courses'));
     }
@@ -35,6 +38,9 @@ class CoursesController extends Controller
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'description' => 'required|string',
+            'course_duration' => 'nullable|string|max:255',
+            'course_duration_opening_day' => 'nullable|string|max:255',
+            'course_timings' => 'nullable|string|max:255',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'courses_additional_title' => 'nullable|array',
@@ -44,7 +50,9 @@ class CoursesController extends Controller
             'courses_highlights_content' => 'nullable|array',
             'courses_highlights_content.*' => 'nullable|string',
             'courses_highlights_icon' => 'nullable|array',
-            'courses_highlights_icon.*' => 'nullable|string|max:255', 
+            'courses_highlights_icon.*' => 'nullable|string|max:255',
+            'courses_eligibitiy_content' => 'nullable|array',
+            'courses_eligibitiy_content.*' => 'nullable|string', 
         ]);
         $destinationPath = public_path('upload/courses');
         if (!file_exists($destinationPath)) {
@@ -72,6 +80,9 @@ class CoursesController extends Controller
                 'description' => $validatedData['description'] ?? null,
                 'main_image' => $mainImageName,
                 'page_image' => $pageImageName,
+                'course_duration' => $validatedData['course_duration'] ?? null,
+                'course_opening_days' => $validatedData['course_duration_opening_day'] ?? null,
+                'course_timings' => $validatedData['course_timings'] ?? null,
                 'meta_title' => $validatedData['meta_title'] ?? null,
                 'meta_description' => $validatedData['meta_description'] ?? null,
                 'status' => true,
@@ -98,6 +109,17 @@ class CoursesController extends Controller
                             'content' => $content,
                             'icon' => $iconClass,
                             'short_order' => $index,
+                        ]);
+                    }
+                }
+            }
+            if (!empty($request->courses_eligibitiy_content)) {
+                foreach ($request->courses_eligibitiy_content as $index => $eligibitiy_content) {
+                    if (!empty($eligibitiy_content)) {
+                        CourseEligibility::create([
+                            'courses_id' => $course->id,
+                            'content' => $eligibitiy_content,
+                            'short_order' => $index,                            
                         ]);
                     }
                 }
@@ -131,6 +153,9 @@ class CoursesController extends Controller
             'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'description' => 'required|string',
+            'course_duration' => 'nullable|string|max:255',
+            'course_duration_opening_day' => 'nullable|string|max:255',
+            'course_timings' => 'nullable|string|max:255',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'courses_additional_id' => 'nullable|array',
@@ -147,6 +172,10 @@ class CoursesController extends Controller
             'courses_highlights_icon.*' => 'nullable|string|max:255',
             'remove_main_image' => 'nullable|boolean',
             'remove_page_image' => 'nullable|boolean',
+            'courses_eligibitiy_id' => 'nullable|array',
+            'courses_eligibitiy_id.*' => 'nullable|integer|exists:courses_eligibilities,id',
+            'courses_eligibitiy_content' => 'nullable|array',
+            'courses_eligibitiy_content.*' => 'nullable|string',
         ]);
         $destinationPath = public_path('upload/courses');
         if (!file_exists($destinationPath)) {
@@ -181,6 +210,9 @@ class CoursesController extends Controller
                 'title' => $validatedData['title'],
                 'short_content' => $validatedData['short_content'] ?? null,
                 'description' => $validatedData['description'] ?? null,
+                'course_duration' => $validatedData['course_duration'] ?? null,
+                'course_opening_days' => $validatedData['course_duration_opening_day'] ?? null,
+                'course_timings' => $validatedData['course_timings'] ?? null,
                 'meta_title' => $validatedData['meta_title'] ?? null,
                 'meta_description' => $validatedData['meta_description'] ?? null,
             ]);
@@ -208,6 +240,18 @@ class CoursesController extends Controller
                             'content' => $content,
                             'icon' => $iconClass,
                             'short_order' => $index,
+                        ]);
+                    }
+                }
+            }
+            CourseEligibility::where('courses_id', $id)->delete();
+            if (!empty($request->courses_eligibitiy_content)) {
+                foreach ($request->courses_eligibitiy_content as $index => $eligibitiy_content) {
+                    if (!empty($eligibitiy_content)) {
+                        CourseEligibility::create([
+                            'courses_id' => $course->id,
+                            'content' => $eligibitiy_content,
+                            'short_order' => $index,                            
                         ]);
                     }
                 }

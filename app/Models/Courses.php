@@ -16,6 +16,9 @@ class Courses extends Model
         'description',
         'main_image',
         'page_image',
+        'course_duration',
+        'course_opening_days',
+        'course_timings',
         'status',
         'meta_title',
         'meta_description'
@@ -31,6 +34,11 @@ class Courses extends Model
     public function highlightsContents(): HasMany
     {
         return $this->hasMany(CoursesHighlights::class, 'courses_id');
+    }
+
+    public function eligibilitiesContent()
+    {
+        return $this->hasMany(CourseEligibility::class, 'courses_id');
     }
 
     protected static function boot()

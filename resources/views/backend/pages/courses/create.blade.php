@@ -82,6 +82,42 @@
                     </div>
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
+                            <label class="form-label" for="course_duration">
+                                Courses Duration in Month
+                            </label>
+                            <input type="text" class="form-control @error('course_duration') is-invalid @enderror" name="course_duration" id="course_duration"
+                            value="{{ old('course_duration') }}" />
+                            @error('course_duration')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="course_duration_opening_day">
+                                Courses Duration Opening Days (In Week)
+                            </label>
+                            <input type="text" class="form-control @error('course_duration_opening_day') is-invalid @enderror" name="course_duration_opening_day" id="course_duration_opening_day" 
+                            value="{{ old('course_duration_opening_day') }}"/>
+                            @error('course_duration_opening_day')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="course_timings">
+                                Courses Timings AM to PM
+                            </label>
+                            <input type="text" class="form-control @error('course_timings') is-invalid @enderror" name="course_timings" id="course_timings"
+                            value="{{ old('course_timings') }}" />
+                            @error('course_timings')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="mb-3">
                             <label class="form-label" for="meta_title">Meta title</label>
                             <input type="text" class="form-control @error('meta_title') is-invalid @enderror" name="meta_title" id="meta_title" value="{{ old('meta_title') }}" />
                             @error('meta_title')
@@ -251,6 +287,69 @@
                         </table>
                     </div>
                 </div>
+                <!--Eligibitiy Area-->
+                <div class="row sticky" id="course_eligibitiy_content">
+                    <div class="col-md-12">
+                        <div class="bg-indigo pt-1 pb-1 rounded-2">
+                            <h4 class="text-center text-light" style="margin-bottom: 0px;">
+                                Courses Eligibitiy  Content
+                            </h4>
+                        </div>
+                        <table class="table align-middle mb-3">
+                            <tbody id="eligibityContentContainer">
+                                @if(count(old('courses_eligibitiy_content', [])) > 0)
+                                @foreach(old('courses_eligibitiy_content') as $index => $eligibitiy_content)
+                                <tr class="eligibity-row">
+                                    <!-- <td style="width: 50%">
+                                        <label class="form-label" for="courses_eligibitiy_title">
+                                            Courses Eligibitiy Title
+                                        </label>
+                                        <input type="text" name="courses_eligibitiy_title[]" class="form-control @error('courses_eligibitiy_title.'.$index) is-invalid @enderror" placeholder="Enter Courses  Eligibitiy Title" value="{{ $title }}">
+                                        @error('courses_eligibitiy_title.'.$index)
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </td> -->
+                                    <td>
+                                        <label class="form-label" for="courses_eligibitiy_content">
+                                            Courses Eligibitiy Content *
+                                        </label>
+                                        <textarea name="courses_eligibitiy_content[]" class="form-control">{{ old('courses_eligibitiy_content.'.$index) }}</textarea>
+                                        @error('courses_eligibitiy_content.'.$index)
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <button type="button" class="btn btn-danger btn-sm remove-eligibity mt-2">Remove</button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @else
+                                <tr class="paragraph-row">
+                                    <!-- <td style="width: 50%">
+                                        <label class="form-label" for="title">
+                                            Courses Eligibitiy Title
+                                        </label>
+                                        <input type="text" name="courses_eligibitiy_title[]" class="form-control" placeholder="Enter Courses Eligibitiy Title">
+                                    </td> -->
+                                    <td>
+                                        <label class="form-label" for="title">
+                                            Courses Eligibitiy Content 
+                                        </label>
+                                        <textarea name="courses_eligibitiy_content[]" class="form-control" rows="3"></textarea>
+                                        <button type="button" class="btn btn-danger btn-sm remove-eligibity mt-2" style="display: none;">Remove</button>
+                                    </td>
+                                </tr>
+                                @endif
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-end">
+                                        <button class="btn btn-primary add_more_eligibity btn-sm" type="button">Add More Eligibitiy Content</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!--Eligibitiy Area-->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="d-flex align-items-center justify-content-end mb-4">
