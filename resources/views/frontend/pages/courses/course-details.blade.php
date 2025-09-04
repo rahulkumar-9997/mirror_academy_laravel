@@ -90,7 +90,12 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                     <div class="row">
                                                         @foreach ($course->eligibilitiesContent as $eligibilitiesContent)
                                                             <div class="col-lg-4 mb-3">
-                                                                <div class="co-eligibity-cont single-item n1-bg-color px-3 px-md-3 py-3 py-md-3">
+                                                                <div class="co-eligibity-cont single-item nc-bg-color px-3 px-md-3 py-3 py-md-3">
+                                                                    <div class="icon-area-c">
+                                                                        <span>
+                                                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                                        </span>
+                                                                    </div>
                                                                     <p>
                                                                         {{ $eligibilitiesContent->content }}
                                                                     </p>

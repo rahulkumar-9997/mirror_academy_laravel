@@ -5724,6 +5724,16 @@ iframe {
 .co-eligibity-cont p{
 	text-align: center;
 }
+.nc-bg-color{
+	background-color: #E0E0E0;
+}
+.icon-area-c{
+	text-align: center;
+	padding-bottom: 7px;
+}
+.icon-area-c i{
+	font-size: 30px;
+}
 /* Responsive */
 @media (max-width: 900px) {
   .program-benefits-container {
