@@ -421,7 +421,6 @@ footer {
 
 a,
 p,
-button,
 span,
 label,
 li {
@@ -429,6 +428,9 @@ li {
 	font-family: var(--body-font);
 	color: rgba(var(--n3), 1);
 	font-weight: 400
+}
+button{
+	color: rgba(var(--n2), 1);
 }
 
 .transition {
