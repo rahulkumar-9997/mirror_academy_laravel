@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title','Edit Courses')
 @push('styles')
-<link rel="stylesheet" href="{{asset('backend/assets/plugins/summernote/summernote-bs4.min.css')}}">
+<!-- <link rel="stylesheet" href="{{asset('backend/assets/plugins/summernote/summernote-bs4.min.css')}}"> -->
 @endpush
 @section('main-content')
 <div class="content">
@@ -94,36 +94,36 @@
                     </div>
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
-                            <label class="form-label" for="course_duration">
-                                Courses Duration in Month
+                            <label class="form-label" for="course_certificate">
+                                Course Certificate Image 
                             </label>
-                            <input type="text" class="form-control @error('course_duration') is-invalid @enderror" name="course_duration" id="course_duration"
-                                value="{{ old('course_duration', $course->course_duration) }}" />
-                            @error('course_duration')
+                            <input type="file" class="form-control @error('course_certificate') is-invalid @enderror" name="course_certificate" id="course_certificate"
+                            value="{{ old('course_certificate') }}" />
+                            @if($course->course_certificate)
+                            <div class="mt-2">
+                                <img src="{{ asset('upload/courses/' . $course->course_certificate) }}" alt="Current Page Image" width="100" class="img-thumbnail">
+                            </div>
+                            @endif
+                            @error('course_certificate')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
-                            <label class="form-label" for="course_duration_opening_day">
-                                Courses Duration Opening Days (In Week)
+                            <label class="form-label" for="course_pdf_file">
+                                Course PDF File (PDF File Only 1-20MB accepted )
                             </label>
-                            <input type="text" class="form-control @error('course_duration_opening_day') is-invalid @enderror" name="course_duration_opening_day" id="course_duration_opening_day"
-                                value="{{ old('course_duration_opening_day', $course->course_opening_days) }} " />
-                            @error('course_duration_opening_day')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-12">
-                        <div class="mb-3">
-                            <label class="form-label" for="course_timings">
-                                Courses Timings AM to PM
-                            </label>
-                            <input type="text" class="form-control @error('course_timings') is-invalid @enderror" name="course_timings" id="course_timings"
-                                value="{{ old('course_timings', $course->course_timings) }}" />
-                            @error('course_timings')
+                            <input type="file" class="form-control @error('course_pdf_file') is-invalid @enderror" name="course_pdf_file" id="course_pdf_file" 
+                            value="{{ old('course_pdf_file') }}"/>
+                            @if($course->course_pdf_file)
+                            <div class="mt-2">
+                                <a target="_blank" href="{{ asset('upload/courses/' . $course->course_pdf_file) }}">
+                                    <span class="badge bg-purple">View Course File</span>
+                                </a>
+                            </div>
+                            @endif
+                            @error('course_pdf_file')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -137,7 +137,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-sm-4 col-12">
+                    <div class="col-sm-8 col-12">
                         <div class="mb-3">
                             <label class="form-label" for="meta_description">
                                 Meta Description
@@ -153,7 +153,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label class="form-label">Content <span class="text-danger">*</span></label>
-                            <textarea id="summernote" name="description" hidden>{{ old('description', $course->description) }}</textarea>
+                            <textarea  name="description" class="ckeditor4">{{ old('description', $course->description) }}</textarea>
                             @error('description')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -193,7 +193,7 @@
                                         <label class="form-label" for="title">
                                             Courses Additional Content
                                         </label>
-                                        <textarea name="courses_additional_content[]" class="summernoteclass">{{ $additionalContents[$index] ?? '' }}</textarea>
+                                        <textarea name="courses_additional_content[]" class="ckeditor4">{{ $additionalContents[$index] ?? '' }}</textarea>
                                         @error('courses_additional_content.'.$index)
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -214,7 +214,7 @@
                                         <label class="form-label" for="title">
                                             Courses Additional Content
                                         </label>
-                                        <textarea name="courses_additional_content[]" class="summernoteclass"></textarea>
+                                        <textarea name="courses_additional_content[]" class="ckeditor4"></textarea>
                                         <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2" style="display: none;">Remove</button>
                                     </td>
                                 </tr>
@@ -314,62 +314,7 @@
                         </table>
                     </div>
                 </div>
-                <!--Eligibitiy Area-->
-                <!-- In your edit form, replace the eligibility section with this: -->
-                <div class="row sticky" id="course_eligibitiy_content">
-                    <div class="col-md-12">
-                        <div class="bg-indigo pt-1 pb-1 rounded-2">
-                            <h4 class="text-center text-light" style="margin-bottom: 0px;">
-                                Courses Eligibitiy Content
-                            </h4>
-                        </div>
-                        <table class="table align-middle mb-3">
-                            <tbody id="eligibityContentContainer">
-                                @php
-                                $eligibilityContents = old('courses_eligibitiy_content', $course->eligibilitiesContent->pluck('content')->toArray());
-                                $eligibilityIds = old('courses_eligibitiy_id', $course->eligibilitiesContent->pluck('id')->toArray());
-                                @endphp
-
-                                @if(count($eligibilityContents) > 0)
-                                @foreach($eligibilityContents as $index => $content)
-                                <tr class="eligibity-row">
-                                    <td>
-                                        <input type="hidden" name="courses_eligibitiy_id[]" value="{{ $eligibilityIds[$index] ?? '' }}">
-                                        <label class="form-label" for="courses_eligibitiy_content">
-                                            Courses Eligibitiy Content
-                                        </label>
-                                        <textarea name="courses_eligibitiy_content[]" class="form-control">{{ $content }}</textarea>
-                                        @error('courses_eligibitiy_content.'.$index)
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <button type="button" class="btn btn-danger btn-sm remove-eligibity mt-2">Remove</button>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @else
-                                <tr class="eligibity-row">
-                                    <td>
-                                        <input type="hidden" name="courses_eligibitiy_id[]" value="">
-                                        <label class="form-label" for="title">
-                                            Courses Eligibitiy Content
-                                        </label>
-                                        <textarea name="courses_eligibitiy_content[]" class="form-control" rows="3"></textarea>
-                                        <button type="button" class="btn btn-danger btn-sm remove-eligibity mt-2" style="display: none;">Remove</button>
-                                    </td>
-                                </tr>
-                                @endif
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="3" class="text-end">
-                                        <button class="btn btn-primary add_more_eligibity btn-sm" type="button">Add More Eligibitiy Content</button>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-                <!--Eligibitiy Area-->
+                
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="d-flex align-items-center justify-content-end mb-4">
@@ -388,4 +333,12 @@
 @endsection
 @push('scripts')
 <script src="{{asset('backend/assets/js/pages/courses.js')}}"></script>
+<script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
+<script>
+    document.querySelectorAll('.ckeditor4').forEach(function(el) {
+        CKEDITOR.replace(el, {
+            removePlugins: 'exportpdf'
+        });
+    });
+</script>
 @endpush

@@ -6,6 +6,9 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
 @extends('frontend.layouts.master')
 @section('title', $metaTitle)
 @section('description', $metaDescription)
+@push('styles')
+<link rel="stylesheet" href="{{ asset('fronted/assets/js/plugins/fancybox/jquery.fancybox.min.css') }}">
+@endpush
 @section('main-content')
 <section class="banner-section inner-banner position-relative pt-10 pb-10">
     <div class="container position-relative cus-z1">
@@ -31,11 +34,15 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                 <div class="ttr-post-text single-area blog-post-data">
                                     @if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image)))
                                     <div class="single-item text-center">
-                                        <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius w-100" loading="lazy">
+                                        <figure class="course-figure">
+                                            <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius" loading="lazy">
+                                        </figure>
                                     </div>
                                     @elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image)))
                                     <div class="single-item text-center">
-                                        <img src="{{ asset('upload/courses/' . $course->main_image) }}" alt="{{ $course->title }}" class="border-radius w-100">
+                                        <figure class="course-figure">
+                                            <img src="{{ asset('upload/courses/' . $course->main_image) }}" alt="{{ $course->title }}" class="border-radius ">
+                                        </figure>
                                     </div>
                                     @endif
                                     <div class="course-de-ti mt-5">
@@ -78,34 +85,34 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                         @endforeach
                                     </div>
                                     @endif
-                                    @if($course->eligibilitiesContent && $course->eligibilitiesContent->count() > 0)
-                                        <div class="course-eligibity-section mt-10">
-                                            <div class="course_eligibity-title">
-                                                <div class="course-de-ti mt-5">
-                                                    <h2 class="n2-color highlight-cursor-head cou-title">
-                                                        Eligibility
-                                                    </h2>
-                                                </div>
-                                                <div class="course_el_content mt-5">
-                                                    <div class="row">
-                                                        @foreach ($course->eligibilitiesContent as $eligibilitiesContent)
-                                                            <div class="col-lg-4 mb-3">
-                                                                <div class="co-eligibity-cont single-item nc-bg-color px-3 px-md-3 py-3 py-md-3">
-                                                                    <div class="icon-area-c">
-                                                                        <span>
-                                                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                                                        </span>
-                                                                    </div>
-                                                                    <p>
-                                                                        {{ $eligibilitiesContent->content }}
-                                                                    </p>
-                                                                </div>
+                                    @if($course->highlightsContents && $course->highlightsContents->count() > 0)
+                                    <div class="course-eligibity-section mt-10">
+                                        <div class="course_eligibity-title">
+                                            <div class="course-de-ti mt-5">
+                                                <h2 class="n2-color highlight-cursor-head cou-title">
+                                                    Course Highlights
+                                                </h2>
+                                            </div>
+                                            <div class="course_el_content mt-5">
+                                                <div class="row">
+                                                    @foreach ($course->highlightsContents as $highlightsContent)
+                                                    <div class="col-lg-4 mb-3">
+                                                        <div class="co-eligibity-cont single-item nc-bg-color px-3 px-md-3 py-3 py-md-3">
+                                                            <div class="icon-area-c">
+                                                                <span>
+                                                                    <i class="{{ $highlightsContent->icon}}"></i>
+                                                                </span>
                                                             </div>
-                                                        @endforeach
+                                                            <p>
+                                                                {{ $highlightsContent->content }}
+                                                            </p>
+                                                        </div>
                                                     </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     @endif
                                 </div>
 
@@ -124,104 +131,204 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                     </div>
                                     <div class="cus-scrollbar side-wrapper">
                                         <div class="sidebar-wrapper pb-12 pb-lg-0 d-flex flex-column gap-6 mobile-sidebar-bg-color">
+                                            @if($course->course_certificate || $course->course_pdf_file)
                                             <div class="sidebar-area">
                                                 <div class="d-grid rounded-1">
                                                     <div class="item-wrapper">
-                                                        <div class="courses-bg-color">
-                                                            <div class="course_title_div">
-                                                                <h6 class="highlight_title">
-                                                                    A Course By
-                                                                </h6>
+                                                        <div class="certificate_img">
+                                                            @if($course->course_certificate)
+                                                            <div class="single-item position-relative d-center">
+                                                                <a class="lightbox" title="{{ $course->title }}" data-fancybox="{{ $course->title }}" data-caption="{{ $course->title}}" href="{{ asset('upload/courses/' . $course->course_certificate) }}">
+                                                                    <img src="{{ asset('upload/courses/' . $course->course_certificate) }}" class="w-100" alt="{{ $course->title }}">
+                                                                </a>
                                                             </div>
-                                                            <div class="">
-                                                                <div class="courses-img">
-                                                                    <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo-white.png')}}">
+                                                            @endif
+                                                            @if($course->course_pdf_file)
+                                                                <div class="course-pdf-file">
+                                                                    <div class="bottom-area d-center mt-5 mt-md-5 mb-3">
+                                                                        <a href="{{ asset('upload/courses/' . $course->course_pdf_file) }}"
+                                                                            class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9" download="{{ $course->course_pdf_file }}">
+                                                                            <span class="fs-seven">Download Course PDF File</span>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                           @if($course->course_duration || $course->course_opening_days)
-                                            <div class="course_duration_section">
-                                                <div class="course_duration_wrapper ">
-                                                    @if($course->course_duration)
-                                                        <div class="co-duration">
-                                                            <div class="duration-icon d-center justify-content-center gap-3 gap-md-4">
-                                                                <div class="du_icon ">
-                                                                    <span class="co-icon rounded-circle">
-                                                                        <i class="fa fa-calendar-days"></i>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="du_content">
-                                                                    <h6>Duration</h6>
-                                                                </div>
-                                                            </div>
-                                                            <div class="duration_content">
-                                                                <div class="coueli">
-                                                                    {{ $course->course_duration }}
-                                                                </div>
-                                                                @if($course->course_opening_days)
-                                                                <span>
-                                                                    <em>{{ $course->course_opening_days }}</em>
-                                                                </span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                    @if($course->course_timings)
-                                                        <div class="co-timings">
-                                                            <div class="duration-icon d-center justify-content-center gap-3 gap-md-4">
-                                                                <div class="du_icon ">
-                                                                    <span class="co-icon rounded-circle">
-                                                                        <i class="far fa-clock"></i>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="du_content">
-                                                                    <h6>Timings</h6>
-                                                                </div>
-                                                            </div>
-                                                            <div class="duration_content">
-                                                                <div class="coueli">
-                                                                    {{ $course->course_timings }}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
                                             @endif
-                                            @if($course->highlightsContents && $course->highlightsContents->count() > 0)
                                             <div class="sidebar-area">
                                                 <div class="d-grid n1-bg-color highlight_div">
                                                     <div class="item-wrapper">
                                                         <div class="highlight_title_div">
                                                             <h6 class="highlight_title">
-                                                                Course Highlights:
+                                                                ACADEMY FAQ’S:
                                                             </h6>
                                                         </div>
-                                                        <div class="px-4 px-md-6 py-4 py-md-5">
-                                                            <ul class="d-flex flex-column gap-2 gap-md-2">
-                                                                @foreach ($course->highlightsContents as $highlightsContent)
-                                                                <li class="content-area d-center justify-content-start gap-3 gap-md-4">
-                                                                    <span class="co-icon rounded-circle">
-                                                                        <i class="{{ $highlightsContent->icon}}"></i>
-                                                                    </span>
-                                                                    <div class="d-grid gap-1 gap-md-2">
-                                                                        <h6 class="n2-color fw-semibold fs-eight">
-                                                                            {{ $highlightsContent->content }}
-                                                                        </h6>
+                                                        <div class="px-2 px-md-2 py-2 py-md-2">
+                                                            <div class="course-addition-section accordion ttr-accordion1" id="accordionRowFaqs">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs1">
+                                                                        <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs0" aria-expanded="true" aria-controls="collapseFaqs0">
+                                                                            Who can join the courses offered by Mirrors academy?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs0" class="accordion-collapse collapse show" aria-labelledby="faqs1" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Our courses are open to everyone passionate about beauty and hairstyling—whether you're a beginner, a salon professional, or someone looking to upgrade their skill.
+                                                                            </p>
+                                                                        </div>
                                                                     </div>
-                                                                </li>
-                                                                @endforeach
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs2">
+                                                                        <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs2" aria-expanded="true" aria-controls="collapseFaqs2">
+                                                                            How do I enroll in a course?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs2" class="accordion-collapse collapse" aria-labelledby="faqs2" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                You can enroll online through our website and instagram, or visit our academy in person. Our team will guide you through the admission process.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs3">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs3" aria-expanded="true" aria-controls="collapseFaqs3">
+                                                                            Will I receive a certificate after completing the course?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs3" class="accordion-collapse collapse" aria-labelledby="faqs3" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Yes, all our courses include a certification upon successful completion, which is recognized in the industry.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs4">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs4" aria-expanded="true" aria-controls="collapseFaqs4">
+                                                                            Are the training sessions practical or theoretical?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs4" class="accordion-collapse collapse" aria-labelledby="faqs4" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Our training is a balanced mix of hands-on practical sessions, demonstrations, and essential theory, designed to prepare you for real-world work.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs5">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs5" aria-expanded="true" aria-controls="collapseFaqs5">
+                                                                            What’s the duration of the courses?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs5" class="accordion-collapse collapse" aria-labelledby="faqs5" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Each course has a different duration. You’ll find complete details under each course listing.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs6">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs6" aria-expanded="true" aria-controls="collapseFaqs6">
+                                                                            Are there any exams or assessments during the course?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs6" class="accordion-collapse collapse" aria-labelledby="faqs6" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Yes, you’ll be evaluated through practicals and assignments to track your progress.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs7">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs7" aria-expanded="true" aria-controls="collapseFaqs7">
+                                                                            Will I learn current trends and international techniques?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs7" class="accordion-collapse collapse" aria-labelledby="faqs7" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Yes, you’ll be evaluated through practicals and assignments to track your progress.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs8">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs8" aria-expanded="true" aria-controls="collapseFaqs8">
+                                                                            Are the courses available online?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs8" class="accordion-collapse collapse" aria-labelledby="faqs8" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                No, we don’t offer online classes. Our courses are designed for in-person training, as the practical sessions require hands-on experience and personalized guidance for the best learning outcome.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
-                                                            </ul>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs9">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs9" aria-expanded="true" aria-controls="collapseFaqs9">
+                                                                            Do I get to work on real clients during the training?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs9" class="accordion-collapse collapse" aria-labelledby="faqs9" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Yes, you’ll have opportunities to practice on live models under the guidance of our expert trainers.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs10">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs10" aria-expanded="true" aria-controls="collapseFaqs10">
+                                                                            Is EMI or installment payment available?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs10" class="accordion-collapse collapse" aria-labelledby="faqs10" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Yes. We offer flexible installment payment options. Please connect with our team for details.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="faqs11">
+                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs11" aria-expanded="true" aria-controls="collapseFaqs11">
+                                                                            Are the trainers certified or experienced?
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="collapseFaqs11" class="accordion-collapse collapse" aria-labelledby="faqs11" data-bs-parent="#accordionRowFaqs">
+                                                                        <div class="accordion-body additional-content-courses">
+                                                                            <p>
+                                                                                Yes, all our trainers are professionally certified and have real industry experience.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endif
                                             <div class="sidebar-area">
                                                 <div class="co-enquiry-today-btn">
                                                     <div class="bottom-area d-center mt-5 mt-md-5">
@@ -251,5 +358,5 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
 @include('frontend.layouts.common-modal')
 @endsection
 @push('scripts')
-
+<script src="{{ asset('fronted/assets/js/plugins/fancybox/jquery.fancybox.js') }}"></script>
 @endpush

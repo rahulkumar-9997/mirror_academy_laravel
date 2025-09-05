@@ -1,7 +1,8 @@
 @extends('backend.layouts.master')
 @section('title','Add new Courses')
 @push('styles')
-<link rel="stylesheet" href="{{asset('backend/assets/plugins/summernote/summernote-bs4.min.css')}}">
+<!-- <link rel="stylesheet" href="{{asset('backend/assets/plugins/summernote/summernote-bs4.min.css')}}"> -->
+
 @endpush
 @section('main-content')
 <div class="content">
@@ -72,7 +73,7 @@
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
                             <label class="form-label" for="page_image">
-                                Courses Page Image
+                                Course Page Image
                             </label>
                             <input type="file" class="form-control @error('page_image') is-invalid @enderror" name="page_image" id="page_image" />
                             @error('page_image')
@@ -82,40 +83,29 @@
                     </div>
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
-                            <label class="form-label" for="course_duration">
-                                Courses Duration in Month
+                            <label class="form-label" for="course_certificate">
+                                Course Certificate Image
                             </label>
-                            <input type="text" class="form-control @error('course_duration') is-invalid @enderror" name="course_duration" id="course_duration"
-                            value="{{ old('course_duration') }}" />
-                            @error('course_duration')
+                            <input type="file" class="form-control @error('course_certificate') is-invalid @enderror" name="course_certificate" id="course_certificate"
+                            value="{{ old('course_certificate') }}" />
+                            @error('course_certificate')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
-                            <label class="form-label" for="course_duration_opening_day">
-                                Courses Duration Opening Days (In Week)
+                            <label class="form-label" for="course_pdf_file">
+                                Course PDF File (PDF File Only 1-20MB accepted )
                             </label>
-                            <input type="text" class="form-control @error('course_duration_opening_day') is-invalid @enderror" name="course_duration_opening_day" id="course_duration_opening_day" 
-                            value="{{ old('course_duration_opening_day') }}"/>
-                            @error('course_duration_opening_day')
+                            <input type="file" class="form-control @error('course_pdf_file') is-invalid @enderror" name="course_pdf_file" id="course_pdf_file" 
+                            value="{{ old('course_pdf_file') }}"/>
+                            @error('course_pdf_file')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-sm-4 col-12">
-                        <div class="mb-3">
-                            <label class="form-label" for="course_timings">
-                                Courses Timings AM to PM
-                            </label>
-                            <input type="text" class="form-control @error('course_timings') is-invalid @enderror" name="course_timings" id="course_timings"
-                            value="{{ old('course_timings') }}" />
-                            @error('course_timings')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                    
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
                             <label class="form-label" for="meta_title">Meta title</label>
@@ -125,7 +115,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-sm-4 col-12">
+                    <div class="col-sm-8 col-12">
                         <div class="mb-3">
                             <label class="form-label" for="meta_description">
                                 Meta Description
@@ -141,7 +131,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label class="form-label">Content <span class="text-danger">*</span></label>
-                            <textarea id="description"  name="description" class="form-control summernoteclass">{{ old('description') }}</textarea>
+                            <textarea id="ckeditor12"  name="description" class="form-control ckeditor4">{{ old('description') }}</textarea>
                             @error('description')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -175,7 +165,7 @@
                                         <label class="form-label" for="title">
                                             Courses Additional Content
                                         </label>
-                                        <textarea name="courses_additional_content[]" class="summernoteclass">{{ old('courses_additional_content.'.$index) }}</textarea>
+                                        <textarea name="courses_additional_content[]" class="ckeditor4">{{ old('courses_additional_content.'.$index) }}</textarea>
                                         @error('courses_additional_content.'.$index)
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -195,7 +185,7 @@
                                         <label class="form-label" for="title">
                                             Courses Additional Content
                                         </label>
-                                        <textarea name="courses_additional_content[]" class="summernoteclass"></textarea>
+                                        <textarea name="courses_additional_content[]" class="ckeditor4"></textarea>
                                         <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2" style="display: none;">Remove</button>
                                     </td>
                                 </tr>
@@ -288,7 +278,7 @@
                     </div>
                 </div>
                 <!--Eligibitiy Area-->
-                <div class="row sticky" id="course_eligibitiy_content">
+                <!-- <div class="row sticky" id="course_eligibitiy_content">
                     <div class="col-md-12">
                         <div class="bg-indigo pt-1 pb-1 rounded-2">
                             <h4 class="text-center text-light" style="margin-bottom: 0px;">
@@ -300,15 +290,7 @@
                                 @if(count(old('courses_eligibitiy_content', [])) > 0)
                                 @foreach(old('courses_eligibitiy_content') as $index => $eligibitiy_content)
                                 <tr class="eligibity-row">
-                                    <!-- <td style="width: 50%">
-                                        <label class="form-label" for="courses_eligibitiy_title">
-                                            Courses Eligibitiy Title
-                                        </label>
-                                        <input type="text" name="courses_eligibitiy_title[]" class="form-control @error('courses_eligibitiy_title.'.$index) is-invalid @enderror" placeholder="Enter Courses  Eligibitiy Title" value="{{ $title }}">
-                                        @error('courses_eligibitiy_title.'.$index)
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </td> -->
+                                    
                                     <td>
                                         <label class="form-label" for="courses_eligibitiy_content">
                                             Courses Eligibitiy Content *
@@ -323,12 +305,7 @@
                                 @endforeach
                                 @else
                                 <tr class="paragraph-row">
-                                    <!-- <td style="width: 50%">
-                                        <label class="form-label" for="title">
-                                            Courses Eligibitiy Title
-                                        </label>
-                                        <input type="text" name="courses_eligibitiy_title[]" class="form-control" placeholder="Enter Courses Eligibitiy Title">
-                                    </td> -->
+                                    
                                     <td>
                                         <label class="form-label" for="title">
                                             Courses Eligibitiy Content 
@@ -348,7 +325,7 @@
                             </tfoot>
                         </table>
                     </div>
-                </div>
+                </div> -->
                 <!--Eligibitiy Area-->
                 <div class="row">
                     <div class="col-lg-12">
@@ -368,4 +345,12 @@
 @endsection
 @push('scripts')
 <script src="{{asset('backend/assets/js/pages/courses.js')}}"></script>
+<script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
+<script>
+    document.querySelectorAll('.ckeditor4').forEach(function(el) {
+        CKEDITOR.replace(el, {
+            removePlugins: 'exportpdf'
+        });
+    });
+</script>
 @endpush

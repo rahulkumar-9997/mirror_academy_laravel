@@ -102,7 +102,7 @@
       </div>
       <div class="row cus-row justify-content-center">
          @foreach($data['courses'] as $course)
-         <div class="col-md-4 col-lg-4">
+         <div class="col-md-4 col-lg-4 mb-3">
             <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
                <div class="img-area position-relative d-center image-file">
                   <a href="{{ route('courses.details', $course->slug) }}">
@@ -117,7 +117,8 @@
                               {{ $course->title }}
                            </h5>
                            <div>
-                              {!! clean_html_content(Str::limit($course->description, 200)) !!}
+                              <p> {!! clean_html_content(Str::limit(strip_tags($course->description), 200)) !!}
+                              </p>
                            </div>
                         </a>
                      </div>

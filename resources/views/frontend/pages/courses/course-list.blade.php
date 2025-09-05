@@ -17,31 +17,32 @@
     <div class="container">
         <div class="row cus-row justify-content-center">
             @if(isset($data['courses']) && $data['courses']->count() > 0)
-                @foreach($data['courses'] as $course)
-                    <div class="col-md-4 col-lg-4">
-                        <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
-                            <div class="img-area position-relative d-center image-file">
+            @foreach($data['courses'] as $course)
+            <div class="col-md-4 col-lg-4 mb-3">
+                <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
+                    <div class="img-area position-relative d-center image-file">
+                        <a href="{{ route('courses.details', $course->slug) }}">
+                            <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="abs-area">
+                        <div class="d-grid gap-1 gap-md-2">
+                            <div class="course-content course-content-list">
                                 <a href="{{ route('courses.details', $course->slug) }}">
-                                    <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="abs-area">
-                                <div class="d-grid gap-1 gap-md-2">
-                                    <div class="course-content course-content-list">
-                                    <a href="{{ route('courses.details', $course->slug) }}">
-                                        <h5 class="n2-color">
-                                            {{ $course->title }}
-                                        </h5>
-                                        <div>
-                                            {!! clean_html_content(Str::limit($course->description, 200)) !!}
-                                        </div>
-                                    </a>
+                                    <h5 class="n2-color">
+                                        {{ $course->title }}
+                                    </h5>
+                                    <div>
+                                        <p> {!! clean_html_content(Str::limit(strip_tags($course->description), 200)) !!}
+                                        </p>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
+            </div>
+            @endforeach
             @endif
         </div>
     </div>

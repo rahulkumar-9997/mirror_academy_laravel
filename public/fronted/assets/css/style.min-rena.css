@@ -219,8 +219,8 @@ button,
 span,
 label,
 li {
-	font-size: 17px;
-    line-height: 25px;
+	font-size: 18px;
+    line-height: 29px;
 }
 
 @media(max-width: 1199px) {
@@ -427,7 +427,7 @@ label,
 li {
 	/* margin: 0; */
 	font-family: var(--body-font);
-	color: rgba(var(--n2), 1);
+	color: rgba(var(--n3), 1);
 	font-weight: 400
 }
 
@@ -515,7 +515,7 @@ ol {
 
 ul li,
 ol li {
-	font-size: inherit;
+	/* font-size: inherit; */
 	font-weight: inherit
 }
 
@@ -5338,11 +5338,11 @@ iframe {
     background: url('../mirror-img/bg.jpg') no-repeat center center fixed;
     background-size: cover;
     z-index: 1; */
-    position: relative;
+    /* position: relative;
     background: 
         linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
         url('../mirror-img/bg.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: cover; */
 	/* BACKGROUND-COLOR: #E0E0E0; */
 }
 
@@ -5378,11 +5378,11 @@ iframe {
   -webkit-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
-  font-size: 20px;
+  font-size: 18px;
+	line-height: 25px;
 }
 .course-addition-section p{
     font-size: 18px;
-    line-height: 1.7;
     margin-bottom: 0px;
 }
 
@@ -5420,7 +5420,7 @@ iframe {
 
 .ttr-accordion1 .accordion-body {
   font-size: 15px;
-  padding: 25px;
+  padding: 15px 10px;
   background-color: rgba(86, 90, 207, 0.1);
   border-radius: 0 0 8px 8px;
 }
@@ -5452,6 +5452,13 @@ iframe {
 .course-details p{
 	color: rgba(var(--n3), 1);
 	margin-bottom: 5px;
+}
+
+.course-details div{
+	font-size: 18px;
+    line-height: 29px;
+	margin-bottom: 5px;
+	font-weight: 500;
 }
 .course-details h4,
 .course-details h5,
@@ -5733,6 +5740,18 @@ iframe {
 }
 .icon-area-c i{
 	font-size: 30px;
+}
+.certificate_img{
+	background: #fff;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.co-eligibity-cont p{
+	font-weight: 400;
+    color: var(--bg--black);
+}
+.certificate_img img{
+	border-radius: 10px;
 }
 /* Responsive */
 @media (max-width: 900px) {

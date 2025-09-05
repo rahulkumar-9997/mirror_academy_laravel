@@ -35,12 +35,11 @@ class CoursesController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'short_content' => 'nullable|string',
-            'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'description' => 'required|string',
-            'course_duration' => 'nullable|string|max:255',
-            'course_duration_opening_day' => 'nullable|string|max:255',
-            'course_timings' => 'nullable|string|max:255',
+            'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_certificate' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_pdf_file' => 'nullable|mimes:pdf|max:20480',
+            'description' => 'required|string',            
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'courses_additional_title' => 'nullable|array',
@@ -51,8 +50,7 @@ class CoursesController extends Controller
             'courses_highlights_content.*' => 'nullable|string',
             'courses_highlights_icon' => 'nullable|array',
             'courses_highlights_icon.*' => 'nullable|string|max:255',
-            'courses_eligibitiy_content' => 'nullable|array',
-            'courses_eligibitiy_content.*' => 'nullable|string', 
+            
         ]);
         $destinationPath = public_path('upload/courses');
         if (!file_exists($destinationPath)) {
@@ -74,15 +72,27 @@ class CoursesController extends Controller
                 $pageImagePath = $destinationPath . '/' . $pageImageName;
                 $this->processAndSaveImage($pageImage, $pageImagePath);
             }           
+            $certificateImageName = null;
+            if ($request->hasFile('course_certificate')) {
+                $certificateImage = $request->file('course_certificate');
+                $certificateImageName = $titleSlug . '-certificate-' . uniqid() . '.webp';
+                $certificateImagePath = $destinationPath . '/' . $certificateImageName;
+                $this->processAndSaveImage($certificateImage, $certificateImagePath);
+            } 
+            $pdfFileName = null;
+            if ($request->hasFile('course_pdf_file')) {
+                $pdfFile = $request->file('course_pdf_file');
+                $pdfFileName = $titleSlug . '-pdf-' . uniqid() . '.' . $pdfFile->getClientOriginalExtension();
+                $pdfFile->move($destinationPath, $pdfFileName);
+            }          
             $course = Courses::create([
                 'title' => $validatedData['title'],
                 'short_content' => $validatedData['short_content'] ?? null,
                 'description' => $validatedData['description'] ?? null,
                 'main_image' => $mainImageName,
-                'page_image' => $pageImageName,
-                'course_duration' => $validatedData['course_duration'] ?? null,
-                'course_opening_days' => $validatedData['course_duration_opening_day'] ?? null,
-                'course_timings' => $validatedData['course_timings'] ?? null,
+                'page_image' => $pageImageName,                
+                'course_certificate' => $certificateImageName,                
+                'course_pdf_file' => $pdfFileName,                
                 'meta_title' => $validatedData['meta_title'] ?? null,
                 'meta_description' => $validatedData['meta_description'] ?? null,
                 'status' => true,
@@ -112,19 +122,15 @@ class CoursesController extends Controller
                         ]);
                     }
                 }
-            }
-            if (!empty($request->courses_eligibitiy_content)) {
-                foreach ($request->courses_eligibitiy_content as $index => $eligibitiy_content) {
-                    if (!empty($eligibitiy_content)) {
-                        CourseEligibility::create([
-                            'courses_id' => $course->id,
-                            'content' => $eligibitiy_content,
-                            'short_order' => $index,                            
-                        ]);
-                    }
-                }
-            }
+            }            
             DB::commit();
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Course created successfully.',
+                    'redirect_url' => route('manage-courses.index')
+                ]);
+            }
             return redirect()->route('manage-courses.index')->with('success', 'Course created successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -150,8 +156,10 @@ class CoursesController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'short_content' => 'nullable|string',
-            'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_certificate' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_pdf_file' => 'nullable|mimes:pdf|max:20480',
             'description' => 'required|string',
             'course_duration' => 'nullable|string|max:255',
             'course_duration_opening_day' => 'nullable|string|max:255',
@@ -170,12 +178,7 @@ class CoursesController extends Controller
             'courses_highlights_content.*' => 'nullable|string',
             'courses_highlights_icon' => 'nullable|array',
             'courses_highlights_icon.*' => 'nullable|string|max:255',
-            'remove_main_image' => 'nullable|boolean',
-            'remove_page_image' => 'nullable|boolean',
-            'courses_eligibitiy_id' => 'nullable|array',
-            'courses_eligibitiy_id.*' => 'nullable|integer|exists:courses_eligibilities,id',
-            'courses_eligibitiy_content' => 'nullable|array',
-            'courses_eligibitiy_content.*' => 'nullable|string',
+            
         ]);
         $destinationPath = public_path('upload/courses');
         if (!file_exists($destinationPath)) {
@@ -206,13 +209,30 @@ class CoursesController extends Controller
                 $this->processAndSaveImage($pageImage, $pageImagePath);
                 $course->page_image = $pageImageName;
             }
+            if ($request->hasFile('course_certificate')) {
+                if ($course->course_certificate && file_exists($destinationPath . '/' . $course->course_certificate)) {
+                    unlink($destinationPath . '/' . $course->course_certificate);
+                }
+                $certificateFile = $request->file('course_certificate');
+                $certificateName = $titleSlug . '-certificate-' . uniqid() . '.webp';
+                $certificatePath = $destinationPath . '/' . $certificateName;
+                $this->processAndSaveImage($certificateFile, $certificatePath);
+                $course->course_certificate = $certificateName;
+            }
+
+            if ($request->hasFile('course_pdf_file')) {
+                if ($course->course_pdf_file && file_exists($destinationPath . '/' . $course->course_pdf_file)) {
+                    unlink($destinationPath . '/' . $course->course_pdf_file);
+                }
+                $pdfFile = $request->file('course_pdf_file');
+                $pdfName = $titleSlug . '-pdf-' . uniqid() . '.' . $pdfFile->getClientOriginalExtension();
+                $pdfFile->move($destinationPath, $pdfName);
+                $course->course_pdf_file = $pdfName;
+            }
             $course->update([
                 'title' => $validatedData['title'],
                 'short_content' => $validatedData['short_content'] ?? null,
                 'description' => $validatedData['description'] ?? null,
-                'course_duration' => $validatedData['course_duration'] ?? null,
-                'course_opening_days' => $validatedData['course_duration_opening_day'] ?? null,
-                'course_timings' => $validatedData['course_timings'] ?? null,
                 'meta_title' => $validatedData['meta_title'] ?? null,
                 'meta_description' => $validatedData['meta_description'] ?? null,
             ]);
@@ -244,19 +264,15 @@ class CoursesController extends Controller
                     }
                 }
             }
-            CourseEligibility::where('courses_id', $id)->delete();
-            if (!empty($request->courses_eligibitiy_content)) {
-                foreach ($request->courses_eligibitiy_content as $index => $eligibitiy_content) {
-                    if (!empty($eligibitiy_content)) {
-                        CourseEligibility::create([
-                            'courses_id' => $course->id,
-                            'content' => $eligibitiy_content,
-                            'short_order' => $index,                            
-                        ]);
-                    }
-                }
-            }
+            
             DB::commit();
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Course updated successfully.',
+                    'redirect_url' => route('manage-courses.index')
+                ]);
+            }
             return redirect()->route('manage-courses.index')->with('success', 'Course updated successfully.');
 
         } catch (\Exception $e) {

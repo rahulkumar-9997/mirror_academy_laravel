@@ -8,7 +8,7 @@
                 <th>Main Image</th>
                 <th>Additional Content</th>
                 <th>Highlights</th>
-                <th>Eligibity</th>
+                <th>Course PDF</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -44,10 +44,10 @@
                     @endif
                 </td>
                 <td>
-                    @if($course->eligibilitiesContent->count() > 0)
-                        <span class="badge bg-success">{{ $course->eligibilitiesContent->count() }} Eligibity</span>
-                    @else
-                        <span class="badge bg-danger">No Eligibity</span>   
+                    @if($course->course_pdf_file)
+                        <a target="_blank" href="{{ asset('upload/courses/' . $course->course_pdf_file) }}">
+                            <span class="badge bg-purple">View Course File</span>
+                        <a>
                     @endif
                 </td>
                 

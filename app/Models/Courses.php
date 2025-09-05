@@ -16,6 +16,8 @@ class Courses extends Model
         'description',
         'main_image',
         'page_image',
+        'course_certificate',
+        'course_pdf_file',
         'course_duration',
         'course_opening_days',
         'course_timings',

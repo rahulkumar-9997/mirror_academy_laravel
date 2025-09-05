@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('.add_more_additional').click(function () {
         let container = $('#additionalContentContainer');
         let count = container.children().length + 1;
+        let uniqueId = 'ckeditor_' + Date.now();
         let newRow = `
         <tr class="paragraph-row">
             <td style="width: 50%">
@@ -11,22 +12,15 @@ $(document).ready(function () {
             </td>                                    
             <td>
                 <label class="form-label">Courses Additional Content</label>
-                <textarea name="courses_additional_content[]" class="summernoteclass form-control" placeholder="Enter detailed content here"></textarea>
+                <textarea name="courses_additional_content[]" class="ckeditor4 form-control" placeholder="Enter detailed content here" id="${uniqueId}"></textarea>
                 <div class="remove-btn-container">
                     <button type="button" class="btn btn-danger btn-sm remove-paragraph"><i class="fas fa-trash me-1"></i>Remove</button>
                 </div>
             </td>
         </tr>`;
         container.append(newRow);
-        container.find('.summernoteclass').last().summernote({
-            height: 150,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
+        CKEDITOR.replace(uniqueId, {
+            removePlugins: 'exportpdf'
         });
         updateCounters();
     });
@@ -78,7 +72,7 @@ $(document).ready(function () {
     });
 
     /**Add more eligibity */
-    $('.add_more_eligibity').click(function () {
+    /*$('.add_more_eligibity').click(function () {
         let container = $('#eligibityContentContainer');
         let templateRow = container.find('.eligibity-row').first();
         if (templateRow.length === 0) {
@@ -98,7 +92,133 @@ $(document).ready(function () {
     $(document).on('click', '.remove-eligibity', function() {
         $(this).closest('tr').remove();
     });
+    */
+    $(document).off('submit', '#coursesFormAdd').on('submit', '#coursesFormAdd', function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var submitButton = form.find('button[type="submit"]');
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback').remove();
+        submitButton.prop('disabled', true).html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Saving...'
+        );
+        var formData = new FormData(this);
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                submitButton.prop('disabled', false).html('Submit');
+                if (response.status === 'success') {
+                    Toastify({
+                        text: response.message,
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        className: "bg-success",
+                        close: true
+                    }).showToast();
+                    setTimeout(function () {
+                        window.location.href = response.redirect_url;
+                    }, 300);
+                }
+            },
+            error: function (xhr) {
+                submitButton.prop('disabled', false).html('Submit');
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    Toastify({
+                        text: xhr.responseJSON.message,
+                        duration: 10000,
+                        gravity: "top",
+                        position: "right",
+                        className: "bg-danger",
+                        close: true
+                    }).showToast();
+                }
 
-    /**Add more eligibity */
+                var errors = xhr.responseJSON.errors;
+                if (errors) {
+                    let firstErrorField = null;
+                    $.each(errors, function (key, value) {
+                        var inputField = $('[name="' + key + '"]'); 
+                        inputField.addClass('is-invalid');
+                        inputField.after('<div class="invalid-feedback">' + value[0] + '</div>');
+                        if (!firstErrorField) {
+                            firstErrorField = inputField;
+                        }
+                    });
+                    if (firstErrorField) {
+                        firstErrorField.focus();
+                    }
+                }
+            }
+        });
+    });
+
+    $(document).off('submit', '#coursesFormEdit').on('submit', '#coursesFormEdit', function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var submitButton = form.find('button[type="submit"]');
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback').remove();
+        submitButton.prop('disabled', true).html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Saving...'
+        );
+        var formData = new FormData(this);
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                submitButton.prop('disabled', false).html('Submit');
+                if (response.status === 'success') {
+                    Toastify({
+                        text: response.message,
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        className: "bg-success",
+                        close: true
+                    }).showToast();
+                    setTimeout(function () {
+                        window.location.href = response.redirect_url;
+                    }, 300);
+                }
+            },
+            error: function (xhr) {
+                submitButton.prop('disabled', false).html('Submit');
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    Toastify({
+                        text: xhr.responseJSON.message,
+                        duration: 10000,
+                        gravity: "top",
+                        position: "right",
+                        className: "bg-danger",
+                        close: true
+                    }).showToast();
+                }
+
+                var errors = xhr.responseJSON.errors;
+                if (errors) {
+                    let firstErrorField = null;
+                    $.each(errors, function (key, value) {
+                        var inputField = $('[name="' + key + '"]'); 
+                        inputField.addClass('is-invalid');
+                        inputField.after('<div class="invalid-feedback">' + value[0] + '</div>');
+                        if (!firstErrorField) {
+                            firstErrorField = inputField;
+                        }
+                    });
+                    if (firstErrorField) {
+                        firstErrorField.focus();
+                    }
+                }
+            }
+        });
+    });
 
 });
