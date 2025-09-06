@@ -34,35 +34,39 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                 <div class="ttr-post-text single-area blog-post-data course-post-data">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <h2 class="n2-color highlight-cursor-head cou-mobile-title ">
-                                                {{ $course->title }}
-                                            </h2>
-                                            <div class="col-lg-5 for-left-image">
-                                                @if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image)))
-                                                <div class="single-item">
-                                                    <figure class="course-figure">
-                                                        <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius w-100" loading="lazy">
-                                                    </figure>
-                                                </div>
-                                                @elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image)))
-                                                <div class="single-item">
-                                                    <figure class="course-figure">
-                                                        <img src="{{ asset('upload/courses/' . $course->main_image) }}" alt="{{ $course->title }}" class="border-radius w-100">
-                                                    </figure>
-                                                </div>
-                                                @endif
-                                            </div>
-                                            <div class="text">
-                                                <div class="course-de-ti">
-                                                    @if($course->short_content)
-                                                    <h4 class="n2-color highlight-cursor-head cou-title">
-                                                        {{ $course->short_content }}
-                                                    </h4>
+                                            <div class="row">
+                                                <h2 class="n2-color highlight-cursor-head cou-mobile-title ">
+                                                    {{ $course->title }}
+                                                </h2>
+                                                <div class="col-lg-5 for-left-image1">
+                                                    @if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image)))
+                                                    <div class="single-item">
+                                                        <figure class="course-figure">
+                                                            <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius w-100" loading="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    @elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image)))
+                                                    <div class="single-item">
+                                                        <figure class="course-figure">
+                                                            <img src="{{ asset('upload/courses/' . $course->main_image) }}" alt="{{ $course->title }}" class="border-radius w-100">
+                                                        </figure>
+                                                    </div>
                                                     @endif
                                                 </div>
-                                                <div class="course-details">
-                                                    <div class="paragraph-area">
-                                                        {!! clean_html_content($course->description) !!}
+                                                <div class="col-lg-7">
+                                                    <div class="text">
+                                                        <div class="course-de-ti">
+                                                            @if($course->short_content)
+                                                            <h4 class="n2-color highlight-cursor-head cou-title">
+                                                                {{ $course->short_content }}
+                                                            </h4>
+                                                            @endif
+                                                        </div>
+                                                        <div class="course-details">
+                                                            <div class="paragraph-area">
+                                                                {!! clean_html_content($course->description) !!}
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
