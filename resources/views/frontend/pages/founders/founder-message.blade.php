@@ -30,19 +30,23 @@
             <div class="col-md-6 ps-3 ps-lg-10 overflow-hidden">
                 <div class="d-grid gap-1 gap-md-1 pt-30">
                     <p class="n3-color">
-                       It was my dream to <strong>take Hyderabad onto the global fashion map</strong> and make it a hotspot in India for beauty care. For this to come true, it was necessary to raise the standards of education in hair and beauty care in Hyderabad, and create great careers and opportunities for enthusiastic learners. <strong> The Mirrors Academy of Hair & Beauty in collaboration with L’Oreal Professionnel</strong> is the right step in that direction, and I’m sure my students will be role models for others to emulate.
+                      When I started <strong> Mirrors Luxury Salons more than 25 years ago</strong>, my dream was simple yet powerful — to put <strong>Hyderabad</strong> on the <strong>global</strong> beauty and fashion map. Over the years, Mirrors grew into a name that stood for luxury, innovation, and trust. For me, it was never just about salons; it was about creating experiences that uplift, inspire, and set new benchmarks in beauty and wellness.
                     </p>
                     <p class="n3-color">
-                        A bright academician, a successful sportsperson, entrepreneur, counselor, social worker, philanthropist and a happy homemaker, Dr. Vijayalakshmi is everything a woman spires to be. Hardworking, addicted to success, she chases her dreams and goals with gusto to achieve them.
+                       But while building this legacy, I realized that true and lasting change in the beauty industry could only come through education. Salons can transform people’s looks, but education transforms lives. That is why I founded the Mirrors Academy of Hair & Beauty — an institution dedicated to nurturing raw talent, refining skills, and creating careers for passionate learners.
                     </p>
                     <p class="n3-color">
-                       Credited to ushering in global beauty trends to Hyderabad, Dr. Vijayalakshmi has been instrumental in transforming the City into a beauty care destination with Mirrors Spa & Salon. A globe-trotter in search of the latest spa and salon innovations and technologies, she ensures that they are replicated in Hyderabad at Mirrors.
+                       <strong> At Mirrors Academy</strong>, my vision has always been to provide the same world-class standards that define our salons. With the partnership of global partners like L’Oréal Professionnel, we ensure that our students are trained not only in technical excellence but also in creativity, professionalism, and confidence. Here, every student is given the tools and opportunities to turn their dreams into reality.
                     </p>
                     <p class="n3-color">
-                       She is an active philanthropist, sponsoring the needs of at least 100 poor and underprivileged cancer patients who come to Indo-American Cancer Centre in Hyderabad with their families to obtain treatment. As a member of the Film Censor Board, she dons the mantle of sizing up scenes that show women in poor light.
+                       Today, as I look back at the <strong> 25-year journey of Mirrors Luxury Salons,</strong> I see a legacy of beauty, style, and innovation. And when I look at Mirrors Academy, I see the future — a place where ambition finds guidance, passion finds purpose, and the next generation of salon professionals is born.
+
                     </p>
                     <p class="n3-color">
-                       Dr. Vijayalakshmi was conferred with an Honorary Doctorate (PhD) by the prestigious Concord University, USA, for her outstanding commitment to humanitarian care for cancer patients.
+                       My greatest fulfilment comes from knowing that our salons inspire confidence in our clients, and our academy empowers students to build successful, meaningful careers. Together, they carry forward the spirit of Mirrors — a spirit of excellence, transformation, and opportunity.”
+                    </p>
+                    <p>
+                       <strong> — Dr. Vijayalakshmi Goodapati</strong>
                     </p>
                 </div>
                 
