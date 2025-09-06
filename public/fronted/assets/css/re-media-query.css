@@ -322,10 +322,16 @@
         margin-right: 0px;
         float: none;
     }
-    .course-addition-section{
-        margin-top: 35px;
+    .course-addition-section.eaightcoloumn{
+        margin-top: 50px;
     }
+
+    .course-addition-section{
+        margin-top: 5px;
+    }
+
     .course-post-data{
         padding-top: 20px;
     }
+    
 }

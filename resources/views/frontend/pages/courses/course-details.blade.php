@@ -73,7 +73,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                         </div>
                                         <div class="col-lg-12">
                                             @if($course->additionalContents && $course->additionalContents->count() > 0)
-                                            <div class="course-addition-section accordion ttr-accordion1" id="accordionRow1">
+                                            <div class="course-addition-section eaightcoloumn accordion ttr-accordion1" id="accordionRow1">
                                                 @foreach ($course->additionalContents as $additionalContent)
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header" id="heading{{ $loop->index }}">
