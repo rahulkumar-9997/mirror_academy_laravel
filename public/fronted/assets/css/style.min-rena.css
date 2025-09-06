@@ -5356,7 +5356,7 @@ iframe {
     z-index: -1;
 } */
 .course-details{
-	padding-top: 15px;
+	padding-top: 0px;
 }
 .course-de-ti .cou-title{
 	color: #000000;
@@ -5744,8 +5744,8 @@ iframe {
 	font-size: 30px;
 }
 .certificate_img{
-	background: #fff;
-    padding: 10px 10px;
+	/* background: #fff; */
+    /* padding: 10px 10px; */
     border-radius: 10px;
 }
 .co-eligibity-cont p{
@@ -5754,6 +5754,29 @@ iframe {
 }
 .certificate_img img{
 	border-radius: 10px;
+}
+
+.for-left-image {
+    margin-right: 20px;
+    float: left;
+    margin-left: 0px;
+    margin-bottom: 15px;
+}
+.cou-mobile-title{
+	color: #000000;
+    font-family: "Roboto", Sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+	margin-bottom: 10px;
+}
+.cou-mobile-title {
+    display: none;
+}
+/* Show only on mobile (max-width: 768px for example) */
+@media (max-width: 768px) {
+    .cou-mobile-title {
+        display: block;
+    }
 }
 /* Responsive */
 @media (max-width: 900px) {

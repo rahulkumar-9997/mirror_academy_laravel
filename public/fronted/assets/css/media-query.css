@@ -313,4 +313,19 @@
         gap: 10px;
         padding: 0px;
     }
+    .cou-mobile-title{
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    .for-left-image{
+        margin-right: 0px;
+        float: none;
+    }
+    .course-addition-section{
+        margin-top: 35px;
+    }
+    .course-post-data{
+        padding-top: 20px;
+    }
 }

@@ -27,93 +27,102 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
     <div class="container">
         <div class="row justify-content-center gy-7 gy-xl-0">
             <div class="col-lg-12 gy-6 gy-lg-0">
-                <div class="section-sidebar s1-bg-color-rgb position-relative">
+                <div class="section-sidebar position-relative">
                     <div class="sidebar-toggler position-relative">
                         <div class="row">
                             <div class="col-xl-8 col-xxl-8 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
-                                <div class="ttr-post-text single-area blog-post-data">
-                                    @if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image)))
-                                    <div class="single-item text-center">
-                                        <figure class="course-figure">
-                                            <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius" loading="lazy">
-                                        </figure>
-                                    </div>
-                                    @elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image)))
-                                    <div class="single-item text-center">
-                                        <figure class="course-figure">
-                                            <img src="{{ asset('upload/courses/' . $course->main_image) }}" alt="{{ $course->title }}" class="border-radius ">
-                                        </figure>
-                                    </div>
-                                    @endif
-                                    <div class="course-de-ti mt-5">
-                                        @if($course->short_content)
-                                        <h4 class="n2-color highlight-cursor-head cou-title">
-                                            {{ $course->short_content }}
-                                        </h4>
-                                        @else
-                                        <h2 class="n2-color highlight-cursor-head cou-title">
-                                            {{ $course->title }}
-                                        </h2>
-                                        @endif
-                                    </div>
-                                    <div class="course-details">
-                                        <div class="paragraph-area d-grid gap-2 gap-md-3">
-                                            {!! clean_html_content($course->description) !!}
-                                        </div>
-                                    </div>
-                                    @if($course->additionalContents && $course->additionalContents->count() > 0)
-                                    <div class="course-addition-section accordion ttr-accordion1" id="accordionRow1">
-                                        @foreach ($course->additionalContents as $additionalContent)
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="heading{{ $loop->index }}">
-                                                <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
-                                                    type="button"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#collapse{{ $loop->index }}"
-                                                    aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
-                                                    aria-controls="collapse{{ $loop->index }}">
-                                                    {{ $additionalContent->title }}
-                                                </button>
+                                <div class="ttr-post-text single-area blog-post-data course-post-data">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="n2-color highlight-cursor-head cou-mobile-title ">
+                                                {{ $course->title }}
                                             </h2>
-                                            <div id="collapse{{ $loop->index }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="heading{{ $loop->index }}"
-                                                data-bs-parent="#accordionRow1">
-                                                <div class="accordion-body additional-content-courses">
-                                                    {!! clean_html_content($additionalContent->description) !!}
+                                            <div class="col-lg-5 for-left-image">
+                                                @if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image)))
+                                                <div class="single-item">
+                                                    <figure class="course-figure">
+                                                        <img src="{{ asset('upload/courses/' . $course->page_image) }}" alt="{{ $course->title }}" class="border-radius w-100" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                @elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image)))
+                                                <div class="single-item">
+                                                    <figure class="course-figure">
+                                                        <img src="{{ asset('upload/courses/' . $course->main_image) }}" alt="{{ $course->title }}" class="border-radius w-100">
+                                                    </figure>
+                                                </div>
+                                                @endif
+                                            </div>
+                                            <div class="text">
+                                                <div class="course-de-ti">
+                                                    @if($course->short_content)
+                                                    <h4 class="n2-color highlight-cursor-head cou-title">
+                                                        {{ $course->short_content }}
+                                                    </h4>
+                                                    @endif
+                                                </div>
+                                                <div class="course-details">
+                                                    <div class="paragraph-area">
+                                                        {!! clean_html_content($course->description) !!}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        @endforeach
-                                    </div>
-                                    @endif
-                                    @if($course->highlightsContents && $course->highlightsContents->count() > 0)
-                                    <div class="course-eligibity-section mt-10">
-                                        <div class="course_eligibity-title">
-                                            <div class="course-de-ti mt-5">
-                                                <h2 class="n2-color highlight-cursor-head cou-title">
-                                                    Course Highlights
-                                                </h2>
-                                            </div>
-                                            <div class="course_el_content mt-5">
-                                                <div class="row">
-                                                    @foreach ($course->highlightsContents as $highlightsContent)
-                                                    <div class="col-lg-4 mb-3">
-                                                        <div class="co-eligibity-cont single-item nc-bg-color px-3 px-md-3 py-3 py-md-3">
-                                                            <div class="icon-area-c">
-                                                                <span>
-                                                                    <i class="{{ $highlightsContent->icon}}"></i>
-                                                                </span>
-                                                            </div>
-                                                            <p>
-                                                                {{ $highlightsContent->content }}
-                                                            </p>
+                                        <div class="col-lg-12">
+                                            @if($course->additionalContents && $course->additionalContents->count() > 0)
+                                            <div class="course-addition-section accordion ttr-accordion1" id="accordionRow1">
+                                                @foreach ($course->additionalContents as $additionalContent)
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="heading{{ $loop->index }}">
+                                                        <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                                                            type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#collapse{{ $loop->index }}"
+                                                            aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
+                                                            aria-controls="collapse{{ $loop->index }}">
+                                                            {{ $additionalContent->title }}
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapse{{ $loop->index }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="heading{{ $loop->index }}"
+                                                        data-bs-parent="#accordionRow1">
+                                                        <div class="accordion-body additional-content-courses">
+                                                            {!! clean_html_content($additionalContent->description) !!}
                                                         </div>
                                                     </div>
-                                                    @endforeach
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            @endif
+                                            @if($course->highlightsContents && $course->highlightsContents->count() > 0)
+                                            <div class="course-eligibity-section mt-10">
+                                                <div class="course_eligibity-title">
+                                                    <div class="course-de-ti mt-5">
+                                                        <h2 class="n2-color highlight-cursor-head cou-title">
+                                                            Course Highlights
+                                                        </h2>
+                                                    </div>
+                                                    <div class="course_el_content mt-5">
+                                                        <div class="row">
+                                                            @foreach ($course->highlightsContents as $highlightsContent)
+                                                            <div class="col-lg-4 mb-3">
+                                                                <div class="co-eligibity-cont single-item nc-bg-color px-3 px-md-3 py-3 py-md-3">
+                                                                    <div class="icon-area-c">
+                                                                        <span>
+                                                                            <i class="{{ $highlightsContent->icon}}"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <p>
+                                                                        {{ $highlightsContent->content }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
-                                    @endif
                                 </div>
 
                             </div>
