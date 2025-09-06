@@ -88,7 +88,7 @@
    </div>
 </section>
 @if(isset($data['courses']) && $data['courses']->count() > 0)
-<section class="position-relative n1-bg-color our-courses">
+<section class="position-relative n1-bg-color our-courses pt-5">
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-8 justify-content-center text-center">
          <div class="col-md-8 col-lg-8 col-xl-8">
