@@ -321,6 +321,7 @@
     .for-left-image{
         margin-right: 0px;
         float: none;
+        margin-left: 0px;
     }
     .course-addition-section.eaightcoloumn{
         margin-top: 50px;
@@ -332,6 +333,14 @@
 
     .course-post-data{
         padding-top: 20px;
+    }
+    
+    .co-image-i {
+        display: flex;
+        justify-content: center;
+    }
+    .course-details div{
+        text-align: unset;
     }
     
 }
