@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontHomeController;
+use App\Http\Controllers\Frontend\SiteMapController;
 use App\Http\Middleware\TrackVisitor;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\ForgotPasswordController;
@@ -22,12 +23,13 @@ Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us'
 Route::get('founders-message', [FrontHomeController::class, 'foundersMessage'])->name('founders-message');
 Route::get('contact-us', [FrontHomeController::class, 'contactUs'])->name('contact-us');
 Route::post('enquiry-submit', [FrontHomeController::class, 'EnquirySubmitForm'])->name('enquiry.submit');
-Route::get('courses', [FrontHomeController::class, 'coursesList'])->name('courses');
-Route::get('courses/{slug}', [FrontHomeController::class, 'courseDetails'])->name('courses.details');
+
 Route::get('terms-of-use', [FrontHomeController::class, 'termsOfUse'])->name('terms-of-use');
 Route::get('privacy-policy', [FrontHomeController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('course-enquiry', [FrontHomeController::class, 'courseEnquiryForm'])->name('course-enquiry');
 Route::post('course-enquiry-submit', [FrontHomeController::class, 'EnquirySubmitForm'])->name('course-enquiry.submit');
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+Route::get('courses', [FrontHomeController::class, 'coursesList'])->name('courses');
 
 
 Route::prefix('admin')->group(function () {
@@ -62,3 +64,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('menu/{menu}/item/{item}', [MenuController::class, 'destroyItem'])->name('menu.item.destroy');
     Route::post('menus/{menu}/items/order', [MenuController::class, 'orderItems'])->name('menus.items.order');
 });
+
+Route::get('{slug}', [FrontHomeController::class, 'courseDetails'])
+    ->where('slug', '[a-z0-9-]+')
+    ->name('courses.details');

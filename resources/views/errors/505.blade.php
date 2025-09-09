@@ -5,9 +5,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Hotel Sankalp 505</title>
-
+  <link rel="shortcut icon" href="{{asset('fronted/assets/mirror-img/fav.jpg')}}" type="image/x-icon">
+  <title>Mirror Academy 505</title>
   <style id="" media="all">
     /* cyrillic-ext */
     @font-face {
@@ -73,7 +72,8 @@
     }
 
     .notfound .notfound-404 h1>span {
-      text-shadow: -8px 0 0 #fff
+      text-shadow: -8px 0 0 #fff;
+      color: #000000;
     }
 
     .notfound .notfound-404 h3 {
@@ -123,6 +123,20 @@
         font-size: 16px
       }
     }
+    .error-btn {
+      padding: 17px 40px;
+      background: #000000;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 30px;
+      box-shadow: 0px 20px 30px 0px rgb(0 0 0 / 20%);
+      color: #ffffff;
+      transition-duration: .3s;
+      transition-property: transform;
+      transition-timing-function: ease-out;
+      text-decoration: none;
+  }
   </style>
   <meta name="robots" content="noindex, follow">
 </head>

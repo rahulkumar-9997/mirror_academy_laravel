@@ -30,14 +30,14 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                 <div class="section-sidebar position-relative">
                     <div class="sidebar-toggler position-relative">
                         <div class="row">
-                            <div class="col-xl-8 col-xxl-8 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
+                            <div class="col-xl-9 col-xxl-9 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
                                 <div class="ttr-post-text single-area blog-post-data course-post-data">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <h2 class="n2-color highlight-cursor-head cou-mobile-title ">
                                                 {{ $course->title }}
                                             </h2>
-                                            <div class="col-lg-5 for-left-image">
+                                            <div class="col-lg-4 for-left-image">
                                                 @php
                                                 $imageUrl = null;
                                                 if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image))) {
@@ -311,7 +311,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                 </div>
 
                             </div>
-                            <div class="col-xl-4 col-xxl-4">
+                            <div class="col-xl-3 col-xxl-3">
                                 <div class="sidebar-common cus-overflow cus-scrollbar sidebar-head secondary-sidebar me-n4 me-sm-1">
                                     <div class="d-center justify-content-end">
                                         <div class="d-block d-xl-none">

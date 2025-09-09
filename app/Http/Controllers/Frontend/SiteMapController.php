@@ -1,73 +1,54 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Carbon\Carbon;
-class SiteMapController extends Controller
+use App\Models\Courses;
+
+
+class SitemapController extends Controller
 {
     public function index()
     {
-        // Get all web routes
-        $routes = Route::getRoutes()->getRoutesByMethod()['GET'];
-        
-        $urls = [];
-        $now = Carbon::now()->toAtomString();
-        
-        // Exclude routes that shouldn't be in sitemap
-        $excludedRoutes = [
-            'debugbar.', 
-            'ignition.', 
-            'sitemap',
-            'contact-us.store',
-            'each-contact.store'
+        $sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
+        $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+       
+        $sitemap .= '<url>';
+        $sitemap .= '<loc>' . url('/') . '</loc>';
+        $sitemap .= '<lastmod>' . Carbon::now()->toAtomString() . '</lastmod>';
+        $sitemap .= '<changefreq>daily</changefreq>';
+        $sitemap .= '<priority>1.0</priority>';
+        $sitemap .= '</url>';
+
+        $courses = Courses::get();
+        foreach ($courses as $course) {
+            $sitemap .= '<url>';
+            $sitemap .= '<loc>' . url($course->slug) . '</loc>';
+            $sitemap .= '<lastmod>' . $course->updated_at->toAtomString() . '</lastmod>';
+            $sitemap .= '<changefreq>weekly</changefreq>';
+            $sitemap .= '<priority>0.8</priority>';
+            $sitemap .= '</url>';
+        }
+        /**Other page */
+        $pages = [
+            ['url' => url('contact-us'), 'priority' => '0.6'],
+            ['url' => url('about-us'), 'priority' => '0.6'],
+            ['url' => url('gallery'), 'priority' => '0.5'],
+            ['url' => url('founders-message'), 'priority' => '0.8'],
+            ['url' => url('terms-of-use'), 'priority' => '0.9'],
+            ['url' => url('privacy-policy'), 'priority' => '0.10'],
         ];
-        
-        foreach ($routes as $route) {
-            $routeName = $route->getName();
-            
-            // Skip routes without name or excluded routes
-            if (!$routeName || $this->shouldExcludeRoute($routeName, $excludedRoutes)) {
-                continue;
-            }
-            
-            // Skip routes that require parameters (you can customize this)
-            if (str_contains($route->uri, '{')) {
-                continue;
-            }
-            
-            $urls[] = [
-                'loc' => url($route->uri),
-                'lastmod' => $now,
-                'changefreq' => 'weekly',
-                'priority' => $this->getPriority($routeName),
-            ];
+        foreach ($pages as $page) {
+            $sitemap .= '<url>';
+            $sitemap .= '<loc>' . $page['url'] . '</loc>';
+            $sitemap .= '<lastmod>' . Carbon::now()->toAtomString() . '</lastmod>';
+            $sitemap .= '<changefreq>monthly</changefreq>';
+            $sitemap .= '<priority>' . $page['priority'] . '</priority>';
+            $sitemap .= '</url>';
         }
-        
-        return response()
-            ->view('frontend.pages.sitemap.index', compact('urls'))
-            ->header('Content-Type', 'text/xml');
-    }
-    
-    protected function shouldExcludeRoute($routeName, $excludedRoutes)
-    {
-        foreach ($excludedRoutes as $excluded) {
-            if (str_starts_with($routeName, $excluded)) {
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    protected function getPriority($routeName)
-    {
-        // Assign priorities based on route importance
-        if ($routeName === 'home') return '1.0';
-        if (str_starts_with($routeName, 'financial-services')) return '0.9';
-        if (str_starts_with($routeName, 'corporate-advisory')) return '0.9';
-        if (str_starts_with($routeName, 'mutual-funds')) return '0.8';
-        if (str_starts_with($routeName, 'calculators')) return '0.7';
-        if (str_starts_with($routeName, 'other-services')) return '0.7';
-        return '0.5';
+        $sitemap .= '</urlset>';
+        return Response::make($sitemap, 200, ['Content-Type' => 'application/xml']);
     }
 }

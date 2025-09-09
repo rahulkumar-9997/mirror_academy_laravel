@@ -46,8 +46,17 @@
                                     </span>
                                     <span class="n2-color">Call Us</span>
                                 </div>
-                                <p class="n3-color">
+                                <p class="n3-color" style="margin-bottom: 7px;">
                                     <a href="tel:+919618991818" class="n3-color">+91-9618991818</a>
+                                </p>
+                                <div class="d-flex gap-4 mb-2">
+                                    <span class="d-center p6-color fs-five">
+                                        <i class="ph ph-envelope-open"></i>
+                                    </span>
+                                    <span class="n2-color">Mail Us</span>
+                                </div>
+                                <p class="n3-color">
+                                    <a href="mailto:contact@mirrorsacademy.in" class="n3-color">contact@mirrorsacademy.in</a>
                                 </p>
                             </div>
                         </div>

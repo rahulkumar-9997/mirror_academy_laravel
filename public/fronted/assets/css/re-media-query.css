@@ -342,5 +342,8 @@
     .course-details div{
         text-align: unset;
     }
+    .ttr-post-text.blog-post-data ul li{
+        text-align: left;
+    }
     
 }

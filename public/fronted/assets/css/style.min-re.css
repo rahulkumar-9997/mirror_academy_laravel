@@ -5445,7 +5445,7 @@ iframe {
 
 .ttr-accordion1 .accordion-body {
   font-size: 15px;
-  padding: 15px 10px;
+  padding: 15px 20px;
   background-color: rgba(86, 90, 207, 0.1);
   border-radius: 0 0 8px 8px;
 }
@@ -5470,6 +5470,46 @@ iframe {
 .terms-container p{
 	font-size: 17px;
 	text-align: justify;
+	margin-bottom: 7px;
+}
+
+
+
+
+.terms-container ul{    
+    list-style: none;
+    padding: 5px 0px 5px 10px;
+    position: relative;
+}
+.terms-container ul li{
+    position: relative;
+    color: rgba(var(--n3), 1);
+    font-weight: 400;
+    line-height: 24px;
+	font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.terms-of-use-section .terms-container ul li {  
+    padding: 0px;
+    position: relative;
+    line-height: 1.7em;
+    margin-bottom: 2px;
+    padding-left: 25px;
+	font-size: 18px;
+    text-align: justify;
+}
+.terms-container ul li:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 14px;
+    display: block;
+    vertical-align: middle;
+    position: absolute;
+    content: "\f054";
+    left: 0;
+    top: -1px;
+    color: var(--bg--black);
 }
 .course-content-list p{
 	color: rgba(var(--n3), 1);

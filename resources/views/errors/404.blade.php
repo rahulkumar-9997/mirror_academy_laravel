@@ -6,10 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hotel Sankalp 404</title>
-  <link rel="icon" href="https://hotelsankalp.com/public/fronted/hotelsankalp-img/logo/fav-png.png" sizes="32x32" />
-  <link rel="icon" href="https://hotelsankalp.com/public/fronted/hotelsankalp-img/logo/fav-png.png" sizes="192x192" />
-  <link rel="apple-touch-icon" href="https://hotelsankalp.com/public/fronted/hotelsankalp-img/logo/fav-png.png" />	
+  <title>Mirror Academy 404</title>
+  <link rel="shortcut icon" href="{{asset('fronted/assets/mirror-img/fav.jpg')}}" type="image/x-icon">
   <style id="" media="all">
     /* cyrillic-ext */
     @font-face {
@@ -76,7 +74,7 @@
 
     .notfound .notfound-404 h1>span {
       text-shadow: -8px 0 0 #fff;
-      color: #e5cc8f;
+      color: #000000;
     }
 
     .notfound .notfound-404 h3 {
@@ -128,7 +126,7 @@
     }
     .error-btn {
       padding: 17px 40px;
-      background: #e5cc8f;
+      background: #000000;
       display: inline-block;
       font-size: 18px;
       font-weight: 600;

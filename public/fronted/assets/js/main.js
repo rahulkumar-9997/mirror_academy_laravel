@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $('.active-parents > button').addClass('onHovered');
 
     // navbar custom
-    $('.navbar-toggle-btn').on('click', function () {
+    /*$('.navbar-toggle-btn').on('click', function () {
       $('.navbar-toggle-item').slideToggle(300);
       $('body').toggleClass('overflow-hidden');
       $(this).toggleClass('open');
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if ($(this).parent('.menu-item').hasClass('active-parents')) {
         $(this).css("display", "block");
       }
-    });
+    });*/
 
     // mega Menu Window
     megaMenuWindow();

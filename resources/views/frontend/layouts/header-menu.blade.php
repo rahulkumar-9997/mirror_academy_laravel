@@ -33,16 +33,15 @@
                                         @foreach($menuCourses as $course)
                                             <li class="menu-link py-1 py-lg-1">
                                                 <a href="{{ route('courses.details', $course->slug) }}"
-                                                   class="n2-color  slide-horizontal"
-                                                   >{{ $course->title }}</a>
+                                                   class="n2-color  slide-horizontal">{{ $course->title }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
                                 </li>
                             @endif
                             <li class="menu-link padding-for">
-                                <a href="{{ route('gallery') }}" class="n2-color  slide-vertical"
-                                    >Gallery</a>
+                                <a href="{{ route('gallery') }}" class="n2-color slide-vertical"
+                                >Gallery</a>
                             </li>
                             <li class="menu-link padding-for">
                                 <a href="{{ route('about-us') }}" class="n2-color  slide-vertical"
@@ -50,11 +49,11 @@
                             </li>
                             
                             <li class="menu-link padding-for">
-                                <a href="{{ route('founders-message') }}" class="n2-color  slide-vertical"
+                                <a href="{{ route('founders-message') }}" wire:navigate class="n2-color  slide-vertical"
                                     >Founder’s Message</a>
                             </li>
                             <li class="menu-link padding-for">
-                                <a href="{{ route('contact-us') }}" class="n2-color  slide-vertical"
+                                <a href="{{ route('contact-us') }}" wire:navigate class="n2-color  slide-vertical"
                                     >Contact Us</a>
                             </li>
                         </ul>

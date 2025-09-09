@@ -48,7 +48,7 @@ $(document).ready(function () {
             success: function (response) {
                 submitButton.prop('disabled', false).html('Submit');
                 if (response.status === 'success') {
-                    $("#commanModel").modal('hide');            
+                    $("#commanModel").modal('hide');
                     form[0].reset();
                     showNotificationAll(response.message, 'success');
                 }
@@ -63,7 +63,7 @@ $(document).ready(function () {
                         inputField.after('<div class="invalid-feedback">' + value[0] + '</div>');
                     });
                 } else {
-                   showNotificationAll('Something went wrong. Please try again later.', 'error');
+                    showNotificationAll('Something went wrong. Please try again later.', 'error');
                 }
             }
         });
@@ -87,7 +87,7 @@ $(document).ready(function () {
             data: data,
             success: function (data) {
                 $('#commanModel .render-data').html(data.modalContent);
-                $("#commanModel").modal('show');                
+                $("#commanModel").modal('show');
             },
             error: function (data) {
                 data = data.responseJSON;
@@ -116,5 +116,31 @@ $(document).ready(function () {
         const toast = new bootstrap.Toast(toastEl);
         toast.show();
     }
-    
+
+});
+
+function bindNavbarToggle() {
+    $('.navbar-toggle-btn').on('click', function () {
+        $('.navbar-toggle-item').slideToggle(300);
+        $('body').toggleClass('overflow-hidden');
+        $(this).toggleClass('open');
+    });
+    $('.menu-item button').on('click', function () {
+        $(this).siblings("ul").slideToggle(300);
+        $(this).toggleClass('onHovered');
+    });
+    $('.sub-menus').each(function () {
+        if ($(this).parent('.menu-item').hasClass('active-parents')) {
+            $(this).css("display", "block");
+        }
+    });
+
+}
+$(document).ready(function () {
+    bindNavbarToggle();
+});
+document.addEventListener('livewire:load', function () {
+    Livewire.hook('message.processed', (message, component) => {
+        bindNavbarToggle();
+    });
 });
