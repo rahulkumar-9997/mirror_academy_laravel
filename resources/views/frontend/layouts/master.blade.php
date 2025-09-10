@@ -3,7 +3,6 @@
 	<head>
 		@include('frontend.layouts.headcss')
 		@stack('styles')
-		@livewireStyles
 	</head>
 	<body>
 		<div id="preloader">
@@ -28,7 +27,6 @@
 		</div>
 		@include('frontend.layouts.footer')
 		@include('frontend.layouts.common-modal')
-		@livewireScripts
 		@include('frontend.layouts.footerjs')
 		@stack('scripts')
 	</body>

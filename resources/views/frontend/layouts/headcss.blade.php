@@ -10,7 +10,7 @@
 <title>@yield('title')</title>
 <link rel="shortcut icon" href="{{asset('fronted/assets/mirror-img/fav.jpg')}}" type="image/x-icon">
 <link rel="stylesheet" href="{{asset('fronted/assets/css/style.min-re.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/re-media-query.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style.min-reope.css')}}">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7WLDLS90VW"></script>
 <script>
