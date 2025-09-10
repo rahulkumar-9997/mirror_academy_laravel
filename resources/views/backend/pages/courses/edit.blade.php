@@ -94,17 +94,58 @@
                     </div>
                     <div class="col-sm-4 col-12">
                         <div class="mb-3">
-                            <label class="form-label" for="course_certificate">
-                                Course Certificate Image 
+                            <label class="form-label" for="course_certificate_title_1">
+                                Course Certificate Title 1
                             </label>
-                            <input type="file" class="form-control @error('course_certificate') is-invalid @enderror" name="course_certificate" id="course_certificate"
-                            value="{{ old('course_certificate') }}" />
+                            <input type="text" class="form-control @error('course_certificate_title_1') is-invalid @enderror" name="course_certificate_title_1" id="course_certificate_title_1"
+                            value="{{ old('course_certificate_title_1', $course->course_certificate_title_1) }}" />
+                            @error('course_certificate_title_1')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="course_certificate_image_1">
+                                Course Certificate Image 1
+                            </label>
+                            <input type="file" class="form-control @error('course_certificate_image_1') is-invalid @enderror" name="course_certificate_image_1" id="course_certificate_image_1"
+                            value="{{ old('course_certificate_image_1') }}" />
                             @if($course->course_certificate)
                             <div class="mt-2">
                                 <img src="{{ asset('upload/courses/' . $course->course_certificate) }}" alt="Current Page Image" width="100" class="img-thumbnail">
                             </div>
                             @endif
-                            @error('course_certificate')
+                            @error('course_certificate_image_1')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="course_certificate_title_2">
+                                Course Certificate Title 2
+                            </label>
+                            <input type="text" class="form-control @error('course_certificate_title_2') is-invalid @enderror" name="course_certificate_title_2" id="course_certificate_title_2"
+                            value="{{ old('course_certificate_title_2', $course->course_certificate_title_2) }}"  />
+                            @error('course_certificate_title_2')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <div class="mb-3">
+                            <label class="form-label" for="course_certificate_image_2">
+                                Course Certificate Image 2
+                            </label>
+                            <input type="file" class="form-control @error('course_certificate_image_2') is-invalid @enderror" name="course_certificate_image_2" id="course_certificate_image_2"
+                            value="{{ old('course_certificate_image_2') }}" />
+                            @if($course->course_certificate_image_2)
+                            <div class="mt-2">
+                                <img src="{{ asset('upload/courses/' . $course->course_certificate_image_2) }}" alt="Current Page Image" width="100" class="img-thumbnail">
+                            </div>
+                            @endif
+                            @error('course_certificate_image_2')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>

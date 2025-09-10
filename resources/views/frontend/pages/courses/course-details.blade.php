@@ -30,44 +30,42 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                 <div class="section-sidebar position-relative">
                     <div class="sidebar-toggler position-relative">
                         <div class="row">
-                            <div class="col-xl-9 col-xxl-9 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
+                            <div class="col-xl-8 col-xxl-8 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
                                 <div class="ttr-post-text single-area blog-post-data course-post-data">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <h2 class="n2-color highlight-cursor-head cou-mobile-title ">
                                                 {{ $course->title }}
                                             </h2>
-                                            <div class="col-lg-4 for-left-image">
-                                                @php
-                                                $imageUrl = null;
-                                                if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image))) {
-                                                $imageUrl = asset('upload/courses/' . $course->page_image);
-                                                } elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image))) {
-                                                $imageUrl = asset('upload/courses/' . $course->main_image);
-                                                }
-                                                @endphp
+                                            @php
+                                            $imageUrl = null;
+                                            if($course->page_image && file_exists(public_path('upload/courses/' . $course->page_image))) {
+                                            $imageUrl = asset('upload/courses/' . $course->page_image);
+                                            } elseif($course->main_image && file_exists(public_path('upload/courses/' . $course->main_image))) {
+                                            $imageUrl = asset('upload/courses/' . $course->main_image);
+                                            }
+                                            @endphp
 
-                                                @if($imageUrl)
-                                                <div class="co-image-i">
-                                                    <picture>
-                                                        <source media="(max-width: 767px)" srcset="{{ $imageUrl }}">
-                                                        <img
-                                                            class="img-fluid blur-up lazyload border-radius cou-image"
-                                                            data-src="{{ $imageUrl }}"
-                                                            src="{{ $imageUrl }}"
-                                                            srcset="{{ $imageUrl }} 600w, {{ $imageUrl }} 1200w"
-                                                            sizes="(max-width: 600px) 600px, 1200px"
-                                                            alt="{{ $course->title }}"
-                                                            title="{{ $course->title }}"
-                                                            loading="lazy"
-                                                            width="300"
-                                                            height="300"
-                                                            onload="this.style.opacity=1"
-                                                            style="opacity: 0; transition: opacity 0.5s;">
-                                                    </picture>
-                                                </div>
-                                                @endif
+                                            @if($imageUrl)
+                                            <div class="co-image-details">
+                                                <picture>
+                                                    <source media="(max-width: 767px)" srcset="{{ $imageUrl }}">
+                                                    <img
+                                                        class="img-fluid blur-up lazyload border-radius w-100"
+                                                        data-src="{{ $imageUrl }}"
+                                                        src="{{ $imageUrl }}"
+                                                        srcset="{{ $imageUrl }} 600w, {{ $imageUrl }} 1200w"
+                                                        sizes="(max-width: 600px) 600px, 1200px"
+                                                        alt="{{ $course->title }}"
+                                                        title="{{ $course->title }}"
+                                                        loading="lazy"
+                                                        width="300"
+                                                        height="400"
+                                                        onload="this.style.opacity=1"
+                                                        style="opacity: 0; transition: opacity 0.5s;">
+                                                </picture>
                                             </div>
+                                            @endif
                                             <div class="text">
                                                 <div class="course-de-ti">
                                                     @if($course->short_content)
@@ -85,6 +83,11 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                         </div>
                                         <div class="col-lg-12">
                                             @if($course->additionalContents && $course->additionalContents->count() > 0)
+                                            <div class="course-de-ti mt-5">
+                                                <h2 class="n2-color highlight-cursor-head cou-title">
+                                                    Course Module
+                                                </h2>
+                                            </div>
                                             <div class="course-addition-section eaightcoloumn accordion ttr-accordion1" id="accordionRow1">
                                                 @foreach ($course->additionalContents as $additionalContent)
                                                 <div class="accordion-item">
@@ -108,35 +111,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                 @endforeach
                                             </div>
                                             @endif
-                                            @if($course->highlightsContents && $course->highlightsContents->count() > 0)
-                                            <div class="course-eligibity-section mt-10">
-                                                <div class="course_eligibity-title">
-                                                    <div class="course-de-ti mt-5">
-                                                        <h2 class="n2-color highlight-cursor-head cou-title">
-                                                            Course Highlights
-                                                        </h2>
-                                                    </div>
-                                                    <div class="course_el_content mt-5">
-                                                        <div class="row">
-                                                            @foreach ($course->highlightsContents as $highlightsContent)
-                                                            <div class="col-lg-4 mb-3">
-                                                                <div class="co-eligibity-cont single-item nc-bg-color px-3 px-md-3 py-3 py-md-3">
-                                                                    <div class="icon-area-c">
-                                                                        <span>
-                                                                            <i class="{{ $highlightsContent->icon}}"></i>
-                                                                        </span>
-                                                                    </div>
-                                                                    <p>
-                                                                        {{ $highlightsContent->content }}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endif
+
                                             <div class="d-grid n1-bg-color highlight_div faqs-couse">
                                                 <div class="item-wrapper">
                                                     <div class="highlight_title_div">
@@ -202,7 +177,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="accordion-item">
+                                                            <!-- <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="faqs5">
                                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs5" aria-expanded="true" aria-controls="collapseFaqs5">
                                                                         What’s the duration of the courses?
@@ -215,8 +190,8 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="accordion-item">
+                                                            </div> -->
+                                                            <!-- <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="faqs6">
                                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs6" aria-expanded="true" aria-controls="collapseFaqs6">
                                                                         Are there any exams or assessments during the course?
@@ -229,7 +204,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="faqs7">
                                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs7" aria-expanded="true" aria-controls="collapseFaqs7">
@@ -244,7 +219,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="accordion-item">
+                                                            <!-- <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="faqs8">
                                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs8" aria-expanded="true" aria-controls="collapseFaqs8">
                                                                         Are the courses available online?
@@ -257,9 +232,9 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
 
-                                                            <div class="accordion-item">
+                                                            <!-- <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="faqs9">
                                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs9" aria-expanded="true" aria-controls="collapseFaqs9">
                                                                         Do I get to work on real clients during the training?
@@ -272,7 +247,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="faqs10">
                                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs10" aria-expanded="true" aria-controls="collapseFaqs10">
@@ -287,7 +262,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="accordion-item">
+                                                            <!-- <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="faqs11">
                                                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqs11" aria-expanded="true" aria-controls="collapseFaqs11">
                                                                         Are the trainers certified or experienced?
@@ -300,7 +275,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
 
                                                         </div>
                                                     </div>
@@ -311,7 +286,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                 </div>
 
                             </div>
-                            <div class="col-xl-3 col-xxl-3">
+                            <div class="col-xl-4 col-xxl-4">
                                 <div class="sidebar-common cus-overflow cus-scrollbar sidebar-head secondary-sidebar me-n4 me-sm-1">
                                     <div class="d-center justify-content-end">
                                         <div class="d-block d-xl-none">
@@ -325,34 +300,93 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                     </div>
                                     <div class="cus-scrollbar side-wrapper">
                                         <div class="sidebar-wrapper pb-12 pb-lg-0 d-flex flex-column gap-3 mobile-sidebar-bg-color">
-                                            @if($course->course_certificate || $course->course_pdf_file)
                                             <div class="sidebar-area">
-                                                <div class="d-grid rounded-1">
-                                                    <div class="item-wrapper">
-                                                        <div class="certificate_img">
-                                                            @if($course->course_certificate)
-                                                            <div class="single-item position-relative d-center">
-                                                                <a class="lightbox" title="{{ $course->title }}" data-fancybox="{{ $course->title }}" data-caption="{{ $course->title}}" href="{{ asset('upload/courses/' . $course->course_certificate) }}">
-                                                                    <img src="{{ asset('upload/courses/' . $course->course_certificate) }}" class="w-100" alt="{{ $course->title }}">
-                                                                </a>
-                                                            </div>
-                                                            @endif
-                                                            @if($course->course_pdf_file)
-                                                            <div class="course-pdf-file">
-                                                                <div class="bottom-area d-center mt-5 mt-md-5 mb-3">
-                                                                    <a href="{{ asset('upload/courses/' . $course->course_pdf_file) }}"
-                                                                        class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9" download="{{ $course->course_pdf_file }}">
-                                                                        <span class="fs-seven">Download Course PDF File</span>
-                                                                    </a>
+                                                @php
+                                                $certificates = [
+                                                [
+                                                'image' => $course->course_certificate,
+                                                'title' => $course->course_certificate_title_1,
+                                                ],
+                                                [
+                                                'image' => $course->course_certificate_image_2,
+                                                'title' => $course->course_certificate_title_2,
+                                                ],
+                                                ];
+
+                                                $certCount = collect($certificates)->filter(fn($c) => !empty($c['image']))->count();
+                                                $colClass = $certCount === 1 ? 'col-lg-12' : 'col-lg-6';
+                                                @endphp
+
+                                                <div class="row">
+                                                    @foreach($certificates as $cert)
+                                                    @if($cert['image'])
+                                                    <div class="{{ $colClass }} mb-sm-1 mb-md-1 mb-lg-5 mb-xl-1 pe-xl-0 ps-xl-2">
+                                                        <div class="rounded-1">
+                                                            <div class="item-wrapper">
+                                                                <div class="certificate_img">
+                                                                    <div class="single-item position-relative d-center">
+                                                                        <a class="lightbox"
+                                                                            title="{{ $course->title }}"
+                                                                            data-fancybox="{{ $course->title }}"
+                                                                            data-caption="{{ $course->title }}"
+                                                                            href="{{ asset('upload/courses/' . $cert['image']) }}">
+                                                                            <img src="{{ asset('upload/courses/' . $cert['image']) }}" class="w-100" alt="{{ $course->title }}">
+                                                                        </a>
+                                                                    </div>
+                                                                    @if($cert['title'])
+                                                                    <div class="course-certificate-title">
+                                                                        <h5>{{ $cert['title'] }}</h5>
+                                                                    </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
-                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    @endif
+                                                    @endforeach
+                                                </div>
+
+                                            </div>
+                                            <div class="sidebar-area">
+                                                @if($course->highlightsContents && $course->highlightsContents->count() > 0)
+                                                <div class="course-eligibity-section mt-1">
+                                                    <div class="course_eligibity-title">
+                                                        <div class="course-de-ti">
+                                                            <h2 class="n2-color highlight-cursor-head cou-title">
+                                                                Course Highlights
+                                                            </h2>
+                                                        </div>
+                                                        <div class="course_el_content mt-5">
+                                                            <div class="row">
+                                                                @foreach ($course->highlightsContents as $highlightsContent)
+                                                                <div class="col-lg-6 mb-3 mb-sm-1 mb-md-1 mb-lg-5 mb-xl-3 pe-xl-0 ps-xl-2">
+                                                                    <div class="co-eligibity-cont single-item nc-bg-color px-3 px-md-3 py-3 py-md-3">
+                                                                        <div class="icon-area-c">
+                                                                            <span>
+                                                                                <i class="{{ $highlightsContent->icon}}"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <p>
+                                                                            {{ $highlightsContent->content }}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                @endforeach
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            @endif
-                                            <div class="sidebar-area">
+                                                @endif
+                                                @if($course->course_pdf_file)
+                                                <div class="course-pdf-file">
+                                                    <div class="bottom-area d-center mt-5 mt-md-5 mb-3">
+                                                        <a href="{{ asset('upload/courses/' . $course->course_pdf_file) }}"
+                                                            class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9" download="{{ $course->course_pdf_file }}">
+                                                            <span class="fs-seven">Download Course PDF File</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                @endif
                                                 <div class="co-enquiry-today-btn">
                                                     <div class="bottom-area d-center mt-2 mt-md-5">
                                                         <a href="javascript:void(0)"

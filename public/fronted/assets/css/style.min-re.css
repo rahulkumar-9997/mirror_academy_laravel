@@ -1,16 +1,25 @@
-@import"bootstrap.min.css";
-@import"plugins/magnific-popup.css";
-@import"plugins/swiper.min.css";
-@import"plugins/splitting.min.css";
-@import"plugins/jquery-ui-min.css";
-@import"plugins/odometer-min.css";
-@import"plugins/select2.min.css";
-@import"plugins/animate.css";
-@import"plugins/fontawesome.min.css";
-@import"icons.min.css";
-@import"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap";
+@import "bootstrap.min.css";
+@import "plugins/magnific-popup.css";
+@import "plugins/swiper.min.css";
+@import "plugins/splitting.min.css";
+@import "plugins/jquery-ui-min.css";
+@import "plugins/odometer-min.css";
+@import "plugins/select2.min.css";
+@import "plugins/animate.css";
+@import "plugins/fontawesome.min.css";
+@import "icons.min.css";
+@import "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..900;1,300..900&display=swap";
+
+@font-face {
+  font-family: "Metropolis-Regular";
+  src: url("../font/metropolis/Metropolis-Regular.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-	--body-font: "Roboto", sans-serif;
+	--body-font: "Metropolis-Regular", sans-serif;
 	--transition: all 0.5s ease-in-out;
 	--transition-2: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 	--p1: 62, 113, 225;
@@ -43,12 +52,12 @@
 	--n1-hex: #FFFFFF;
 	--n2-hex: #00100B;
 	--n3-hex: #666666;
-	--n4--ex: #000000;
+	--n4-hex: #000000;
 	--bg--black: #000000;
 	--color--white: #ffffff;
 	--bsrgb-color: rgb(244 244 244 / 60%);
-
 }
+
 /*modal start*/
 /*modal end*/
 .s1-bg-color-rgb{
@@ -154,6 +163,15 @@
 
 .display-six {
 	font-size: 32px
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-family: "Cormorant Garamond", serif;
+	letter-spacing: 0.3px;
 }
 
 .fs-one,
@@ -466,7 +484,7 @@ h6,
 .display-five,
 .display-six,
 .heading {
-	font-family: var(--body-font);
+	font-family: "Cormorant Garamond", serif;
 	color: rgba(var(--n2), 1);
 	font-weight: 600;
 	padding: 0;
@@ -4887,7 +4905,7 @@ iframe {
 
 #banner .bannerTextBox h3 {
     color: #FFFFFF;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 45px;
     font-weight: 300;
     text-transform: capitalize;
@@ -5010,6 +5028,12 @@ iframe {
     top: 0;
     width: 100%;
 }
+.course-certificate-title h5{
+	font-size: 18px;
+    padding: 10px 0px;
+    text-align: center;
+    font-weight: 500;
+}
 .our-courses,
 .about-us-section,
 .why-choose-us,
@@ -5020,7 +5044,7 @@ iframe {
 .about-us .fs-two,
 .contact-us-page .fs-two{
 	color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 30px;
     font-weight: 600;
     text-transform: capitalize;
@@ -5030,7 +5054,7 @@ iframe {
 .why-choose-us .fs-two,
 .resister-today-section .fs-two {
     color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 30px;
     font-weight: 600;
     text-transform: capitalize;
@@ -5055,13 +5079,13 @@ iframe {
     -o-transition: 0.5s ease-in-out;
     -ms-transition: 0.5s ease-in-out;
 }
+
 .about-us .ab-h2,
 .our-courses .ou-h2 {
 	color: #000000;
-	font-family: "Roboto", Sans-serif;
-	font-size: 24px;
+	font-family: "Cormorant Garamond", serif;
 	font-weight: 500;
-	font-size: 19px;
+	font-size: 20px;
     font-weight: 500;
 }
 /* .co-image-i{
@@ -5147,6 +5171,7 @@ iframe {
 }
 .copyright p{
 	margin-bottom: 0px;
+    font-size: 14px;
 }
 .sidebar-card .sidebar-logo{
 	width: 40%;
@@ -5379,11 +5404,11 @@ iframe {
     z-index: -1;
 } */
 .course-details{
-	padding-top: 0px;
+	padding-top: 25px;
 }
 .course-de-ti .cou-title{
 	color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 26px;
     font-weight: 500;
 }
@@ -5395,7 +5420,7 @@ iframe {
 
 .ttr-accordion1 .accordion-button {
   background-color: #E0E0E0;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--bg--black);
   border-radius: 8px !important;
   border: 0;
@@ -5403,8 +5428,9 @@ iframe {
   -webkit-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
-  font-size: 18px;
+  font-size: 20px;
 	line-height: 25px;
+	letter-spacing: 0.3px;
 }
 .course-addition-section p{
     font-size: 18px;
@@ -5428,7 +5454,7 @@ iframe {
 
 .ttr-accordion1 .accordion-button:after {
   content: "\f078";
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   background-image: unset;
   font-size: 14px;
   transform: rotateX(-180deg);
@@ -5532,7 +5558,7 @@ iframe {
 .course-details h5,
 .course-details h6{
 	color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 20px;
     font-weight: 600;
     position: relative;
@@ -5544,7 +5570,7 @@ iframe {
 .course-details h2,
 .course-details h3{
 	color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 22px;
     font-weight: 600;
     position: relative;
@@ -5558,7 +5584,7 @@ iframe {
 .additional-content-courses h2,
 .additional-content-courses h3{
 	color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 22px;
     font-weight: 600;
     position: relative;
@@ -5570,7 +5596,7 @@ iframe {
 .additional-content-courses h5,
 .additional-content-courses h6{
 	color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 20px;
     font-weight: 600;
     position: relative;
@@ -5652,7 +5678,7 @@ iframe {
     margin-bottom: 15px;
 }
 .course-addition-section.eaightcoloumn{
-	margin-top: 60px;
+	margin-top: 15px;
 }
 
 .course-addition-section{
@@ -5844,7 +5870,7 @@ iframe {
 
 .cou-mobile-title{
 	color: #000000;
-    font-family: "Roboto", Sans-serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 26px;
     font-weight: 500;
 	margin-bottom: 10px;

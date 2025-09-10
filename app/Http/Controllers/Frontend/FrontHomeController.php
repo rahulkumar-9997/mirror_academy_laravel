@@ -47,7 +47,7 @@ class FrontHomeController extends Controller
         return view('frontend.pages.courses.course-list', compact('data'));
     }
     public function courseDetails($slug){
-        $course = Courses::with(['additionalContents', 'highlightsContents', 'eligibilitiesContent'])->select('id', 'title', 'slug', 'short_content', 'description', 'main_image', 'page_image', 'meta_title', 'meta_description', 'course_certificate', 'course_pdf_file')
+        $course = Courses::with(['additionalContents', 'highlightsContents', 'eligibilitiesContent'])->select('id', 'title', 'slug', 'short_content', 'description', 'main_image', 'page_image', 'meta_title', 'meta_description', 'course_certificate', 'course_pdf_file', 'course_certificate_title_1', 'course_certificate_image_2', 'course_certificate_title_2')
         ->where('status', 1)
         ->where('slug', $slug)
         ->firstOrFail();

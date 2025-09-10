@@ -37,7 +37,10 @@ class CoursesController extends Controller
             'short_content' => 'nullable|string',
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
-            'course_certificate' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_certificate_title_1' => 'nullable|string|max:255',
+            'course_certificate_image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_certificate_title_2' => 'nullable|string|max:255',
+            'course_certificate_image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'course_pdf_file' => 'nullable|mimes:pdf|max:20480',
             'description' => 'required|string',            
             'meta_title' => 'nullable|string|max:255',
@@ -73,11 +76,18 @@ class CoursesController extends Controller
                 $this->processAndSaveImage($pageImage, $pageImagePath);
             }           
             $certificateImageName = null;
-            if ($request->hasFile('course_certificate')) {
-                $certificateImage = $request->file('course_certificate');
-                $certificateImageName = $titleSlug . '-certificate-' . uniqid() . '.webp';
+            if ($request->hasFile('course_certificate_image_1')) {
+                $certificateImage = $request->file('course_certificate_image_1');
+                $certificateImageName = $titleSlug . '-certificate-1' . uniqid() . '.webp';
                 $certificateImagePath = $destinationPath . '/' . $certificateImageName;
                 $this->processAndSaveImage($certificateImage, $certificateImagePath);
+            } 
+            $certificateImageName_2 = null;
+            if ($request->hasFile('course_certificate_image_2')) {
+                $certificateImage_2 = $request->file('course_certificate_image_2');
+                $certificateImageName_2 = $titleSlug . '-certificate-2' . uniqid() . '.webp';
+                $certificateImagePath_2 = $destinationPath . '/' . $certificateImageName_2;
+                $this->processAndSaveImage($certificateImage_2, $certificateImagePath_2);
             } 
             $pdfFileName = null;
             if ($request->hasFile('course_pdf_file')) {
@@ -92,6 +102,9 @@ class CoursesController extends Controller
                 'main_image' => $mainImageName,
                 'page_image' => $pageImageName,                
                 'course_certificate' => $certificateImageName,                
+                'course_certificate_title_1' => $validatedData['course_certificate_title_1'] ?? null,
+                'course_certificate_image_2' => $certificateImageName_2,
+                'course_certificate_title_2' => $validatedData['course_certificate_title_2'] ?? null,                   
                 'course_pdf_file' => $pdfFileName,                
                 'meta_title' => $validatedData['meta_title'] ?? null,
                 'meta_description' => $validatedData['meta_description'] ?? null,
@@ -158,7 +171,10 @@ class CoursesController extends Controller
             'short_content' => 'nullable|string',
             'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'page_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
-            'course_certificate' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_certificate_title_1' => 'nullable|string|max:255',
+            'course_certificate_image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+            'course_certificate_title_2' => 'nullable|string|max:255',
+            'course_certificate_image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'course_pdf_file' => 'nullable|mimes:pdf|max:20480',
             'description' => 'required|string',
             'course_duration' => 'nullable|string|max:255',
@@ -209,15 +225,25 @@ class CoursesController extends Controller
                 $this->processAndSaveImage($pageImage, $pageImagePath);
                 $course->page_image = $pageImageName;
             }
-            if ($request->hasFile('course_certificate')) {
+            if ($request->hasFile('course_certificate_image_1')) {
                 if ($course->course_certificate && file_exists($destinationPath . '/' . $course->course_certificate)) {
                     unlink($destinationPath . '/' . $course->course_certificate);
                 }
-                $certificateFile = $request->file('course_certificate');
-                $certificateName = $titleSlug . '-certificate-' . uniqid() . '.webp';
+                $certificateFile = $request->file('course_certificate_image_1');
+                $certificateName = $titleSlug . '-certificate-1-' . uniqid() . '.webp';
                 $certificatePath = $destinationPath . '/' . $certificateName;
                 $this->processAndSaveImage($certificateFile, $certificatePath);
                 $course->course_certificate = $certificateName;
+            }
+            if ($request->hasFile('course_certificate_image_2')) {
+                if ($course->course_certificate_image_2 && file_exists($destinationPath . '/' . $course->course_certificate_image_2)) {
+                    unlink($destinationPath . '/' . $course->course_certificate_image_2);
+                }
+                $certificateFile_2 = $request->file('course_certificate_image_2');
+                $certificateName_2 = $titleSlug . '-certificate-2-' . uniqid() . '.webp';
+                $certificatePath_2 = $destinationPath . '/' . $certificateName_2;
+                $this->processAndSaveImage($certificateFile_2, $certificatePath_2);
+                $course->course_certificate_image_2 = $certificateName_2;
             }
 
             if ($request->hasFile('course_pdf_file')) {
@@ -235,6 +261,8 @@ class CoursesController extends Controller
                 'description' => $validatedData['description'] ?? null,
                 'meta_title' => $validatedData['meta_title'] ?? null,
                 'meta_description' => $validatedData['meta_description'] ?? null,
+                'course_certificate_title_1' => $validatedData['course_certificate_title_1'] ?? null,
+                'course_certificate_title_2' => $validatedData['course_certificate_title_2'] ?? null,
             ]);
             CoursesAdditional::where('courses_id', $id)->delete();           
             if (!empty($request->courses_additional_title)) {
