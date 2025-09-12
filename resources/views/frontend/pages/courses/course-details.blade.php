@@ -92,7 +92,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                 @foreach ($course->additionalContents as $additionalContent)
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header" id="heading{{ $loop->index }}">
-                                                        <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                                                        <button class="accordion-button"
                                                             type="button"
                                                             data-bs-toggle="collapse"
                                                             data-bs-target="#collapse{{ $loop->index }}"
@@ -101,7 +101,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                             {{ $additionalContent->title }}
                                                         </button>
                                                     </h2>
-                                                    <div id="collapse{{ $loop->index }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="heading{{ $loop->index }}"
+                                                    <div id="collapse{{ $loop->index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $loop->index }}"
                                                         data-bs-parent="#accordionRow1">
                                                         <div class="accordion-body additional-content-courses">
                                                             {!! clean_html_content($additionalContent->description) !!}
