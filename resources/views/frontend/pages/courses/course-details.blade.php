@@ -30,7 +30,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                 <div class="section-sidebar position-relative">
                     <div class="sidebar-toggler position-relative">
                         <div class="row">
-                            <div class="col-xl-8 col-xxl-8 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
+                            <div class="col-xl-9 col-xxl-9 cus-z1 mt-10 mt-xl-0 d-grid gap-7 gap-md-10">
                                 <div class="ttr-post-text single-area blog-post-data course-post-data">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -286,7 +286,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                 </div>
 
                             </div>
-                            <div class="col-xl-4 col-xxl-4">
+                            <div class="col-xl-3 col-xxl-3">
                                 <div class="sidebar-common cus-overflow cus-scrollbar sidebar-head secondary-sidebar me-n4 me-sm-1">
                                     <div class="d-center justify-content-end">
                                         <div class="d-block d-xl-none">
@@ -314,17 +314,17 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                 ];
 
                                                 $certCount = collect($certificates)->filter(fn($c) => !empty($c['image']))->count();
-                                                $colClass = $certCount === 1 ? 'col-lg-12' : 'col-lg-6';
+                                                $colClass = $certCount === 1 ? 'col-lg-12' : 'col-lg-12';
                                                 @endphp
 
                                                 <div class="row">
                                                     @foreach($certificates as $cert)
                                                     @if($cert['image'])
-                                                    <div class="{{ $colClass }} mb-sm-1 mb-md-1 mb-lg-5 mb-xl-1 pe-xl-0 ps-xl-2">
+                                                    <div class="{{ $colClass }} mb-sm-1 mb-md-1 mb-lg-5 mb-xl-3 pe-xl-0 ps-xl-2 mb-3">
                                                         <div class="rounded-1">
                                                             <div class="item-wrapper">
                                                                 <div class="certificate_img">
-                                                                    <div class="single-item position-relative d-center">
+                                                                    <div class="single-item position-relative">
                                                                         <a class="lightbox"
                                                                             title="{{ $course->title }}"
                                                                             data-fancybox="{{ $course->title }}"
