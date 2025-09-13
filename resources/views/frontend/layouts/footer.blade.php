@@ -39,7 +39,7 @@
             <div class="col-6 col-md-4 col-lg-2 footer-links d-flex justify-content-start order-1 order-md-0">
                 <div class="single-box footer-links-area">
                     <h5 class="mb-4 mb-md-4 n1-color footer-heading-area">Navigation</h5>
-                    <ul class="d-grid gap-3 gap-md-4 overflow-hidden">
+                    <ul class="d-grid gap-2 gap-md-2 overflow-hidden">
                         <li>
                             <a href="{{ route('about-us') }}" class="d-center justify-content-start transition n1-color position-relative">About Us</a>
                         </li>
@@ -61,7 +61,7 @@
             <div class="col-6 col-md-4 col-lg-2 footer-links d-flex justify-content-start order-1 order-md-0">
                 <div class="single-box footer-links-area">
                     <h5 class="mb-4 mb-md-4 n1-color footer-heading-area">About</h5>
-                    <ul class="d-grid gap-3 gap-md-4 overflow-hidden">
+                    <ul class="d-grid gap-2 gap-md-2 overflow-hidden">
                         <li>
                             <a href="{{ route('terms-of-use') }}" class="d-center justify-content-start transition n1-color position-relative">Terms Of Use</a>
                         </li>
@@ -78,7 +78,7 @@
             <div class="col-8 col-sm-7 col-md-4 col-lg-3 d-center">
                 <div class="single-box address footer-links-area address-area">
                     <h5 class="mb-4 mb-md-4 n1-color footer-heading-area">Address</h5>
-                    <ul class="d-grid gap-3 gap-md-4">
+                    <ul class="d-grid gap-2 gap-md-2">
                         <li class="d-flex align-items-center gap-3">
                             <span
                                 class="box-area d-center rounded-circle n1-2nd-bg-color n1-color fs-six box-area box-three">
