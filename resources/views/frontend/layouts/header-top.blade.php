@@ -59,7 +59,7 @@
                                         <span class="n2-color icon-span">
                                             <i class="fa fa-business-time"></i>
                                         </span>
-                                        <span>09:00 - 18:00</span>
+                                        <span>9.00am - 6.00pm</span>
                                     </div>
                                 </li>
                             </ul>

@@ -53,7 +53,7 @@
                                     >Founder’s Message</a>
                             </li> -->
                             <li class="menu-link padding-for">
-                                <a href="{{ route('founders-message') }}" class="n2-color  slide-vertical"
+                                <a href="{{ route('founders-message') }}" wire:navigate class="n2-color  slide-vertical"
                                     >Founder’s Message</a>
                             </li>
                             <li class="menu-link padding-for">
