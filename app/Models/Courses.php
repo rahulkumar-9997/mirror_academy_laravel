@@ -25,6 +25,7 @@ class Courses extends Model
         'course_opening_days',
         'course_timings',
         'status',
+        'sort_order',
         'meta_title',
         'meta_description'
     ];
