@@ -38,13 +38,7 @@
             </div>
             <div class="about-us-content">
                <p class="n3-color">
-                  It’s been more than a decade since Mirrors at Jubilee Hills and Madhapur began raising the
-                  bar regarding beauty and wellness for hair, body and mind. Be it the forever evolving, chic
-                  aesthetic or introducing the latest techniques in Hair Extensions, Eye-lash Extensions,
-                  Tattooing, Piercing, Air Brush Make-up and Bridal Make-up, Mirrors is Hyderabad’s
-                  one-stop-shop for that contemporary look that blends glamour with youth and vitality. Reason
-                  enough for the diverse client roster, which includes movie stars, celebrities, models,
-                  socialites, political figures and many others
+                  Mirrors Academy is the education and training arm of Mirrors Luxury Salons, designed to shape the next generation of hair and beauty professionals. With state-of-the-art facilities, expert faculty, and a globally aligned curriculum, the Academy blends creativity with technical expertise to deliver industry-ready training. Students gain hands-on experience in a professional salon environment, along with mentorship and career guidance that prepare them for real-world opportunities. Whether aspiring to join top salons, work with celebrities, or start their own ventures, Mirrors Academy equips learners with the skills, confidence, and professionalism to succeed.
                </p>
                <p>
                   <strong>
@@ -95,7 +89,7 @@
             <div class="section-area d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-three">
                <h1 class="fs-two">Our Courses</h1>
                <h2 class="ou-h2">
-                  Explore Certified Beauty Courses at Mirrors Academy, Hyderabad
+                  Explore Certified Hair and Beauty Courses at Mirrors Academy, Hyderabad
                </h2>
             </div>
          </div>
