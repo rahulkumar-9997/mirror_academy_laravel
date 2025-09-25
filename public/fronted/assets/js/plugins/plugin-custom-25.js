@@ -463,8 +463,8 @@ document.addEventListener("DOMContentLoaded", function () {
       let momentsCarousel = document.querySelector('.moments-carousel');
       if(momentsCarousel){
         const swiper = new Swiper(momentsCarousel, {
-          loop: true,
-          centeredSlides: true,
+          loop: false,
+          centeredSlides: false,
           paginationClickable: true,
           autoplay: {
             delay: 200000,

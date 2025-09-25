@@ -31,7 +31,7 @@
       <div class="row justify-content-center text-center">
          <div class="col-lg-8">
             <div class="section-area mb-3 mb-md-5 d-grid gap-2 gap-md-2 reveal-single1 reveal-text text-three">
-               <h1 class="fs-two">Mirrors Hair and Beauty Academy</h1>
+               <h1 class="fs-two">Mirrors Academy of Hair & Beauty</h1>
                <h2 class="ab-h2">
                   Master the art of styling in the most professional way
                </h2>
