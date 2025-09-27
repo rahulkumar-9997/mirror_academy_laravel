@@ -5772,11 +5772,12 @@ iframe {
   flex-shrink: 0;  
 }
 .benefit-item.highlight .benefit-icon {
-  background: #111;
+  background: #ffffff;
 }
 .benefit-item.highlight .benefit-icon img {
-  filter: invert(100%);
-  padding: 10px;
+  /* filter: invert(100%);
+  padding: 10px; */
+  border-radius: 10px;
 }
 
 /* Heading and Text */

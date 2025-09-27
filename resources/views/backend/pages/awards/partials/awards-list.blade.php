@@ -11,14 +11,9 @@
         @if(isset($awardsList) && $awardsList->count() > 0)
         @foreach($awardsList as $award)
         <tr>
-            <td>
+            <td style="width: 400px">
                 @if($award->description)
-                {{ Str::limit($award->description, 30) }}
-                @if(strlen($award->description) > 100)
-                <span class="text-muted">...</span>
-                @endif
-                @else
-                -
+                    {{ Str::limit($award->description, 1000) }}                
                 @endif
             </td>
             <td>

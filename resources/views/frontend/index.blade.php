@@ -155,7 +155,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-educators.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-education.jpg')}}" alt="Expert Educators">
                   </div>
                   <div class="benefit-content">
                      <h3>Expert Educators</h3>
@@ -164,7 +164,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.jpg')}}" alt="Live Models">
                   </div>
                   <div class="benefit-content">
                      <h3>Live Models</h3>
@@ -173,7 +173,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.jpg')}}" alt="Student Kit">
                   </div>
                   <div class="benefit-content">
                      <h3>Student Kit</h3>
@@ -182,7 +182,7 @@
                </div>               
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/unique-curriculam.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/unque-curicculm.jpg')}}" alt="Unique Curriculum">
                   </div>
                   <div class="benefit-content">
                      <h3>Unique Curriculum</h3>
@@ -195,7 +195,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.jpg')}}" alt="Dual Certification">
                   </div>
                   <div class="benefit-content">
                      <h3>Dual Certification</h3>
@@ -204,7 +204,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.jpg')}}" alt="Job Readiness">
                   </div>
                   <div class="benefit-content">
                      <h3>Job Readiness</h3>
@@ -213,7 +213,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.jpg')}}" alt="Real World Exposure">
                   </div>
                   <div class="benefit-content">
                      <h3>Real World Exposure</h3>
@@ -224,7 +224,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engagement.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engaement.jpg')}}" alt="Community Engagement">
                   </div>
                   <div class="benefit-content">
                      <h3>Community Engagement</h3>
