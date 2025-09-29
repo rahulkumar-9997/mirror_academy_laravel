@@ -155,11 +155,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-education.jpg')}}" alt="Expert Educators" loading="lazy" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-education.jpg')}}" alt="Expert Educators">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Expert Educators</h3>
@@ -168,11 +164,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.jpg')}}" alt="Live Models" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.jpg')}}" alt="Live Models">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Live Models</h3>
@@ -181,11 +173,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.jpg')}}" alt="Student Kit" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.jpg')}}" alt="Student Kit">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Student Kit</h3>
@@ -194,11 +182,7 @@
                </div>               
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/unque-curicculm.jpg')}}" alt="Unique Curriculum" loading="lazy" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/unque-curicculm.jpg')}}" alt="Unique Curriculum">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Unique Curriculum</h3>
@@ -211,11 +195,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.jpg')}}" alt="Dual Certification" loading="lazy" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.jpg')}}" alt="Dual Certification">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Dual Certification</h3>
@@ -224,11 +204,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.jpg')}}" alt="Job Readiness" loading="lazy" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.jpg')}}" alt="Job Readiness">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Job Readiness</h3>
@@ -237,11 +213,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.jpg')}}" alt="Real World Exposure" loading="lazy" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.jpg')}}" alt="Real World Exposure">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Real World Exposure</h3>
@@ -252,11 +224,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-<<<<<<< HEAD
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engaement.jpg')}}" alt="Community Engagement" loading="lazy" decoding="async">
-=======
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engaement.jpg')}}" alt="Community Engagement">
->>>>>>> 93dcacae77df559dc56cf9291739777af009bcc9
                   </div>
                   <div class="benefit-content">
                      <h3>Community Engagement</h3>
