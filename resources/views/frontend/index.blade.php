@@ -8,8 +8,8 @@
       <div class="swiper-wrapper">
          @foreach($data['banners'] as $banner)
          <div class="swiper-slide">
-            <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy">
-            <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy">
+            <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy" decoding="async">
+            <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy" decoding="async">
             <div class="container">
                <div class="bannerTextBox">
                   <h3>
@@ -31,26 +31,16 @@
       <div class="row justify-content-center text-center">
          <div class="col-lg-8">
             <div class="section-area mb-3 mb-md-5 d-grid gap-2 gap-md-2 reveal-single1 reveal-text text-three">
-               <h1 class="fs-two">Mirrors Hair and Beauty Academy</h1>
+               <h1 class="fs-two">Mirrors Academy of Hair & Beauty</h1>
                <h2 class="ab-h2">
                   Master the art of styling in the most professional way
                </h2>
             </div>
             <div class="about-us-content">
                <p class="n3-color">
-                  It’s been more than a decade since Mirrors at Jubilee Hills and Madhapur began raising the
-                  bar regarding beauty and wellness for hair, body and mind. Be it the forever evolving, chic
-                  aesthetic or introducing the latest techniques in Hair Extensions, Eye-lash Extensions,
-                  Tattooing, Piercing, Air Brush Make-up and Bridal Make-up, Mirrors is Hyderabad’s
-                  one-stop-shop for that contemporary look that blends glamour with youth and vitality. Reason
-                  enough for the diverse client roster, which includes movie stars, celebrities, models,
-                  socialites, political figures and many others
+                  Mirrors Academy is the education and training arm of Mirrors Luxury Salons, designed to shape the next generation of hair and beauty professionals. With state-of-the-art facilities, expert faculty, and a globally aligned curriculum, the Academy blends creativity with technical expertise to deliver industry-ready training. Students gain hands-on experience in a professional salon environment, along with mentorship and career guidance that prepare them for real-world opportunities. Whether aspiring to join top salons, work with celebrities, or start their own ventures, Mirrors Academy equips learners with the skills, confidence, and professionalism to succeed.
                </p>
-               <p>
-                  <strong>
-                     Making Mirrors their to-go place.
-                  </strong>
-               </p>
+               
             </div>
          </div>
       </div>
@@ -65,7 +55,7 @@
                         <div class="single-item mt-2 awards-box d-center flex-column">
                            <div class="img-area">
                               <img src="{{ asset('upload/awards/' . $award->image) }}"
-                                 class="w-100 transition-sec position-relative z-1" alt="img" loading="lazy">
+                                 class="w-100 transition-sec position-relative z-1" alt="img" loading="lazy" decoding="async">
                            </div>
                            <div class="text-content awards-content-hm text-center">
                               <div class="awards-title">
@@ -95,7 +85,7 @@
             <div class="section-area d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-three">
                <h1 class="fs-two">Our Courses</h1>
                <h2 class="ou-h2">
-                  Explore Certified Beauty Courses at Mirrors Academy, Hyderabad
+                  Explore Certified Hair and Beauty Courses at Mirrors Academy, Hyderabad
                </h2>
             </div>
          </div>
@@ -106,7 +96,7 @@
             <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
                <div class="img-area position-relative d-center image-file">
                   <a href="{{ route('courses.details', $course->slug) }}">
-                     <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}" loading="lazy">
+                     <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}" loading="lazy" decoding="async">
                   </a>
                </div>
                <div class="abs-area">
@@ -165,7 +155,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-educators.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-education.jpg')}}" alt="Expert Educators" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Expert Educators</h3>
@@ -174,7 +164,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.jpg')}}" alt="Live Models" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Live Models</h3>
@@ -183,7 +173,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.jpg')}}" alt="Student Kit" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Student Kit</h3>
@@ -192,7 +182,7 @@
                </div>               
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/unique-curriculam.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/unque-curicculm.jpg')}}" alt="Unique Curriculum" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Unique Curriculum</h3>
@@ -205,7 +195,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.jpg')}}" alt="Dual Certification" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Dual Certification</h3>
@@ -214,7 +204,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.jpg')}}" alt="Job Readiness" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Job Readiness</h3>
@@ -223,7 +213,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.jpg')}}" alt="Real World Exposure" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Real World Exposure</h3>
@@ -234,7 +224,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engagement.svg')}}" alt="">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engaement.jpg')}}" alt="Community Engagement" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Community Engagement</h3>
@@ -464,6 +454,7 @@
                   $video.find("source[data-src]").each(function() {
                      $(this).attr("src", $(this).data("src"));
                   });
+                  entry.target.muted = true;
                   entry.target.load();
                   entry.target.muted = true;
                   entry.target.play().catch(function(err) {

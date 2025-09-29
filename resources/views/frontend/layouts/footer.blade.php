@@ -4,7 +4,7 @@
             <div class="col-md-12 col-lg-5 d-flex flex-column gap-4 gap-md-7">
                 <div class="footer-logo">
                     <a class="logoa">
-                        <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo-white.png')}}" class="footer-logo-img">
+                        <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo-white.png')}}" class="footer-logo-img" alt="logo" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="footer-title-area">

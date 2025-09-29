@@ -36,7 +36,7 @@
                     <div class="header-top-logo-area">
                         <div class="top-logo d-center gap-2">
                             <a class="logoa" href="{{ url('/') }}" aria-label="Mirrors Academy">
-                                <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo.png')}}" class="logotop">
+                                <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo.png')}}" class="logotop" alt="logo" loading="lazy" decoding="async">
                             </a>
                         </div>
                     </div>

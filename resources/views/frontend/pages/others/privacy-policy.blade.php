@@ -1,6 +1,12 @@
+@php
+$metaDesc ="Learn how Mirrors Academy collects, uses, and protects your personal data. Your privacy matters to us. Read our full privacy policy here.";
+$meta_description = Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
+$metaTitle = Str::limit('Privacy Policy | Mirrors Academy Official Website', 57);
+@endphp
+
 @extends('frontend.layouts.master')
-@section('title','Privacy Policy | Mirrors Academy Official Website')
-@section('description', 'Read the official Terms of Use for Mirrors Academy. Understand our policies, user responsibilities, and legal guidelines before using our website or services.')
+@section('title', $metaTitle)
+@section('description', $meta_description)
 @section('main-content')
 <section class="banner-section inner-banner position-relative pt-5 pb-5">
     <div class="container position-relative cus-z1">

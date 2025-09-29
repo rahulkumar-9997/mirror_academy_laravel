@@ -25,10 +25,12 @@ class FrontHomeController extends Controller
             ->limit(25)
             ->get();
         $data['courses'] = Courses::select('id', 'title', 'slug', 'short_content', 'description', 'main_image')
-        ->where('status', 1)
-        ->inRandomOrder()
-        ->limit(6)
-        ->get();
+            ->where('status', 1)
+            ->where('sort_order', '>', 0) 
+            ->orderBy('sort_order', 'asc')
+            ->limit(6)
+            ->get();
+
         $data['videos'] = Video::select('file', 'status')
             ->where('status', 1)
             ->orderBy('id', 'asc')

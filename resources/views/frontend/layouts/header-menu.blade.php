@@ -4,7 +4,7 @@
             <nav class="navbar-custom">
                 <div class="d-flex align-items-center justify-content-between">
                     <a href="{{ url('/') }}" class="nav-brand d-flex align-items-center gap-2 d-lg-none">
-                        <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo.png')}}" alt="logo">
+                        <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo.png')}}" alt="logo" loading="lazy" decoding="async">
                     </a>
                     <div class="d-flex gap-6">
                         <button class="navbar-toggle-btn d-block d-lg-none" type="button">
@@ -53,7 +53,7 @@
                                     >Founder’s Message</a>
                             </li> -->
                             <li class="menu-link padding-for">
-                                <a href="{{ route('founders-message') }}" wire:navigate class="n2-color  slide-vertical"
+                                <a href="{{ route('founders-message') }}" class="n2-color  slide-vertical"
                                     >Founder’s Message</a>
                             </li>
                             <li class="menu-link padding-for">
