@@ -330,7 +330,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                                             data-fancybox="{{ $course->title }}"
                                                                             data-caption="{{ $course->title }}"
                                                                             href="{{ asset('upload/courses/' . $cert['image']) }}">
-                                                                            <img src="{{ asset('upload/courses/' . $cert['image']) }}" class="w-100" alt="{{ $course->title }}">
+                                                                            <img src="{{ asset('upload/courses/' . $cert['image']) }}" class="w-100" alt="{{ $course->title }}" loading="lazy">
                                                                         </a>
                                                                     </div>
                                                                     @if($cert['title'])

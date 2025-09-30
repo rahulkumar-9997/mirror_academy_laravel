@@ -96,7 +96,28 @@
             <div class="single-item d-grid gap-4 gap-md-4 transition d-center">
                <div class="img-area position-relative d-center image-file">
                   <a href="{{ route('courses.details', $course->slug) }}">
-                     <img src="{{ asset('upload/courses/' . $course->main_image) }}" class="w-100 border-radius" alt="{{ $course->title }}" loading="lazy" decoding="async">
+                    <picture>
+                     <source 
+                        srcset="
+                              {{ url('/images/courses/' . $course->main_image) }}?w=400&q=80 400w,
+                              {{ url('/images/courses/' . $course->main_image) }}?w=650&q=80 800w,
+                              {{ url('/images/courses/' . $course->main_image) }}?w=800&q=80 1200w
+                        " 
+                        sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px" 
+                        type="image/webp">
+                     <img 
+                        src="{{ url('/images/courses/' . $course->main_image) }}?w=600&q=80&fm=jpg" 
+                        srcset="
+                              {{ url('/images/courses/' . $course->main_image) }}?w=400&q=80&fm=jpg 400w,
+                              {{ url('/images/courses/' . $course->main_image) }}?w=650&q=80&fm=jpg 800w,
+                              {{ url('/images/courses/' . $course->main_image) }}?w=800&q=80&fm=jpg 1200w
+                        "
+                        sizes="(max-width: 600px) 400px, (max-width: 992px) 800px, 1200px"
+                        class="w-100 border-radius"
+                        alt="{{ $course->title }}"
+                        loading="lazy"
+                        decoding="async">
+                  </picture>
                   </a>
                </div>
                <div class="abs-area">

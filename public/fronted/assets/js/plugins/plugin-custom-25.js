@@ -3,22 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(function ($) {
 
-      /* select two init */
-      $(".select-two").select2({
-        allowClear: true
-      });
-      $('.single-select').on('click', function () {
-        const singleSelect = $('.select2-container--open');
-        var selectType = $(this).attr('class').split(' ')[0];
-        $(singleSelect[1]).addClass(selectType);
-        const computedStyle = window.getComputedStyle(this);
-        const width = computedStyle.width;
-        $(singleSelect[1]).find('.select2-dropdown').css('right', '-'+(width));
-      });
-
-      /* Splitting init */
-      Splitting();
-
+      
       // box-content
       const boxContent = document.querySelectorAll('.box-content')
       boxContent.forEach((el) => {
@@ -37,19 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
       })
 
-      // Initialize the price range slider
-      $("#price-range").slider({
-          range: true,
-          min: 0,
-          max: 1000,
-          values: [100, 500],
-          slide: function(event, ui) {
-            $("#price-range-output").text("$" + ui.values[0] + " - $" + ui.values[1]);
-          }
-      });
-
-      // Display the initial price range
-      $("#price-range-output").text("$" + $("#price-range").slider("values", 0) + " - $" + $("#price-range").slider("values", 1));
 
       // banner-carousel
       let bannerCarousel = document.querySelector('.banner-carousel');
@@ -498,34 +470,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
           },
         });
-      }
-      
-      // shop-details-slider 
-      let shopDetailCarousel = document.querySelector('.shop-details-carousel');
-      let shopDetailSlider = document.querySelector('.shop-details-slider');
-      if(shopDetailSlider){
-        var swiper = new Swiper(shopDetailCarousel, {
-          slidesPerView: 3,
-          loop: true,
-          spaceBetween: 12,
-          watchSlidesProgress: true,
-          autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-          },
-        });
-        var swiper = new Swiper(shopDetailSlider, {
-          loop: true,
-          watchSlidesProgress: true,
-          autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-          },
-          thumbs: {
-            swiper: swiper,
-          },
-        });
-      }
+      }      
 
     });
 });
