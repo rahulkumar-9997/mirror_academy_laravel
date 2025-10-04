@@ -12,28 +12,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Click to Scroll Top
-    var ScrollTop = $(".scrollToTop");
-    var lastScrollTop = 0;
-    $('.scrollToTop').on('click', function () {
-      $('html, body').animate({
-        scrollTop: 0
-      }, 600);
-      return false;
+    $(document).ready(function() {
+        var ScrollTop = $(".scrollToTop");
+        var lastScrollTop = 0;
+        ScrollTop.on('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+        });
+        $(window).on('scroll', function() {
+            var scrollTop = $(this).scrollTop();
+            if (scrollTop < lastScrollTop) {
+                ScrollTop.stop(true, true).fadeIn(400);
+            } else {
+                ScrollTop.stop(true, true).fadeOut(400);
+            }
+            if (scrollTop < 600) {
+                ScrollTop.removeClass("active");
+            } else {
+                ScrollTop.addClass("active");
+            }
+            lastScrollTop = scrollTop;
+        });
     });
-    $(window).on('scroll', function() {
-      var scrollTop = $(this).scrollTop();
-      if (scrollTop < lastScrollTop) {
-        $(ScrollTop).fadeIn();
-      } else {
-        $(ScrollTop).fadeOut();
-      }
-      if ($(this).scrollTop() < 600) {
-        ScrollTop.removeClass("active");
-      } else {
-        ScrollTop.addClass("active");
-      }
-      lastScrollTop = scrollTop;
-    });
+
 
     // scroll down Button
     var scrollButton = document.querySelector('#scrollButton');

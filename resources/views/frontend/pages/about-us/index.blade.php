@@ -30,7 +30,7 @@
                             <p class="fs-ten text-uppercase n2-color fw-mid">Year Experience * Year Experience * </p>
                         </div>
                         <div class="img-area p6-bg-color d-center position-relative rounded-circle cus-border border">
-                            <span class="display-five n1-color position-absolute">12+</span>
+                            <span class="exp-font n1-color position-absolute">12+</span>
                         </div>
                     </div>
                 </div>

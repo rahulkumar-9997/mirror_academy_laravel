@@ -2453,7 +2453,11 @@ select {
 
 .social-area.second a:hover,
 .social-area.second a.active {
-	background: rgba(var(--p7), 1)
+	background: #fff;
+	
+}
+.social-area.second a:hover i{
+	color: #000;
 }
 
 .social-area.third a:hover,
@@ -2887,8 +2891,8 @@ iframe {
 
 .scrollToTop i {
 	transition: var(--transition);
-	margin-bottom: -25px;
-	opacity: 0
+	margin-bottom: 0px;
+	opacity: 1;
 }
 
 .scrollToTop.active {
@@ -4826,7 +4830,7 @@ iframe {
 	height: 40px;
     width: 40px;
     text-align: center;
-    line-height: 40px;
+    line-height: 42px;
     border-radius: 50%;
     display: inline-block;
     transition: all 0.4s;
@@ -5032,6 +5036,9 @@ iframe {
     text-align: center;
     font-weight: 500;
 }
+.why-choose-us.why-choose-section{
+	padding-top: 10px;
+}
 .our-courses,
 .about-us-section,
 .why-choose-us,
@@ -5043,18 +5050,20 @@ iframe {
 .contact-us-page .fs-two{
 	color: #000000;
     font-family: "Cormorant Garamond", serif;
-    font-size: 30px;
-    font-weight: 600;
+    /* font-size: 30px; */
+    font-size: 47px;
+    font-weight: 700;
     text-transform: capitalize;
 }
+
 .our-courses .fs-two,
 .google-reviews-section .fs-two,
 .why-choose-us .fs-two,
 .resister-today-section .fs-two {
     color: #000000;
     font-family: "Cormorant Garamond", serif;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 45px;
+    font-weight: 700;
     text-transform: capitalize;
     position: relative;
     display: inline-block;
@@ -5082,9 +5091,9 @@ iframe {
 .our-courses .ou-h2 {
 	color: #000000;
 	font-family: "Cormorant Garamond", serif;
-	font-weight: 500;
-	font-size: 20px;
-    font-weight: 500;
+	font-weight: 900;
+	/* font-size: 20px; */
+	font-size: 25px;
 }
 /* .co-image-i{
 	position: relative;
@@ -5114,10 +5123,24 @@ iframe {
     border: none !important;
     border-radius: 10px;
 	background-color: #fff; */
-	border-radius: 10px;
+	 display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
     background-color: #fff;
     border: 1px solid #E0E0E0;
+    box-sizing: border-box;  
 }
+.exp-font{
+	font-size: 45px;
+	font-family: var(--body-font);
+	line-height: 50px;
+	/* font-family: "Cormorant Garamond", serif; */
+}
+.about-us .ab-h2.subheading-og{
+	font-size: 30px;
+}
+
 .awards-box .img-area{
 	padding: 10px;
 }
@@ -5141,8 +5164,9 @@ iframe {
 	padding: 0 10px;
 }
 .course-content h5{
-	font-size: 20px;
+	font-size: 24px;
 	margin-bottom: 10px;
+	font-weight: 900;
 	
 }
 
@@ -5257,7 +5281,7 @@ iframe {
     border-radius: 6px;
 }
 .scroll-wrapper .p7-bg-color {
-    background-color: #F44336;
+    background-color: #d4d4d4;
 }
 
 .awards-carousel p{
@@ -5280,7 +5304,15 @@ iframe {
 	position: relative;
     display: inline-block;
     padding-bottom: 10px;
-	font-size: 22px;
+	font-size: 30px;
+	font-weight: 900;
+    letter-spacing: 1px;
+}
+.fo-link-area li,
+.fo-link-area li a,
+.fo-link-area li span,
+.fo-link-area p{
+	font-size: 15px;
 }
 .footer-heading-area::before {
     position: absolute;
@@ -5726,6 +5758,16 @@ iframe {
  
 /*why choose us*/
 /* CSS */
+/* .our-approach-box-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-bottom: 0x;
+}
+.our-approach-content {
+  width: calc(50% - 15px);
+} */
 .program-benefits-container {
   display: flex;
   gap: 20px;
@@ -5746,6 +5788,7 @@ iframe {
   background: #fff;
   padding: 10px 10px;
   border-radius: 10px;
+  min-height: 110px;
 }
 
 .benefit-icon {
@@ -5773,6 +5816,9 @@ iframe {
   background: #ffffff;
 }
 .benefit-item.highlight .benefit-icon img {
+	z-index: 1;
+}
+.benefit-item.highlight .benefit-icon img {
   /* filter: invert(100%);
   padding: 10px; */
   border-radius: 10px;
@@ -5781,8 +5827,8 @@ iframe {
 /* Heading and Text */
 .benefit-content h3 {
   margin: 0 0 6px 0;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 900;
 }
 .benefit-content p {
   margin: 0;
@@ -5797,7 +5843,7 @@ iframe {
     transform: translateX(-50%);
     width: 2px;
     height: 66px;
-    background: #d1c37a;
+    background: #000000;
     z-index: 0;
 }
 .benefit-item:last-child .benefit-icon::after {

@@ -124,7 +124,10 @@
                                                         class="box-area d-center rounded-circle n1-2nd-bg-color n1-color fs-six box-area box-three">
                                                         <i class="ph ph-map-pin"></i>
                                                     </span>
-                                                    <span class="n1-color text-start">Plot No.2, Krutika Layout, Hitech City Road, Opposite Pride Honda Showroom, Madhapur, Hyderabad, Telangana 500081</span>
+                                                    <span class="n1-color text-start">
+                                                        2nd floor, Krutika Layout, GVR Complex, opp. Pride Honda Showroom, Madhapur, Hyderabad, Telangana 500081
+
+                                                    </span>
                                                 </li>
 
                                             </ul>

@@ -10,10 +10,9 @@
 		</div>
 		<div class="scroll-wrapper z-2 d-flex justify-content-center p-2 rounded-pill position-fixed">
 			<button class="scrollToTop p7-bg-color d-center flex-column rounded-circle" aria-label="scroll Bar Button">
-				<span class="d-center n1-color fs-five">
+				<span class="d-center n2-color fs-five">
 					<i class="ph ph-caret-double-up"></i>
 				</span>
-				<span class="n1-color">TOP</span>
 			</button>
 		</div>
 		<div class="mouse-follower">

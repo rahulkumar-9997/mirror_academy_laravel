@@ -32,7 +32,7 @@
          <div class="col-lg-8">
             <div class="section-area mb-3 mb-md-5 d-grid gap-2 gap-md-2 reveal-single1 reveal-text text-three">
                <h1 class="fs-two">Mirrors Academy of Hair & Beauty</h1>
-               <h2 class="ab-h2">
+               <h2 class="ab-h2 subheading-og">
                   Master the art of styling in the most professional way
                </h2>
             </div>
@@ -45,8 +45,8 @@
          </div>
       </div>
       @if(isset($data['awards']) && $data['awards']->count() > 0)
-      <div class="awards-area mt-8">
-         <div class="row gy-10 gy-md-0 justify-content-between">
+      <div class="awards-area mt-6 mb-5">
+         <div class="row gy-10 gy-md-0 justify-content-between awards-row-home">
             <div class="col-lg-12">
                <div class="swiper moments-carousel awards-carousel">
                   <div class="swiper-wrapper">
@@ -161,7 +161,7 @@
       </div>
    </div>
 </section> -->
-<section class="why-choose-us event-section second position-relative pb-120 pt-120">
+<section class="why-choose-us event-section second position-relative pb-120 pt-120 why-choose-section">
    <div class="container">
       <div class="row gy-6 gy-md-0 mb-8 mb-md-10 justify-content-center text-center">
          <div class="col-md-8 col-lg-6 col-xl-5">
@@ -176,7 +176,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-education.jpg')}}" alt="Expert Educators" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/expert-education.svg')}}" alt="Expert Educators" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Expert Educators</h3>
@@ -185,7 +185,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.jpg')}}" alt="Live Models" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/live-models.svg')}}" alt="Live Models" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Live Models</h3>
@@ -194,7 +194,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.jpg')}}" alt="Student Kit" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/student-kit.svg')}}" alt="Student Kit" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Student Kit</h3>
@@ -203,7 +203,7 @@
                </div>               
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/unque-curicculm.jpg')}}" alt="Unique Curriculum" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/unque-curicculm.svg')}}" alt="Unique Curriculum" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Unique Curriculum</h3>
@@ -216,7 +216,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.jpg')}}" alt="Dual Certification" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification.svg')}}" alt="Dual Certification" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Dual Certification</h3>
@@ -225,7 +225,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.jpg')}}" alt="Job Readiness" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/job-rediness.svg')}}" alt="Job Readiness" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Job Readiness</h3>
@@ -234,7 +234,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.jpg')}}" alt="Real World Exposure" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/real-world-exposure.svg')}}" alt="Real World Exposure" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Real World Exposure</h3>
@@ -245,7 +245,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engaement.jpg')}}" alt="Community Engagement" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/community-engaement.svg')}}" alt="Community Engagement" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Community Engagement</h3>
@@ -426,7 +426,7 @@
       <div class="row gy-8 gy-lg-0 justify-content-center">
          <div class="col-lg-6 order-1 order-lg-0">
             <div class="single-box h-100 position-relative me-0 me-lg-6">
-               <iframe class="h-100 border-0" src="https://maps.google.com/maps?q=Mirrors%20Academy%20of%20Hair%20and%20Beauty&t=m&z=10&output=embed&iwloc=near"></iframe>
+               <iframe class="h-100 border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.282907268521!2d78.38327097462825!3d17.446168301110237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb916072bcd201%3A0xd915ebdf2b0aad1!2sMirrors%20Luxury%20Salons%2C%20Madhapur!5e0!3m2!1sen!2sin!4v1759563837322!5m2!1sen!2sin"></iframe>
                <div class="abs-area">
                   <div class="video-bg-thumb third pe-none d-center d-none d-sm-flex position-absolute h-100 w-100 top-0">
                      <span class="popup-video btn-popup-animation transition position-absolute z-1 d-center rounded-circle">

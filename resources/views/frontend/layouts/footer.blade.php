@@ -7,9 +7,9 @@
                         <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo-white.png')}}" class="footer-logo-img" alt="logo" loading="lazy" decoding="async">
                     </a>
                 </div>
-                <div class="footer-title-area">
+                <div class="footer-title-area fo-link-area">
                     <p>
-                        Today, Mirrors is synonymous with the highest level of style, sensibility and finesse.
+                        Where every student learns to craft, style,<br> and shine like a true professional.
                     </p>
                 </div>
                 <ul class="d-center justify-content-start gap-2 gap-md-3 social-area second">
@@ -36,7 +36,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-6 col-md-4 col-lg-2 footer-links d-flex justify-content-start order-1 order-md-0">
+            <div class="col-6 col-md-4 col-lg-2 footer-links d-flex justify-content-start order-1 order-md-0 fo-link-area">
                 <div class="single-box footer-links-area">
                     <h5 class="mb-4 mb-md-4 n1-color footer-heading-area">Navigation</h5>
                     <ul class="d-grid gap-2 gap-md-2 overflow-hidden">
@@ -58,7 +58,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-6 col-md-4 col-lg-2 footer-links d-flex justify-content-start order-1 order-md-0">
+            <div class="col-6 col-md-4 col-lg-2 footer-links d-flex justify-content-start order-1 order-md-0 fo-link-area">
                 <div class="single-box footer-links-area">
                     <h5 class="mb-4 mb-md-4 n1-color footer-heading-area">About</h5>
                     <ul class="d-grid gap-2 gap-md-2 overflow-hidden">
@@ -75,7 +75,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-8 col-sm-7 col-md-4 col-lg-3 d-center">
+            <div class="col-8 col-sm-7 col-md-4 col-lg-3 d-center fo-link-area">
                 <div class="single-box address footer-links-area address-area">
                     <h5 class="mb-4 mb-md-4 n1-color footer-heading-area">Address</h5>
                     <ul class="d-grid gap-2 gap-md-2">
@@ -93,7 +93,7 @@
                                 <i class="ph ph-map-pin"></i>
                             </span>
                             <span class="n1-color">
-                                Honda Showroom, 2nd floor, Plot No.2, Krutika Layout, Hitech City Main Rd, opposite Pride, Hyderabad, Telangana 500081
+                               2nd floor, Krutika Layout, GVR Complex, opp. Pride Honda Showroom, Madhapur, Hyderabad, Telangana 500081
                             </span>
                         </li>
                         <li class="d-flex align-items-center gap-3">

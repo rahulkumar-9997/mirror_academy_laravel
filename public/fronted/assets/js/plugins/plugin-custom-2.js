@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", function () {
             delay: 200000,
             disableOnInteraction: false,
           },
-          spaceBetween: 24,
+          spaceBetween: 20,
           slidesPerView: 1.1,
           paginationClickable: true,
           navigation: {
