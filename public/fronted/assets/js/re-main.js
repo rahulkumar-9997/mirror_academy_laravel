@@ -133,16 +133,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Circle Text
     const text = document.querySelector(".circle-text.first p");
     const text2 = document.querySelector(".circle-text.second p");
+
     if (text) {
-      text.innerHTML = text.innerText.split('').map(
+      const chars = text.innerText.trim().replace(/\s+/g, ' ');
+      const degPerChar = 360 / chars.length;
+      text.innerHTML = chars.split('').map(
         (char, i) =>
-          `<span style="transform:rotate(${i * 6.7}deg)">${char}</span>`
+          `<span style="transform:rotate(${i * degPerChar}deg);">${char}</span>`
       ).join('');
     }
+
     if (text2) {
-      text2.innerHTML = text2.innerText.split('').map(
+      const chars2 = text2.innerText.trim().replace(/\s+/g, '');
+      const degPerChar2 = 360 / chars2.length;
+      text2.innerHTML = chars2.split('').map(
         (char, i) =>
-          `<span style="transform:rotate(${i * 6}deg)">${char}</span>`
+          `<span style="transform:rotate(${i * degPerChar2}deg); letter-spacing: 0;">${char}</span>`
       ).join('');
     }
 
