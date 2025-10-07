@@ -5758,7 +5758,7 @@ iframe {
  
 /*why choose us*/
 /* CSS */
-/* .our-approach-box-content {
+.our-approach-box-content {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -5767,7 +5767,7 @@ iframe {
 }
 .our-approach-content {
   width: calc(50% - 15px);
-} */
+}
 .program-benefits-container {
   display: flex;
   gap: 20px;

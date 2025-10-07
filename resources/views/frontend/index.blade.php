@@ -172,7 +172,7 @@
       </div>
       <div class="row cus-row gy-6 gy-xxl-7 counter-area second justify-content-center justify-content-md-start">
          <!-- HTML -->
-         <div class="col-lg-6">
+         <div class="our-approach-content">
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
@@ -212,10 +212,10 @@
                </div>               
             </div>
          </div>
-         <div class="col-lg-6">
+         <div class="our-approach-content our-approach-second">
             <div class="benefit-column">
                <div class="benefit-item highlight">
-                  <div class="benefit-icon">
+                  <div class="benefit-icon before-icon-in-mobile">
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification.svg')}}" alt="Dual Certification" loading="lazy" decoding="async">
                   </div>
                   <div class="benefit-content">
@@ -243,7 +243,7 @@
                      </p>
                   </div>
                </div>
-               <div class="benefit-item highlight">
+               <div class="benefit-item highlight last-last">
                   <div class="benefit-icon">
                      <img src="{{asset('fronted/assets/mirror-img/choose-us/new/community-engaement.svg')}}" alt="Community Engagement" loading="lazy" decoding="async">
                   </div>
