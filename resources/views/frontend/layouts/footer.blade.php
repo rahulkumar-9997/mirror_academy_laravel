@@ -43,9 +43,9 @@
                         <li>
                             <a href="{{ route('about-us') }}" class="d-center justify-content-start transition n1-color position-relative">About Us</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="{{ route('founders-message') }}" class="d-center justify-content-start transition n1-color position-relative">Founder’s Message</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ route('courses') }}" class="d-center justify-content-start transition n1-color position-relative">Courses</a>
                         </li>

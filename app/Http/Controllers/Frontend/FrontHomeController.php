@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use App\Models\Award;
 use App\Models\Banner;
 use App\Models\Courses;
@@ -71,6 +72,7 @@ class FrontHomeController extends Controller
             ->limit(5)
             ->get();
         //return response()->json($data['courses']);
+        DB::disconnect('mysql');
         return view('frontend.index', compact('data'));
     }
 
@@ -79,6 +81,7 @@ class FrontHomeController extends Controller
         $data['courses'] = Courses::select('id', 'title', 'slug', 'short_content', 'description', 'main_image')
         ->where('status', 1)
         ->get();
+        DB::disconnect('mysql');
         //return response()->json($data['courses']);
         return view('frontend.pages.courses.course-list', compact('data'));
     }
@@ -87,6 +90,7 @@ class FrontHomeController extends Controller
         ->where('status', 1)
         ->where('slug', $slug)
         ->firstOrFail();
+        DB::disconnect('mysql');
         //return response()->json($course);
         return view('frontend.pages.courses.course-details', compact('course'));
     }
@@ -103,6 +107,7 @@ class FrontHomeController extends Controller
             ->where('status', 1)
             ->orderBy('id', 'desc')
             ->paginate(80);
+            DB::disconnect('mysql');
         //return response()->json($galleries);
         return view('frontend.pages.gallery.index', compact('galleries'));
     }
@@ -145,7 +150,7 @@ class FrontHomeController extends Controller
             'course_name' => $validated['course_name'] ?? null,
         ];
         try {
-            Mail::to('contact@mirrorsacademy.in')->send(new EnquiryMail($data));
+            Mail::to('mirrorsacademy9@gmail.com')->send(new EnquiryMail($data));
             //Mail::to('rahulkumarmaurya464@gmail.com')->send(new EnquiryMail($data));
         } catch (\Exception $e) {
             Log::error('Failed to send enquiry email: ' . $e->getMessage());

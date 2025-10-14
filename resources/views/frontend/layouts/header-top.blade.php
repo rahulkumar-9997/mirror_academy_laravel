@@ -145,7 +145,7 @@
                                             </li>
 
                                             <li>
-                                                <a hhref="https://www.instagram.com/mirrorsacademy/" aria-label="Instagram"
+                                                <a href="https://www.instagram.com/mirrorsacademy/" aria-label="Instagram"
                                                     class="d-center n1-2nd-bg-color transition">
                                                     <span class="d-center fs-seven n1-color">
                                                         <i class="fab fa-instagram"></i>

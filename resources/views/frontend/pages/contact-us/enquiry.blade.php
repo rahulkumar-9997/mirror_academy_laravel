@@ -100,7 +100,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="single-box position-relative position-relative">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.282907268521!2d78.38327097462825!3d17.446168301110237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb916072bcd201%3A0xd915ebdf2b0aad1!2sMirrors%20Luxury%20Salons%2C%20Madhapur!5e0!3m2!1sen!2sin!4v1759563837322!5m2!1sen!2sin" class="border-0" title="Mirrors Academy of Hair and Beauty"></iframe>
+                    <iframe class="h-100 border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2827298339103!2d78.38584589999999!3d17.4461768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91376f1730c9%3A0x56c32b7ff5ecaf3b!2sMirrors%20Academy%20of%20Hair%20and%20Beauty!5e0!3m2!1sen!2sin!4v1760166195844!5m2!1sen!2sin"></iframe>               
                 </div>
             </div>
         </div>

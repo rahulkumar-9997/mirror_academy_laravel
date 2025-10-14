@@ -38,22 +38,28 @@
             <div class="col-md-6 ps-3 ps-lg-10 overflow-hidden">
                 <div class="d-grid gap-1 gap-md-1 pt-30">
                     <div class="section-area mb-2 mb-md-2 d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-three">
-                        <h2 class="fs-two">Our Story</h2>
+                        <h2 class="fs-two">Founder’s Message</h2>
                     </div>
                     <p class="n3-color">
-                       At Mirrors Academy, we believe education in hair and beauty is not just about mastering skills, it is about shaping future leaders of the industry. Established with a vision to raise the standards of professional training, we provide world-class education in hair and beauty.
+                       When I started Mirrors Luxury Salons over 25 years ago, my dream was to put Hyderabad on the global beauty and fashion map. Mirrors soon became a symbol of luxury, innovation, and trust.
                     </p>
                     <p class="n3-color">
-                       Our academy blends global techniques with hands-on learning, guided by experienced faculty and industry experts. With state-of-the-art facilities, structured courses, and a focus on creativity, innovation, and discipline, we ensure every student is equipped with both technical excellence and the confidence to succeed.
+                       But I realized that true transformation comes through education because while salons can change appearances, education changes lives.
                     </p>
                     <p class="n3-color">
-                      Beyond technical training, Mirrors Academy nurtures talent through personality development, client communication and business skills, empowering students to excel as professionals, entrepreneurs and trendsetters.
+                      That vision gave birth to Mirrors Academy of Hair & Beauty - an institution that nurtures raw talent, builds skills, and creates career opportunities.
                     </p>
                     <p class="n3-color">
-                      Trusted by aspiring stylists and recognized for our commitment to excellence, Mirrors Academy stands as a premier destination for those who wish to turn passion into a rewarding career. Here, education meets artistry and ambition meets opportunity.
+                      With support from global partners like L’Oréal Professionnel, our academy maintains the same world-class standards that define our salons. We focus on technical excellence, creativity, and confidence, ensuring every student is equipped to thrive in the hair and beauty industry.
+                    </p>
+                    <p class="n3-color">
+                      At Mirrors Academy, ambition finds guidance, and passion finds purpose building the next generation of hair and beauty professionals and continuing the legacy of Mirrors.
+                    </p>
+                    <p>
+                       <strong> — Dr. Vijayalakshmi Goodapati</strong>
                     </p>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-6 col-lg-6 col-sm-6 mb-30 mb-sm-5">
                         <div class="feature-container feature-bx1 feature1 ab-page-feature">
                             <div class="icon-content">
@@ -90,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -101,14 +107,22 @@
         <div class="row gy-3 gy-md-0 mb-4 mb-md-5 justify-content-between align-items-center">
             <div class="col-md-7">
                 <div class="section-area d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-one">
-                    <span class="fw-semibold">Our Mission</span>
+                    <span class="fw-semibold">Our Story</span>
                     <p class="n3-color">
-                        At Mirrors Academy, we are committed to nurturing talent and empowering individuals to excel in the art of hair and beauty. Whether you aspire to be a skilled hairstylist or esthetician, our comprehensive programs and personalized mentorship will guide you towards a successful career in the hair and beauty industry.
+                        At Mirrors Academy, we believe education in hair and beauty is not just about learning skills, it’s about shaping the future leaders of the industry.
 
                     </p>
-                    <span class="fw-semibold">Our Vision</span>
                     <p class="n3-color">
-                       Our vision is to lead the next generation of hair and beauty professionals by providing unparalleled education and fostering creativity in a dynamic and inclusive environment. We aspire to be the cornerstone of excellence in hair and beauty education, empowering our students to innovate, inspire, and transform the industry worldwide.
+                       Founded with a vision to raise the standards of professional training, Mirrors Academy offers world-class education in hair and beauty, blending global techniques with hands-on learning. Guided by expert educators and powered by state-of-the-art facilities, our structured programs focus on creativity, innovation, and discipline.
+                    </p>
+                    <p class="n3-color">
+                      Beyond technical mastery, we emphasize personality development, client communication, and business skills, preparing our students to become confident professionals, entrepreneurs, and trendsetters.
+                    </p>
+                    <p class="n3-color">
+                     Award-winning excellence, expert mentors, and world-class standards make Mirrors Academy a trusted destination for aspiring stylists who wish to turn their passion into a rewarding career.
+                    </p>
+                    <p class="n3-color">
+                     Here, education meets artistry and ambition meets opportunity.
                     </p>
                 </div>
             </div>
@@ -117,6 +131,19 @@
                     <img src="{{asset('fronted/assets/mirror-img/about-us/vission-mission-new.jpg')}}" class="w-100 border-radius" alt="vission-mission" loading="lazy">
                 </div>
             </div>
+            <!-- <div class="col-lg-12">
+                <div class="section-area d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-one">
+                    
+                    <span class="fw-semibold">Our Mission</span>
+                    <p class="n3-color">
+                        At Mirrors Academy, we are committed to nurturing talent and empowering individuals to excel in the art of hair and beauty. Whether you aspire to be a skilled hairstylist or esthetician, our comprehensive programs and personalized mentorship will guide you towards a successful career in the hair and beauty industry.
+                    </p>
+                    <span class="fw-semibold">Our Vision</span>
+                    <p class="n3-color">
+                        Our vision is to lead the next generation of hair and beauty professionals by providing unparalleled education and fostering creativity in a dynamic and inclusive environment. We aspire to be the cornerstone of excellence in hair and beauty education, empowering our students to innovate, inspire, and transform the industry worldwide.
+                    </p>
+                </div>
+            </div> -->
         </div>        
     </div>
 </section>

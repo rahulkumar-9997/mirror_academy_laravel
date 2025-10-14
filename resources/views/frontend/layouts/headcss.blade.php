@@ -10,8 +10,8 @@
 <title>@yield('title')</title>
 <link rel="canonical" href="{{ url()->current() }}" />
 <link rel="shortcut icon" href="{{asset('fronted/assets/mirror-img/fav.jpg')}}" type="image/x-icon">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/style.min-2.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/media-query-2.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style.min-3.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/media-query-3.css')}}">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7WLDLS90VW"></script>
 <script>

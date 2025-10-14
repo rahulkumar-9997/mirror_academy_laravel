@@ -389,28 +389,30 @@
          </div> -->
       </div>
       @if(isset($data['videos']) && $data['videos']->count() > 0)
-      <div class="home-video-section mt-10 eaight-style">
-         <div class="row gy-6 gy-xxl-7 home-video justify-content-center justify-content-md-start">
-            @foreach ($data['videos'] as $video)
-            <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
-               <div class="test-video-section">
-                  <div class="embed-responsive-div embed-responsive-16by9">
-                     <video class="embed-responsive-item lazy-video"
-                        controls
-                        muted
-                        playsinline
-                        preload="none"
-                        controlslist="nodownload">
-                        <source data-src="{{ asset('upload/video/' . $video->file) }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                     </video>
+         <div class="home-video-section mt-10 eaight-style">
+            <div class="row gy-6 gy-xxl-7 home-video justify-content-center justify-content-md-start">
+               @foreach ($data['videos'] as $video)
+               <div class="col-20 video-wrapper mb-sm-1 mb-md-1 mb-lg-5 mb-xl-0 pe-xl-2 ps-xl-2">
+                  <div class="test-video-section position-relative">
+                     <div class="video-skeleton-loader"></div>                     
+                     <div class="embed-responsive-div embed-responsive-16by9">
+                        <video class="embed-responsive-item lazy-video"
+                           controls
+                           muted
+                           playsinline
+                           preload="none"
+                           controlslist="nodownload">
+                           <source data-src="{{ asset('upload/video/' . $video->file) }}" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                     </div>
                   </div>
                </div>
+               @endforeach
             </div>
-            @endforeach
          </div>
-      </div>
-      @endif
+         @endif
+
 
    </div>
 </section>
@@ -426,7 +428,7 @@
       <div class="row gy-8 gy-lg-0 justify-content-center">
          <div class="col-lg-6 order-1 order-lg-0">
             <div class="single-box h-100 position-relative me-0 me-lg-6">
-               <iframe class="h-100 border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.282907268521!2d78.38327097462825!3d17.446168301110237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb916072bcd201%3A0xd915ebdf2b0aad1!2sMirrors%20Luxury%20Salons%2C%20Madhapur!5e0!3m2!1sen!2sin!4v1759563837322!5m2!1sen!2sin"></iframe>
+               <iframe class="h-100 border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2827298339103!2d78.38584589999999!3d17.4461768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91376f1730c9%3A0x56c32b7ff5ecaf3b!2sMirrors%20Academy%20of%20Hair%20and%20Beauty!5e0!3m2!1sen!2sin!4v1760166195844!5m2!1sen!2sin"></iframe>
                <div class="abs-area">
                   <div class="video-bg-thumb third pe-none d-center d-none d-sm-flex position-absolute h-100 w-100 top-0">
                      <span class="popup-video btn-popup-animation transition position-absolute z-1 d-center rounded-circle">
@@ -465,44 +467,47 @@
 @endsection
 @push('scripts')
 <script>
-   $(document).ready(function() {
-      let $lazyVideos = $("video.lazy-video");
-      if ("IntersectionObserver" in window) {
-         let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
-               if (entry.isIntersecting) {
-                  let $video = $(entry.target);
-                  $video.find("source[data-src]").each(function() {
-                     $(this).attr("src", $(this).data("src"));
-                  });
-                  entry.target.muted = true;
-                  entry.target.load();
-                  entry.target.muted = true;
-                  entry.target.play().catch(function(err) {
-                     console.log("Autoplay blocked:", err);
-                  });
-                  lazyVideoObserver.unobserve(entry.target);
-               }
-            });
+$(document).ready(function() {
+   let $lazyVideos = $("video.lazy-video");
+
+   function loadVideo($video, observer) {
+      $video.find("source[data-src]").each(function() {
+         $(this).attr("src", $(this).data("src"));
+      });
+      $video[0].load();
+
+      // Hide skeleton once video starts loading
+      $video.on('loadeddata canplay', function() {
+         $(this).closest('.test-video-section')
+            .find('.video-skeleton-loader')
+            .fadeOut(400);
+      });
+
+      // autoplay muted
+      $video[0].muted = true;
+      $video[0].play().catch(() => {});
+
+      if (observer) observer.unobserve($video[0]);
+   }
+
+   if ("IntersectionObserver" in window) {
+      let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+         entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+               loadVideo($(entry.target), observer);
+            }
          });
-         $lazyVideos.each(function() {
-            lazyVideoObserver.observe(this);
-         });
-      } else {
-         $lazyVideos.each(function() {
-            let $video = $(this);
-            $video.find("source[data-src]").each(function() {
-               $(this).attr("src", $(this).data("src"));
-            });
-            this.load();
-            this.muted = true;
-            this.play().catch(function(err) {
-               console.log("Autoplay blocked:", err);
-            });
-         });
-      }
-   });
+      });
+      $lazyVideos.each(function() {
+         lazyVideoObserver.observe(this);
+      });
+   } else {
+      $lazyVideos.each(function() {
+         loadVideo($(this), null);
+      });
+   }
+});
 </script>
 
-<script src="https://elfsightcdn.com/platform.js" async></script>
+
 @endpush
