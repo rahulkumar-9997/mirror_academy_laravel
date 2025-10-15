@@ -55,12 +55,10 @@
                     <p class="n3-color">
                       At Mirrors Academy, ambition finds guidance, and passion finds purpose building the next generation of hair and beauty professionals and continuing the legacy of Mirrors.
                     </p>
-                    <p style="margin-bottom: 5px;">
-                       <strong>- Vijayalakshmi Goodapati</strong>
+                    <h5 style="font-family: none;">- Vijayalakshmi Goodapati</h5>
+                    <p>
+                       <strong> Founder of Mirrors Luxury Salons & Academy</strong>
                     </p>
-                    <h5>
-                        Founder of Mirrors Luxury Salons & Academy
-                    </h5>
                 </div>
                 <!-- <div class="row">
                     <div class="col-6 col-lg-6 col-sm-6 mb-30 mb-sm-5">
