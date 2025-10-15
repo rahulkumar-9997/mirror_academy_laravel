@@ -38,7 +38,7 @@
             <div class="col-md-6 ps-3 ps-lg-10 overflow-hidden">
                 <div class="d-grid gap-1 gap-md-1 pt-30">
                     <div class="section-area mb-2 mb-md-2 d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-three">
-                        <h2 class="fs-two">Founder’s Message</h2>
+                        <h2 class="fs-two">Founder of Mirrors Luxury Salons & Academy</h2>
                     </div>
                     <p class="n3-color">
                        When I started Mirrors Luxury Salons over 25 years ago, my dream was to put Hyderabad on the global beauty and fashion map. Mirrors soon became a symbol of luxury, innovation, and trust.

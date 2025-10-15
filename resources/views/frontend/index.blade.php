@@ -176,7 +176,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/expert-education.svg')}}" alt="Expert Educators" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/expert-education1.svg')}}" alt="Expert Educators" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Expert Educators</h3>
@@ -185,7 +185,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/live-models.svg')}}" alt="Live Models" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/live-models1.svg')}}" alt="Live Models" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Live Models</h3>
@@ -194,7 +194,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/student-kit.svg')}}" alt="Student Kit" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/student-kit1.svg')}}" alt="Student Kit" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Student Kit</h3>
@@ -203,7 +203,7 @@
                </div>               
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/unque-curicculm.svg')}}" alt="Unique Curriculum" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/unque-curicculm1.svg')}}" alt="Unique Curriculum" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Unique Curriculum</h3>
@@ -216,7 +216,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon before-icon-in-mobile">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification.svg')}}" alt="Dual Certification" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification1.svg')}}" alt="Dual Certification" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Dual Certification</h3>
@@ -225,7 +225,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/job-rediness.svg')}}" alt="Job Readiness" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/job-rediness1.svg')}}" alt="Job Readiness" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Job Readiness</h3>
@@ -234,7 +234,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/real-world-exposure.svg')}}" alt="Real World Exposure" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/real-world-exposure1.svg')}}" alt="Real World Exposure" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Real World Exposure</h3>
@@ -245,7 +245,7 @@
                </div>
                <div class="benefit-item highlight last-last">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/community-engaement.svg')}}" alt="Community Engagement" loading="lazy" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/community-engaement1.svg')}}" alt="Community Engagement" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Community Engagement</h3>
