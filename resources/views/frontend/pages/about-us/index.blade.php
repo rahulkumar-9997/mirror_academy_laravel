@@ -56,7 +56,7 @@
                       At Mirrors Academy, ambition finds guidance, and passion finds purpose building the next generation of hair and beauty professionals and continuing the legacy of Mirrors.
                     </p>
                     <p>
-                       <strong> — Dr. Vijayalakshmi Goodapati</strong>
+                       <strong>- Vijayalakshmi Goodapati</strong>
                     </p>
                 </div>
                 <!-- <div class="row">
