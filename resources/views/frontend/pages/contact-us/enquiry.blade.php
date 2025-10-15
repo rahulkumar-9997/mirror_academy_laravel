@@ -19,7 +19,7 @@
 <section class="contact-section second s1-bg-color-rgb pt-60 pb-60 contact-us-page">
     <div class="container">
         <div class="row gy-8 gy-lg-0 align-items-center justify-content-center">
-            <div class="col-md-9 col-lg-5 order-1 order-lg-0">
+            <div class="col-md-7 col-lg-7 order-1 order-lg-0">
                 <div class="d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-one reveal-init">                   
                     <div class="section-text d-grid gap-3 gap-md-4">
                         <h2 class="fs-two">Have any Query? Get in touch with us!</h2>                        
@@ -57,29 +57,29 @@
                                     <span class="n2-color">Mail Us</span>
                                 </div>
                                 <p class="n3-color">
-                                    <a href="mailto:contact@mirrorsacademy.in" class="n3-color">contact@mirrorsacademy.in</a>
+                                    <a href="mailto:mirrorsacademy9@gmail.com" class="n3-color">mirrorsacademy9@gmail.com</a>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <ul class="d-center justify-content-center gap-2 gap-md-3 social-area mt-5">
                         <li>
-                            <a href="https://www.facebook.com/MirrorsAcademy/" aria-label="Facebook" class="d-center n1-bg-color rounded-circle transition" target="_blank">
-                                <span class="d-center fs-seven p6-color">
+                            <a href="https://www.facebook.com/MirrorsAcademy/" aria-label="Facebook" class="d-center n2-bg-color rounded-circle transition" target="_blank">
+                                <span class="d-center fs-seven so-color">
                                     <i class="fab fa-facebook-f"></i>
                                 </span>
                             </a>
                         </li>                        
                         <li>
-                            <a href="https://www.instagram.com/mirrorsacademy/" aria-label="Instagram" class="d-center n1-bg-color rounded-circle transition" target="_blank">
-                                <span class="d-center fs-seven p6-color">
+                            <a href="https://www.instagram.com/mirrorsacademy/" aria-label="Instagram" class="d-center n2-bg-color rounded-circle transition" target="_blank">
+                                <span class="d-center fs-seven so-color">
                                     <i class="fab fa-instagram"></i>
                                 </span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.youtube.com/@MirrorsLuxurySalons" aria-label="dribbble" class="d-center n1-bg-color rounded-circle transition" target="_blank">
-                                <span class="d-center fs-seven p6-color">
+                            <a href="https://www.youtube.com/@MirrorsLuxurySalons" aria-label="dribbble" class="d-center n2-bg-color rounded-circle transition" target="_blank">
+                                <span class="d-center fs-seven so-color">
                                     <i class="fa-brands fa-youtube"></i>
                                 </span>
                             </a>
@@ -87,7 +87,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6 d-grid gap-4 gap-md-6">
+            <div class="col-lg-5 d-grid gap-4 gap-md-6">
                 <div class="form-area enquiry-form n1-bg-color d-grid gap-3 gap-md-4 px-3 px-md-7 py-4 py-md-7">
                     @include('frontend.layouts.enquiry-form')
                 </div>

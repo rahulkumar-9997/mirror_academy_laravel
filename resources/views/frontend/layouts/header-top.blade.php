@@ -113,9 +113,9 @@
                                                     </span>
                                                     <span class="n1-color text-start">
                                                         <a
-                                                            href="mailto:contact@mirrorsacademy.in"
+                                                            href="mailto:mirrorsacademy9@gmail.com"
                                                             class="n1-color text-start">
-                                                            contact@mirrorsacademy.in
+                                                            mirrorsacademy9@gmail.com
                                                         </a>
                                                     </span>
                                                 </li>

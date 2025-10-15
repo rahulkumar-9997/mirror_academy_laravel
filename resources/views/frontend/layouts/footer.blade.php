@@ -84,7 +84,7 @@
                                 class="box-area d-center rounded-circle n1-2nd-bg-color n1-color fs-six box-area box-three">
                                 <i class="ph ph-envelope-open"></i>
                             </span>
-                            <a href="mailto:contact@mirrorsacademy.in" class="n1-color">contact@mirrorsacademy.in</a>
+                            <a href="mailto:mirrorsacademy9@gmail.com" class="n1-color">mirrorsacademy9@gmail.com</a>
 
                         </li>
                         <li class="d-flex align-items-center gap-3">

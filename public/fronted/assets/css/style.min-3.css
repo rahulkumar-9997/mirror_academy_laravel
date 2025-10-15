@@ -2443,7 +2443,7 @@ select {
 
 .social-area a:hover,
 .social-area a.active {
-	background: rgba(var(--p6), 1)
+	background: #000000;
 }
 
 .social-area a:hover i,
@@ -5970,7 +5970,9 @@ iframe {
    display: block;
    z-index: 3;
 }
-
+.so-color{
+	color: #ffffff;
+}
 /*home video*/
 /* Show only on mobile (max-width: 768px for example) */
 @media (max-width: 768px) {

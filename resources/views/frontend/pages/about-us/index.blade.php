@@ -37,9 +37,9 @@
             </div>
             <div class="col-md-6 ps-3 ps-lg-10 overflow-hidden">
                 <div class="d-grid gap-1 gap-md-1 pt-30">
-                    <div class="section-area mb-2 mb-md-2 d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-three">
+                    <!-- <div class="section-area mb-2 mb-md-2 d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-three">
                         <h2 class="fs-two">Founder of Mirrors Luxury Salons & Academy</h2>
-                    </div>
+                    </div> -->
                     <p class="n3-color">
                        When I started Mirrors Luxury Salons over 25 years ago, my dream was to put Hyderabad on the global beauty and fashion map. Mirrors soon became a symbol of luxury, innovation, and trust.
                     </p>
@@ -55,9 +55,12 @@
                     <p class="n3-color">
                       At Mirrors Academy, ambition finds guidance, and passion finds purpose building the next generation of hair and beauty professionals and continuing the legacy of Mirrors.
                     </p>
-                    <p>
+                    <p style="margin-bottom: 5px;">
                        <strong>- Vijayalakshmi Goodapati</strong>
                     </p>
+                    <h5>
+                        Founder of Mirrors Luxury Salons & Academy
+                    </h5>
                 </div>
                 <!-- <div class="row">
                     <div class="col-6 col-lg-6 col-sm-6 mb-30 mb-sm-5">
@@ -107,7 +110,7 @@
         <div class="row gy-3 gy-md-0 mb-4 mb-md-5 justify-content-between align-items-center">
             <div class="col-md-7">
                 <div class="section-area d-grid gap-1 gap-md-1 reveal-single1 reveal-text text-one">
-                    <span class="fw-semibold">Our Story</span>
+                    <h2>Our Story</h2>
                     <p class="n3-color">
                         At Mirrors Academy, we believe education in hair and beauty is not just about learning skills, it’s about shaping the future leaders of the industry.
 
