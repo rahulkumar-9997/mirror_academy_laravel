@@ -176,7 +176,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/expert-educators.jpg')}}" alt="Expert Educators" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/expert-educators-(High-Res).jpg')}}" alt="Expert Educators" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Expert Educators</h3>
@@ -194,7 +194,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/student-kit.jpg')}}" alt="Student Kit" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/student-Kit-(High-Res).jpg')}}" alt="Student Kit" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Student Kit</h3>
@@ -216,7 +216,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon before-icon-in-mobile">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification.jpg')}}" alt="Dual Certification" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification-(High-Res).jpg')}}" alt="Dual Certification" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Dual Certification</h3>
@@ -234,7 +234,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/real-world-exposure.jpg')}}" alt="Real World Exposure" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/real-world-exposure-(High-Res).jpg')}}" alt="Real World Exposure" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Real World Exposure</h3>
