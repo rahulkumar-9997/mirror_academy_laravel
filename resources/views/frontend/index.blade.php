@@ -176,7 +176,7 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/expert-education1.svg')}}" alt="Expert Educators" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/expert-educators.jpg')}}" alt="Expert Educators" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Expert Educators</h3>
@@ -194,7 +194,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/student-kit1.svg')}}" alt="Student Kit" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/student-kit.jpg')}}" alt="Student Kit" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Student Kit</h3>
@@ -216,11 +216,11 @@
             <div class="benefit-column">
                <div class="benefit-item highlight">
                   <div class="benefit-icon before-icon-in-mobile">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification1.svg')}}" alt="Dual Certification" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/dual-certification.jpg')}}" alt="Dual Certification" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Dual Certification</h3>
-                     <p>With an International Diploma from L'Oréal Paris Professional and trained at Mirrors Luxury Salon.</p>
+                     <p>With an International Diploma from L'Oréal Professionnel Paris and trained at Mirrors Luxury Salon.</p>
                   </div>
                </div>
                <div class="benefit-item highlight">
@@ -234,7 +234,7 @@
                </div>
                <div class="benefit-item highlight">
                   <div class="benefit-icon">
-                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/real-world-exposure1.svg')}}" alt="Real World Exposure" width="80" height="80" decoding="async">
+                     <img src="{{asset('fronted/assets/mirror-img/choose-us/new/real-world-exposure.jpg')}}" alt="Real World Exposure" width="80" height="80" decoding="async">
                   </div>
                   <div class="benefit-content">
                      <h3>Real World Exposure</h3>
