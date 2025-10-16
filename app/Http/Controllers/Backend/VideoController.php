@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Models\Video;
+use Cloudinary\Cloudinary;
 
 class VideoController extends Controller
 {
@@ -53,57 +55,99 @@ class VideoController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'video_file' => 'required|file|mimes:mp4,mov,avi,mkv,webm|max:204800',
-             // 200MB limit
-        ], [
-            'video_file.required' => 'Please select a video file.',
-            'video_file.mimes' => 'Only MP4, MOV, AVI, MKV, WEBM formats are allowed.',
-            'video_file.max' => 'The video size must not exceed 200MB.',
-        ]);
+    
+        public function store(Request $request)
+        {
+            $validator = Validator::make($request->all(), [
+                'video_file' => 'required|file|mimes:mp4,mov,avi,mkv,webm|max:204800',
+            ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Validation failed',
-                'errors' => $validator->errors()
-            ], 422);
-        }
-
-        DB::beginTransaction();
-        try {
-            $destinationPath = public_path('upload/video');
-            if (!File::exists($destinationPath)) {
-                File::makeDirectory($destinationPath, 0755, true);
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Please fix the following errors',
+                    'errors' => $validator->errors()
+                ], 422);
             }
-            $file = $request->file('video_file');
-            $safeTitle = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
-            $uniqueTimestamp = round(microtime(true) * 1000);
-            $extension = $file->getClientOriginalExtension();
-            $fileName = 'video-' . $uniqueTimestamp . '.' . $extension;
-            $file->move($destinationPath, $fileName);
-            $video = Video::create([
-                'file' => $fileName,
-                'status' => 1
-            ]);
-            DB::commit();
-            $videoList = Video::orderBy('id', 'desc')->paginate(20);
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Video uploaded successfully!',
-                'videoListData' => view('backend.pages.video.partials.video-list', compact('videoList'))->render()
-            ]);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to upload video: ' . $e->getMessage()
-            ], 500);
-        }
-    }
+            DB::beginTransaction();
+            try {
+                $file = $request->file('video_file');
+                if (!$file->isValid()) {
+                    throw new \Exception('Invalid file uploaded.');
+                }
+                $safeTitle = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
+                $uniqueTimestamp = round(microtime(true) * 1000);
+                $extension = $file->getClientOriginalExtension();
+                $fileName = 'video_'. $uniqueTimestamp . '.' . $extension;
+                $cloudName = config('cloudinary.cloud_name');
+                $apiKey = config('cloudinary.api_key');
+                $apiSecret = config('cloudinary.api_secret');            
+                if (empty($cloudName) || empty($apiKey) || empty($apiSecret)) {
+                    throw new \Exception('Cloudinary configuration is missing. Please check your environment variables.');
+                }
+                $cloudinary = new Cloudinary([
+                    'cloud' => [
+                        'cloud_name' => $cloudName,
+                        'api_key'    => $apiKey,
+                        'api_secret' => $apiSecret,
+                    ],
+                    'url' => ['secure' => true],
+                ]);
+                $result = $cloudinary->uploadApi()->upload(
+                    $file->getRealPath(),
+                    [
+                        'folder' => 'videos',
+                        'resource_type' => 'video',
+                        'public_id' => $fileName,
+                        'display_name' => $safeTitle,
+                        'timeout' => 300
+                    ]
+                );
+                $videoUrl = $result['secure_url'] ?? null;
+                if (!$videoUrl) {
+                    throw new \Exception('Cloudinary upload failed - no secure URL returned.');
+                }
+                $video = Video::create([
+                    'file' => $videoUrl,
+                    'original_name' => $file->getClientOriginalName(),
+                    'file_size' => $file->getSize(),
+                    'status' => 1
+                ]);
+                DB::commit();            
+                $videoList = Video::orderBy('id', 'desc')->paginate(20);            
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Video uploaded successfully!',
+                    'videoListData' => view('backend.pages.video.partials.video-list', compact('videoList'))->render()
+                ]);
 
+            } catch (\Exception $e) {
+                DB::rollBack();            
+                $errorMessage = 'Failed to upload video';
+                if (str_contains($e->getMessage(), 'Cloudinary configuration')) {
+                    $errorMessage = 'Server configuration error. Please contact administrator.';
+                } elseif (str_contains($e->getMessage(), 'Invalid file')) {
+                    $errorMessage = 'The uploaded file is invalid or corrupted.';
+                } elseif (str_contains($e->getMessage(), 'timeout')) {
+                    $errorMessage = 'Upload timed out. Please try again with a smaller file or check your internet connection.';
+                } elseif (str_contains($e->getMessage(), 'Cloudinary upload failed')) {
+                    $errorMessage = 'Failed to upload to cloud storage. Please try again.';
+                } else {
+                    $errorMessage = $e->getMessage();
+                }
+                Log::error('Video upload failed: ' . $e->getMessage());
+                Log::error('File details: ', [
+                    'name' => $file->getClientOriginalName() ?? 'unknown',
+                    'size' => $file->getSize() ?? 0,
+                    'type' => $file->getMimeType() ?? 'unknown'
+                ]);
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $errorMessage
+                ], 500);
+            }
+        }
+    
     public function edit($id)
     {
         $video = Video::findOrFail($id);
@@ -142,12 +186,15 @@ class VideoController extends Controller
 
     public function update(Request $request, $id)
     {
+        Log::info('Update method called for video ID: ' . $id);
+        Log::info('Request data:', $request->all());        
         $video = Video::findOrFail($id);
         $validator = Validator::make($request->all(), [
             'video_file' => 'nullable|file|mimes:mp4,mov,avi,mkv,webm|max:204800',
             'status'     => 'required|in:0,1',
-        ]);
+        ]);        
         if ($validator->fails()) {
+            Log::error('Validation failed:', $validator->errors()->toArray());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Validation failed',
@@ -156,31 +203,66 @@ class VideoController extends Controller
         }
         DB::beginTransaction();
         try {
-            $destinationPath = public_path('upload/video');
+            $cloudinary = new Cloudinary([
+                'cloud' => [
+                    'cloud_name' => config('cloudinary.cloud_name'),
+                    'api_key'    => config('cloudinary.api_key'),
+                    'api_secret' => config('cloudinary.api_secret'),
+                ],
+                'url' => ['secure' => true],
+            ]);            
             if ($request->hasFile('video_file')) {
-                if ($video->file && File::exists($destinationPath . '/' . $video->file)) {
-                    File::delete($destinationPath . '/' . $video->file);
-                }
+                Log::info('New video file provided');
+                if ($video->file) {
+                    try {
+                        $urlParts = explode('/', $video->file);
+                        $publicIdWithExtension = end($urlParts);
+                        $publicId = pathinfo($publicIdWithExtension, PATHINFO_FILENAME);
+                        $folder = 'videos';                        
+                        $fullPublicId = $folder . '/' . $publicId;                        
+                        $cloudinary->uploadApi()->destroy($fullPublicId, [
+                            'resource_type' => 'video'
+                        ]);
+                        Log::info('Old Cloudinary video deleted: ' . $fullPublicId);
+                    } catch (\Exception $e) {
+                        Log::error('Failed to delete old Cloudinary video: ' . $e->getMessage());
+                    }
+                }                
                 $file = $request->file('video_file');
+                $safeTitle = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
                 $uniqueTimestamp = round(microtime(true) * 1000);
                 $extension = $file->getClientOriginalExtension();
-                $fileName = 'video-' . $uniqueTimestamp . '.' . $extension;
-                $file->move($destinationPath, $fileName);
-                $video->file = $fileName;
+                $fileName = 'video_'. $uniqueTimestamp . '.' . $extension;                
+                $result = $cloudinary->uploadApi()->upload(
+                    $file->getRealPath(),
+                    [
+                        'folder' => 'videos',
+                        'resource_type' => 'video',
+                        'public_id' => $fileName,
+                        'display_name' => $safeTitle
+                    ]
+                );                
+                $videoUrl = $result['secure_url'] ?? null;
+                if (!$videoUrl) {
+                    throw new \Exception('Cloudinary upload failed.');
+                }
+                $video->file = $videoUrl;
+                Log::info('New video uploaded to Cloudinary: ' . $videoUrl);
             }
-
+            
             $video->status = $request->status;
-            $video->save();
+            $video->save();            
             DB::commit();
-            $videoList = Video::orderBy('id', 'desc')->paginate(20);
+            Log::info('Video updated successfully');            
+            $videoList = Video::orderBy('id', 'desc')->paginate(20);            
             return response()->json([
                 'status' => 'success',
                 'message' => 'Video updated successfully!',
                 'videoListData' => view('backend.pages.video.partials.video-list', compact('videoList'))->render()
             ]);
-
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Update failed: ' . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Update failed: ' . $e->getMessage()
@@ -193,11 +275,29 @@ class VideoController extends Controller
         DB::beginTransaction();
         try {
             $video = Video::findOrFail($id);
-            $filePath = public_path('upload/video/' . $video->file);
-            if ($video->file && File::exists($filePath)) {
-                File::delete($filePath);
+            $cloudinary = new Cloudinary([
+                'cloud' => [
+                    'cloud_name' => config('cloudinary.cloud_name'),
+                    'api_key'    => config('cloudinary.api_key'),
+                    'api_secret' => config('cloudinary.api_secret'),
+                ],
+                'url' => ['secure' => true],
+            ]);
+            if ($video->file) {
+                try {
+                    $urlParts = explode('/', $video->file);
+                    $publicIdWithExtension = end($urlParts);
+                    $publicId = pathinfo($publicIdWithExtension, PATHINFO_FILENAME);
+                    $folder = 'videos';                    
+                    $fullPublicId = $folder . '/' . $publicId;                    
+                    $cloudinary->uploadApi()->destroy($fullPublicId, [
+                        'resource_type' => 'video'
+                    ]);
+                } catch (\Exception $e) {
+                    Log::error('Failed to delete Cloudinary video: ' . $e->getMessage());
+                }
             }
-            $video->delete();
+            $video->delete();            
             DB::commit();
             $videoList = Video::orderBy('id', 'desc')->paginate(20);
             return response()->json([
@@ -205,6 +305,7 @@ class VideoController extends Controller
                 'message' => 'Video deleted successfully!',
                 'videoListData' => view('backend.pages.video.partials.video-list', compact('videoList'))->render()
             ]);
+
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([

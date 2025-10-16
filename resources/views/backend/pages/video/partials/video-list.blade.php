@@ -12,9 +12,9 @@
         <tr>
             <td>
                 {{-- show video player if file exists --}}
-                @if($video->file && file_exists(public_path('upload/video/' . $video->file)))
+                @if($video->file)
                 <video width="200" height="200" controls>
-                    <source src="{{ asset('upload/video/' . $video->file) }}" type="video/mp4">
+                    <source src="{{ $video->file }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 @else

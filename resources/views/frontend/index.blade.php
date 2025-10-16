@@ -402,7 +402,7 @@
                            playsinline
                            preload="none"
                            controlslist="nodownload">
-                           <source data-src="{{ asset('upload/video/' . $video->file) }}" type="video/mp4">
+                           <source data-src="{{ $video->file }}" type="video/mp4">
                            Your browser does not support the video tag.
                         </video>
                      </div>
@@ -468,45 +468,45 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
-   let $lazyVideos = $("video.lazy-video");
+    let $lazyVideos = $("video.lazy-video");
 
-   function loadVideo($video, observer) {
-      $video.find("source[data-src]").each(function() {
-         $(this).attr("src", $(this).data("src"));
-      });
-      $video[0].load();
-
-      // Hide skeleton once video starts loading
-      $video.on('loadeddata canplay', function() {
-         $(this).closest('.test-video-section')
-            .find('.video-skeleton-loader')
-            .fadeOut(400);
-      });
-
-      // autoplay muted
-      $video[0].muted = true;
-      $video[0].play().catch(() => {});
-
-      if (observer) observer.unobserve($video[0]);
-   }
-
-   if ("IntersectionObserver" in window) {
-      let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-         entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-               loadVideo($(entry.target), observer);
+    function loadVideo($video, observer) {
+        $video.find("source[data-src]").each(function() {
+            if (!$(this).attr("src")) {
+                $(this).attr("src", $(this).data("src"));
             }
-         });
-      });
-      $lazyVideos.each(function() {
-         lazyVideoObserver.observe(this);
-      });
-   } else {
-      $lazyVideos.each(function() {
-         loadVideo($(this), null);
-      });
-   }
+        });
+        $video[0].load();
+
+        $video.on('loadeddata canplay', function() {
+            $(this).closest('.test-video-section')
+                   .find('.video-skeleton-loader')
+                   .fadeOut(400);
+        }); 
+        $video[0].muted = true;
+        $video[0].play().catch(() => {});
+
+        if (observer) observer.unobserve($video[0]);
+    }
+
+    if ("IntersectionObserver" in window) {
+        let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    loadVideo($(entry.target), observer);
+                }
+            });
+        });
+        $lazyVideos.each(function() {
+            lazyVideoObserver.observe(this);
+        });
+    } else {
+        $lazyVideos.each(function() {
+            loadVideo($(this), null);
+        });
+    }
 });
+
 </script>
 
 
