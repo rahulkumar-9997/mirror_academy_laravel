@@ -47,6 +47,10 @@
                                 <a href="{{ route('about-us') }}" class="n2-color  slide-vertical"
                                     >About Us</a>
                             </li>
+                            <li class="menu-link padding-for">
+                                <a href="{{ route('blog') }}" class="n2-color  slide-vertical"
+                                    >Blog</a>
+                            </li>
                             
                             <!-- <li class="menu-link padding-for">
                                 <a href="{{ route('founders-message') }}" wire:navigate class="n2-color  slide-vertical"

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\BannerVideos;
 use App\Models\Blog;
 use App\Models\BlogParagraphs;
 use App\Models\BlogImages;

@@ -65,16 +65,7 @@
                         <li><a href="{{ route('manage-awards.index') }}">Awards</a></li>
                      </ul>
                   </li>  
-                  <!-- <li class="submenu">
-                     <a href="javascript:void(0);">
-                        <i class="ti ti-brand-blogger fs-16 me-2"></i>
-                        <span>Manage Blog</span>
-                        <span class="menu-arrow"></span>
-                     </a>
-                     <ul>
-                        <li><a href="{{ route('manage-blog.index') }}">Blog</a></li>
-                     </ul>
-                  </li> -->
+                  
                   <li class="submenu">
                      <a href="javascript:void(0);">
                         <i class="ti ti-brand-appgallery fs-16 me-2"></i>
@@ -104,7 +95,18 @@
                      <ul>
                         <li><a href="{{ route('manage-video.index') }}">Video</a></li>
                      </ul>
-                  </li>                
+                  </li> 
+                  
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-brand-blogger fs-16 me-2"></i>
+                        <span>Manage Blog</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-blog.index') }}">Blog</a></li>
+                     </ul>
+                  </li>
                    
                                 
                   

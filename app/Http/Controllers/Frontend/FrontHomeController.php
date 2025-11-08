@@ -13,6 +13,7 @@ use App\Models\Banner;
 use App\Models\Courses;
 use App\Models\Gallery;
 use App\Models\Video;
+use App\Models\Blog;
 
 class FrontHomeController extends Controller
 {
@@ -173,6 +174,24 @@ class FrontHomeController extends Controller
         ]);
     }
 
+    public function blogList(){
+        $blogs = Blog::orderBy('id', 'desc')->where('status', 'published')->paginate(30);
+        return view('frontend.pages.blog.list', compact('blogs'));
+    }
+
+    public function blogDetails($slug){
+        $blog = Blog::with(['images', 'paragraphs'])
+                ->where('slug', $slug)
+                ->firstOrFail();
+        $blogList = Blog::where('status', 'Published')
+                ->where('id', '!=', $blog->id)
+                ->orderBy('created_at', 'desc')
+                ->inRandomOrder()
+                ->limit(10)
+                ->get();
+        //return response()->json($blog);
+        return view('frontend.pages.blog.details', compact('blog', 'blogList'));
+    }
 
    
 }

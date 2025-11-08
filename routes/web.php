@@ -23,7 +23,8 @@ Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us'
 Route::get('founders-message', [FrontHomeController::class, 'foundersMessage'])->name('founders-message');
 Route::get('contact-us', [FrontHomeController::class, 'contactUs'])->name('contact-us');
 Route::post('enquiry-submit', [FrontHomeController::class, 'EnquirySubmitForm'])->name('enquiry.submit');
-
+Route::get('blog', [FrontHomeController::class, 'blogList'])->name('blog');
+Route::get('blog/{slug}', [FrontHomeController::class, 'blogDetails'])->name('blog.details');
 Route::get('terms-of-use', [FrontHomeController::class, 'termsOfUse'])->name('terms-of-use');
 Route::get('privacy-policy', [FrontHomeController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('course-enquiry', [FrontHomeController::class, 'courseEnquiryForm'])->name('course-enquiry');

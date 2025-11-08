@@ -52,6 +52,9 @@
                         <li>
                             <a href="{{ route('gallery') }}" class="d-center justify-content-start transition n1-color position-relative">Gallery</a>
                         </li>
+                         <li>
+                            <a href="{{ route('blog') }}" class="d-center justify-content-start transition n1-color position-relative">Blog</a>
+                        </li>
                         <li>
                             <a href="{{ route('contact-us') }}" class="d-center justify-content-start transition n1-color position-relative">Contact Us</a>
                         </li>

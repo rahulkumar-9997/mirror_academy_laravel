@@ -81,7 +81,7 @@ class BannerController extends Controller
 	{
 		$banner = Banner::findOrFail($id);
 		$request->validate([
-			'banner_heading_name' => 'required|string',
+			'banner_heading_name' => 'nullable|string',
 			'banner_link' => 'nullable|url',
 			'banner_desktop_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
 			'banner_mobile_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
