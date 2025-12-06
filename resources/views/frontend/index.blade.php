@@ -128,7 +128,7 @@
                               {{ $course->title }}
                            </h5>
                            <div>
-                              <p> {!! clean_html_content(Str::limit(strip_tags($course->description), 200)) !!}
+                              <p> {!! (Str::limit(strip_tags($course->description), 200)) !!}
                               </p>
                            </div>
                         </a>
