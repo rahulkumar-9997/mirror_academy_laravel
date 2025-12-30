@@ -1,5 +1,5 @@
 @php
-    $metaTitle = $blog->meta_title ?? $blog->title . ' | Mirrors Academy Hyderabad';
+    $metaTitle = $blog->meta_title ?? $blog->title;
     $metaDesc = $blog->meta_description ?? $blog->short_desc ?? $blog->content;
     $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
 @endphp

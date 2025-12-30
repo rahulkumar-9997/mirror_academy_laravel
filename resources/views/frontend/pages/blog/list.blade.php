@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title','Blog Mirrors Academy – Hyderabad Beauty Academy')
-@section('description', 'Get in touch with Mirrors Academy, Hyderabad’s top hair and beauty academy. Call, email, or visit us to know more about our courses and enrollment process.')
+@section('description', 'Discover beauty education insights, styling tips, trends, and expert advice on Mirrors Academy’s blog — empowering future hair & beauty pros.')
 @push('styles')
 
 @endpush
