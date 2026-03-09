@@ -6,10 +6,30 @@
 <section id="banner" class="banner-section">
    <div class="swiper-container bannerSlider">
       <div class="swiper-wrapper">
-         @foreach($data['banners'] as $banner)
+         @foreach($data['banners'] as $index => $banner)
+         <!-- src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" -->
+         <!-- src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}"  -->
          <div class="swiper-slide">
-            <img src="{{ asset('upload/banner/' . $banner->banner_desktop_img) }}" class="dexImg" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy" decoding="async">
-            <img src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}" class="mobileBanner" width="100%" alt="{{ $banner->banner_heading_name }}" loading="lazy" decoding="async">
+            <img
+            src="{{ url('/images/banner/' . $banner->banner_desktop_img) }}?w=1920&q=100"
+            class="dexImg"
+            alt="{{ $banner->banner_heading_name }}"
+            width="1920" 
+            height="832"
+            alt="{{ $banner->banner_heading_name }}" 
+            loading="{{ $index === 0 ? 'eager' : 'lazy' }}"
+            decoding="async"
+            fetchpriority="{{ $index === 0 ? 'high' : 'auto' }}"
+            >
+            <img            
+            src="{{ url('/images/banner/' . $banner->banner_mobile_img) }}?w=768&h=500&q=100"
+            class="mobileBanner" 
+            width="768" 
+            height="400"
+            alt="{{ $banner->banner_heading_name }}" 
+            loading="{{ $index === 0 ? 'eager' : 'lazy' }}"
+            decoding="async"
+            >
             <div class="container">
                <div class="bannerTextBox">
                   <h3>
@@ -257,136 +277,6 @@
             </div>
          </div>
 
-         <!-- <div class="col-9 col-md-3 col-xl-3">
-            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/expert-educators.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Expert Educators
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  Master luxury salon techniques with expert training from L'Oréal Professionals.
-               </p>
-            </div>
-         </div>
-         <div class="col-9 col-md-3 col-xl-3">
-            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/live-models.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Live Models
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  Hands-on Training with Live Models for Real-World Experience.
-               </p>
-            </div>
-         </div>
-         <div class="col-9 col-md-3 col-xl-3">
-            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/student-kit.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Student Kit
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  Fully Equipped with Premium Professional Tools for Hands-On Training.
-               </p>
-            </div>
-         </div>
-         <div class="col-9 col-md-3 col-xl-3">
-            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/unique-curriculam.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Unique Curriculum
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  Stay ahead with cutting-edge techniques, advanced equipment, and the latest industry trends.
-               </p>
-            </div>
-         </div>
-         <div class="col-9 col-md-3 col-xl-3">
-            <div
-               class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/dual-certification.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Dual Certification
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  SWith an International Diploma from L'Oréal Paris Professional and trained at Mirrors Luxury Salon.
-               </p>
-            </div>
-         </div>
-         <div class="col-9 col-md-3 col-xl-3">
-            <div
-               class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/job-rediness.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Job Readiness
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  Equipped with skills to be employable as soon as the course is completed.
-               </p>
-            </div>
-         </div>
-         <div class="col-9 col-md-3 col-xl-3">
-            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/real-world-exposure.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Real World Exposure
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  Industry guest visits, salon exposure, and field trips to key industry locations.
-               </p>
-            </div>
-         </div>
-         <div class="col-9 col-md-3 col-xl-3">
-            <div class="single-box position-relative z-1 n1-bg-color py-4 py-md-4 px-4 px-md-4 d-center flex-column gap-1 gap-md-2 text-center why-choose-box">
-               <div class="box-img mb-2 mb-md-2">
-                  <img src="{{asset('fronted/assets/mirror-img/choose-us/community-engagement.svg')}}" class="transition svg-img"
-                     alt="img" loading="lazy">
-               </div>
-               <div class="d-center gap-2 text-center">
-                  <h6 class="fs-six fw-semibold n2-color transition">
-                     Community Engagement
-                  </h6>
-               </div>
-               <p class="n3-color transition">
-                  Give your skills back to the deserving people in the community.
-               </p>
-            </div>
-         </div> -->
       </div>
       @if(isset($data['videos']) && $data['videos']->count() > 0)
          <div class="home-video-section mt-10 eaight-style">
