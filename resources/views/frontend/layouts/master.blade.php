@@ -19,11 +19,13 @@
 			<span class="cursor-outline"></span>
 			<span class="cursor-dot"></span>
 		</div>
-		@include('frontend.layouts.header-top')
+		@include('frontend.layouts.header-top')		
 		@include('frontend.layouts.header-menu')
-		<div class="bg-home {{ request()->is('/') ? 'home' : 'with-bg' }}">
-			@yield('main-content')
-		</div>
+		<main>
+			<div class="bg-home {{ request()->is('/') ? 'home' : 'with-bg' }}">
+				@yield('main-content')
+			</div>
+		</main>
 		@include('frontend.layouts.footer')
 		@include('frontend.layouts.common-modal')
 		@include('frontend.layouts.footerjs')

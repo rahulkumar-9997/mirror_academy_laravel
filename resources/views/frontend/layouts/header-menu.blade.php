@@ -7,7 +7,7 @@
                         <img src="{{asset('fronted/assets/mirror-img/Mirros-Academy-Logo.png')}}" alt="logo" loading="lazy" decoding="async">
                     </a>
                     <div class="d-flex gap-6">
-                        <button class="navbar-toggle-btn d-block d-lg-none" type="button">
+                        <button class="navbar-toggle-btn d-block d-lg-none" aria-label="Open Menu" type="button">
                             <span></span>
                             <span></span>
                             <span></span>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use App\Models\Award;
 use App\Models\Banner;
 use App\Models\Courses;
@@ -23,58 +24,69 @@ class FrontHomeController extends Controller
         if (!file_exists($imagePath)) {
             abort(404);
         }
-        $width = $request->get('w', null);
-        $height = $request->get('h', null);
+        $width = $request->get('w');
+        $height = $request->get('h');
         $quality = $request->get('q', 85);
         if (!$width && !$height) {
             return response()->file($imagePath);
         }
         $img = Image::make($imagePath);
         if ($width && $height) {
-            $img->resize($width, $height, function ($constraint) {
-                $constraint->aspectRatio();
+            $img->fit($width, $height, function ($constraint) {
                 $constraint->upsize();
             });
-        } elseif ($width) {
+
+        }
+        elseif ($width) {
             $img->resize($width, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
-        } elseif ($height) {
+        }
+        elseif ($height) {
             $img->resize(null, $height, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
             });
         }
-        $img->encode('webp', $quality);
-        return $img->response('webp');
+        return $img->encode('webp', $quality)->response();
     }
 
     public function home() {
-        $data['banners'] = Banner::select('banner_heading_name', 'banner_link', 'banner_desktop_img', 'banner_mobile_img')
-            ->orderBy('id', 'asc')
-            ->limit(4)
-            ->get();
-        $data['awards'] = Award::select('image', 'description')
-            ->where('status', 1)
-            ->orderBy('id', 'asc')
-            ->limit(25)
-            ->get();
-        $data['courses'] = Courses::select('id', 'title', 'slug', 'short_content', 'description', 'main_image')
-            ->where('status', 1)
-            ->where('sort_order', '>', 0) 
-            ->orderBy('sort_order', 'asc')
-            ->limit(6)
-            ->get();
+        $data = Cache::remember('home_page_data',3600,function(){
+            return [
+                'banners' => Banner::select(
+                    'banner_heading_name',
+                    'banner_link',
+                    'banner_desktop_img',
+                    'banner_mobile_img'
+                )
+                ->orderBy('id')
+                ->limit(4)
+                ->get(),
 
-        $data['videos'] = Video::select('file', 'status')
-            ->where('status', 1)
-            ->orderBy('id', 'asc')
-            ->limit(5)
-            ->get();
-        //return response()->json($data['courses']);
-        DB::disconnect('mysql');
-        return view('frontend.index', compact('data'));
+                'awards' => Award::select('image','description')
+                    ->where('status',1)
+                    ->orderBy('id')
+                    ->limit(25)
+                    ->get(),
+
+                'courses' => Courses::select(
+                    'id','title','slug','short_content','description','main_image'
+                )
+                ->where('status',1)
+                ->where('sort_order','>',0)
+                ->orderBy('sort_order')
+                ->limit(6)
+                ->get(),
+
+                'videos' => Video::select('file')
+                    ->where('status',1)
+                    ->limit(5)
+                    ->get()
+            ];
+        });
+        return view('frontend.index',compact('data'));
     }
 
 
@@ -82,7 +94,6 @@ class FrontHomeController extends Controller
         $data['courses'] = Courses::select('id', 'title', 'slug', 'short_content', 'description', 'main_image')
         ->where('status', 1)
         ->get();
-        DB::disconnect('mysql');
         //return response()->json($data['courses']);
         return view('frontend.pages.courses.course-list', compact('data'));
     }
@@ -91,7 +102,6 @@ class FrontHomeController extends Controller
         ->where('status', 1)
         ->where('slug', $slug)
         ->firstOrFail();
-        DB::disconnect('mysql');
         //return response()->json($course);
         return view('frontend.pages.courses.course-details', compact('course'));
     }
@@ -108,7 +118,6 @@ class FrontHomeController extends Controller
             ->where('status', 1)
             ->orderBy('id', 'desc')
             ->paginate(80);
-            DB::disconnect('mysql');
         //return response()->json($galleries);
         return view('frontend.pages.gallery.index', compact('galleries'));
     }

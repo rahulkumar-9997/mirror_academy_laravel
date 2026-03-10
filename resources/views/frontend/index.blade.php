@@ -11,18 +11,29 @@
          <!-- src="{{ asset('upload/banner/' . $banner->banner_mobile_img) }}"  -->
          <div class="swiper-slide">
             <img
-            src="{{ url('/images/banner/' . $banner->banner_desktop_img) }}?w=1920&q=100"
+            src="{{ url('/images/banner/' . $banner->banner_desktop_img) }}?w=1344&h=582&q=80"
+            srcset="
+            {{ url('/images/banner/' . $banner->banner_desktop_img) }}?w=768&q=80 768w,
+            {{ url('/images/banner/' . $banner->banner_desktop_img) }}?w=1024&q=80 1024w,
+            {{ url('/images/banner/' . $banner->banner_desktop_img) }}?w=1344&q=80 1344w,
+            {{ url('/images/banner/' . $banner->banner_desktop_img) }}?w=1920&q=80 1920w
+            "
+            sizes="(max-width:768px) 100vw, 1344px"
             class="dexImg"
             alt="{{ $banner->banner_heading_name }}"
-            width="1920" 
-            height="832"
+            width="1344"
+            height="582"
             alt="{{ $banner->banner_heading_name }}" 
             loading="{{ $index === 0 ? 'eager' : 'lazy' }}"
             decoding="async"
             fetchpriority="{{ $index === 0 ? 'high' : 'auto' }}"
             >
             <img            
-            src="{{ url('/images/banner/' . $banner->banner_mobile_img) }}?w=768&h=500&q=100"
+            src="{{ url('/images/banner/' . $banner->banner_mobile_img) }}?w=768&h=400&q=90"
+            srcset="
+            {{ url('/images/banner/' . $banner->banner_mobile_img) }}?w=480&q=90 480w,
+            {{ url('/images/banner/' . $banner->banner_mobile_img) }}?w=768&q=90 768w"
+            sizes="100vw"
             class="mobileBanner" 
             width="768" 
             height="400"
@@ -286,12 +297,7 @@
                   <div class="test-video-section position-relative">
                      <div class="video-skeleton-loader"></div>                     
                      <div class="embed-responsive-div embed-responsive-16by9">
-                        <video class="embed-responsive-item lazy-video"
-                           controls
-                           muted
-                           playsinline
-                           preload="none"
-                           controlslist="nodownload">
+                        <video class="embed-responsive-item lazy-video" controls muted playsinline preload="none" controlslist="nodownload">
                            <source data-src="{{ $video->file }}" type="video/mp4">
                            Your browser does not support the video tag.
                         </video>
@@ -318,7 +324,7 @@
       <div class="row gy-8 gy-lg-0 justify-content-center">
          <div class="col-lg-6 order-1 order-lg-0">
             <div class="single-box h-100 position-relative me-0 me-lg-6">
-               <iframe class="h-100 border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2827298339103!2d78.38584589999999!3d17.4461768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91376f1730c9%3A0x56c32b7ff5ecaf3b!2sMirrors%20Academy%20of%20Hair%20and%20Beauty!5e0!3m2!1sen!2sin!4v1760166195844!5m2!1sen!2sin"></iframe>
+               <iframe title="Mirrors Academy Location Map" class="h-100 border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2827298339103!2d78.38584589999999!3d17.4461768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91376f1730c9%3A0x56c32b7ff5ecaf3b!2sMirrors%20Academy%20of%20Hair%20and%20Beauty!5e0!3m2!1sen!2sin!4v1760166195844!5m2!1sen!2sin"></iframe>
                <div class="abs-area">
                   <div class="video-bg-thumb third pe-none d-center d-none d-sm-flex position-absolute h-100 w-100 top-0">
                      <span class="popup-video btn-popup-animation transition position-absolute z-1 d-center rounded-circle">
