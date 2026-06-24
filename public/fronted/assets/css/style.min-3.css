@@ -2279,14 +2279,14 @@ select {
 		top: 40px
 	}
 
-	.section-sidebar .sidebar-toggler .sidebar-head {
+	/* .section-sidebar .sidebar-toggler .sidebar-head {
 		position: absolute;
 		overflow: hidden;
 		height: 24px;
 		z-index: 2;
 		right: 0;
 		top: 0
-	}
+	} */
 
 	.section-sidebar .sidebar-toggler .sidebar-head.active .side-wrapper {
 		visibility: visible;
@@ -2294,13 +2294,13 @@ select {
 		transform: translateX(0px)
 	}
 
-	.section-sidebar .sidebar-toggler .sidebar-head .side-wrapper {
+	/* .section-sidebar .sidebar-toggler .sidebar-head .side-wrapper {
 		transform: translateX(200px);
 		opacity: 0;
 		right: 0;
 		visibility: hidden;
 		transition: .5s
-	}
+	} */
 
 	.section-sidebar .sidebar-toggler .sidebar-head .sidebar-area {
 		width: 100%

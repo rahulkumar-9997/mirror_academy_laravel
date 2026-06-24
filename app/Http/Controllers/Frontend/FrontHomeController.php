@@ -97,6 +97,7 @@ class FrontHomeController extends Controller
         //return response()->json($data['courses']);
         return view('frontend.pages.courses.course-list', compact('data'));
     }
+
     public function courseDetails($slug){
         $course = Courses::with(['additionalContents', 'highlightsContents', 'eligibilitiesContent'])->select('id', 'title', 'slug', 'short_content', 'description', 'main_image', 'page_image', 'meta_title', 'meta_description', 'course_certificate', 'course_pdf_file', 'course_certificate_title_1', 'course_certificate_image_2', 'course_certificate_title_2')
         ->where('status', 1)
@@ -134,16 +135,39 @@ class FrontHomeController extends Controller
         return view('frontend.pages.contact-us.enquiry');
     }
 
+    public function courseEnquiryForm(Request $request){
+        $showCourse = $request->showCourse;
+        $courses = Courses::orderBy('title', 'asc')->get();
+        $courseName = $request->input('courseName');
+        $form  = '<div class="modal-body">';
+        $form .= view('frontend.layouts.enquiry-form', [
+            'courseName' => $courseName,
+            'courses' => $courses,
+            'showCourse' => true,
+        ])->render();
+        $form .= '</div>';
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Form created successfully',
+            'modalContent' => $form,
+        ]);
+    }
+
     public function EnquirySubmitForm(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $rules = [
             'name' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
-            'phone_number' => 'required|string|max:10',
+            'email' => 'required|email|max:255',
+            'phone_number' => 'required|digits:10',
             'message' => 'required|string|max:1000',
-            'course_name'  => 'nullable|string|max:255',
-        ]);
+            'course_name' => 'nullable|string|max:255',
+        ];
+        if ($request->has('course_name')) {
+            $rules['course_name'] = 'required|string|max:255';
+        }
 
+        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             return response()->json([
                 'status' => 'error',
@@ -171,17 +195,7 @@ class FrontHomeController extends Controller
         ]);
     }
 
-    public function courseEnquiryForm(Request $request){
-        $courseName = $request->input('courseName');
-        $form  = '<div class="modal-body">';
-        $form .= view('frontend.layouts.enquiry-form', compact('courseName'))->render();
-        $form .= '</div>';
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Form created successfully',
-            'modalContent' => $form,
-        ]);
-    }
+    
 
     public function blogList(){
         $blogs = Blog::orderBy('id', 'desc')->where('status', 'published')->paginate(30);

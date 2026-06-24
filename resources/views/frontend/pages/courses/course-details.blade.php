@@ -288,7 +288,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                             </div>
                             <div class="col-xl-3 col-xxl-3">
                                 <div class="sidebar-common cus-overflow cus-scrollbar sidebar-head secondary-sidebar me-n4 me-sm-1">
-                                    <div class="d-center justify-content-end">
+                                    <!-- <div class="d-center justify-content-end">
                                         <div class="d-block d-xl-none">
                                             <button class="button toggler-btn mb-4 mb-lg-0 d-flex align-items-center gap-2">
                                                 <span>Sidebar Toggler</span>
@@ -297,7 +297,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                 </span>
                                             </button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="cus-scrollbar side-wrapper">
                                         <div class="sidebar-wrapper pb-12 pb-lg-0 d-flex flex-column gap-3 mobile-sidebar-bg-color">
                                             <div class="sidebar-area">
@@ -395,6 +395,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                                             data-url="{{ route('course-enquiry') }}"
                                                             data-size="md"
                                                             data-coursename="{{ $course->title }}"
+                                                            data-show-course="true"
                                                             class="btn box-style box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9">
                                                             <span class="fs-seven">Enquire Today</span>
                                                         </a>

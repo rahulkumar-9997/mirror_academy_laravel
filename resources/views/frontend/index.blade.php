@@ -114,7 +114,7 @@
       <div class="row gy-6 gy-md-0 mb-8 mb-md-8 justify-content-center text-center">
          <div class="col-md-8 col-lg-8 col-xl-8">
             <div class="section-area d-grid gap-3 gap-md-4 reveal-single1 reveal-text text-three">
-               <h1 class="fs-two">Our Courses</h1>
+               <h2 class="fs-two">Our Courses</h2>
                <h2 class="ou-h2">
                   Explore Certified Hair and Beauty Courses at Mirrors Academy, Hyderabad
                </h2>

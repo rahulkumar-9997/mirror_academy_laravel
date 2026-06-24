@@ -74,10 +74,12 @@ $(document).ready(function () {
         var courseName = $(this).data('coursename');
         var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
         var url = $(this).data('url');
+        var showCourse = $(this).data('show-course');
         var data = {
             size: size,
             url: url,
-            courseName: courseName
+            courseName: courseName,
+            showCourse: showCourse
         };
         $("#commanModel .modal-title").html(title);
         $("#commanModel .modal-dialog").addClass('modal-' + size);

@@ -91,7 +91,13 @@
                                         We are pleased to get your interest in the evergrowing fashion and styling industry. Kindly proceed ahead by clicking on the <strong>Register Here</strong> button below.
                                     </p>
                                     <div class="sidebar-ntn d-center mt-4">
-                                        <a href="{{ route('contact-us')}}" class="btn box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9">
+                                        <a href="javascript:void(0)" class="btn box-second first-alt alt-two d-center gap-2 py-2 py-md-3 px-3 px-md-6 px-xl-9"
+                                        data-popup-enquiry="true"
+                                        data-title="Courses Enquiry"
+                                        data-url="{{ route('course-enquiry') }}"
+                                        data-size="md"
+                                        data-coursename=""
+                                        data-show-course="true">
                                             <span class="fs-seven">Register Here</span>
                                         </a>
                                     </div>
