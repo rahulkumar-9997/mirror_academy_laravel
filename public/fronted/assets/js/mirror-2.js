@@ -57,10 +57,10 @@ $(document).ready(function () {
                 submitButton.prop('disabled', false).html('Submit');
                 var errors = xhr.responseJSON?.errors;
                 if (errors) {
-                    $.each(errors, function (key, value) {
-                        var inputField = $('#' + key);
+                    $.each(errors, function(key, value) {
+                        var inputField = form.find('[name="' + key + '"]');
                         inputField.addClass('is-invalid');
-                        inputField.after('<div class="invalid-feedback">' + value[0] + '</div>');
+                        inputField.closest('div').find('.invalid-feedback').html(value[0]);
                     });
                 } else {
                     showNotificationAll('Something went wrong. Please try again later.', 'error');

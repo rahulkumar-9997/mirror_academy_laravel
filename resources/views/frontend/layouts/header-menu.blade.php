@@ -18,7 +18,7 @@
                 <div class="navbar-toggle-item navbar-toggle-for-mobile">
                     <div
                         class="d-flex gap-5 flex-column flex-lg-row align-items-start align-items-lg-center justify-content-center mt-5 mt-lg-0">
-                        <ul class="custom-nav d-lg-flex d-grid gap-3 gap-lg-4 order-1 order-xxl-0 header-menu-ul">
+                        <ul class="custom-nav d-lg-flex d-grid align-items-center gap-3 gap-lg-4 order-1 order-xxl-0 header-menu-ul">
                             <li class="menu-link padding-for">
                                 <a href="{{ url('/') }}" class="n2-color slide-vertical">Home</a>
                             </li>
@@ -61,8 +61,13 @@
                                     >Founder’s Message</a>
                             </li> -->
                             <li class="menu-link padding-for">
-                                <a href="{{ route('contact-us') }}" class="n2-color  slide-vertical"
-                                    >Contact Us</a>
+                                <a href="{{ route('contact-us') }}" class="n2-color  slide-vertical">Contact Us
+                                </a>
+                            </li>
+                            <li class="menu-link padding-for">
+                                <a href="{{ route('courses.registration')}}" class="n2-color slide-vertical btn box-style box-second second-alt alt-nineteen transition">
+                                    Register Here
+                                </a>
                             </li>
                         </ul>
                         <!-- <a href="index.html"

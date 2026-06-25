@@ -31,6 +31,7 @@ Route::get('course-enquiry', [FrontHomeController::class, 'courseEnquiryForm'])-
 Route::post('course-enquiry-submit', [FrontHomeController::class, 'EnquirySubmitForm'])->name('course-enquiry.submit');
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 Route::get('courses', [FrontHomeController::class, 'coursesList'])->name('courses');
+Route::get('course-registration', [FrontHomeController::class, 'courseRegistration'])->name('courses.registration');
 Route::get('/images/{folder}/{image}', [FrontHomeController::class, 'resizeImage']);
 
 Route::prefix('admin')->group(function () {

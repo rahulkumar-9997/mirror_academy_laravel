@@ -216,5 +216,9 @@ class FrontHomeController extends Controller
         return view('frontend.pages.blog.details', compact('blog', 'blogList'));
     }
 
+    public function courseRegistration(){
+        $courses = Courses::orderBy('title', 'asc')->get();
+        return view('frontend.pages.courses.registration.registration', compact('courses'));
+    }
    
 }

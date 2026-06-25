@@ -54,7 +54,11 @@
 	--color--white: #ffffff;
 	--bsrgb-color: rgb(244 244 244 / 60%);
 }
-
+.form-wraper .form-control .was-validated .form-control:invalid, 
+.form-wraper .form-control.is-invalid{
+	border: 1px solid;
+	border-color: var(--bs-form-invalid-border-color);
+}
 /*modal start*/
 /*modal end*/
 .s1-bg-color-rgb{
